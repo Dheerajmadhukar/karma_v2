@@ -30,9 +30,9 @@ program="KARMA"
 version="v2"
 description="Premium Shodan Recon."
 
-# ╭──────────────────╮
+# ╭──────────────────────────────╮
 # │		BANNER		 │
-# ╰──────────────────╯
+# ╰──────────────────────────────╯
 
 banner(){ 
 [ "$silent" == "False" ] && printf "${logo}" >&2
