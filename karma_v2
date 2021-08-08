@@ -1,0 +1,530 @@
+#!/bin/bash
+
+#Attributes:
+#-----------
+#karma_v2 -d domain.com -l -1
+#karma_v2 -d domain.com -ip
+#karma_v2 -d domain.com -ports
+#karma_v2 -d domain.com -asn
+#karma_v2 -d domain.com -cve
+#karma_v2 -d domain.com -cidr
+#karma_v2 -d domain.com -ip -ports -vulns ...
+#karma_v2 -d domain.com -dorks file.txt
+#karma_v2 -d domain.com -a
+#karma_v2 -d domain.com -export file -format csv,xml,json,burp
+
+
+
+black='\e[38;5;016m'
+bluebg='\e[48;5;038m'${black}
+red='\e[31m'
+blink='\e[5m'
+green='\e[32m'
+yellow='\e[33m'
+logo='\033[0;36m'
+#right=$(printf '\xE2\x9C\x94')
+right=$(printf '\u2714')
+cross=$(printf '\u2718')
+end='\e[0m'
+program="KARMA"
+version="v2"
+description="Premium Shodan Recon."
+
+# ╭──────────────────────────────╮
+# │		BANNER		 │
+# ╰──────────────────────────────╯
+
+banner(){ 
+[ "$silent" == "False" ] && printf "${logo}" >&2
+[ "$silent" == "False" ] && echo      '				..,,,,,,,,,.. 					' >&2
+[ "$silent" == "False" ] && echo   '                     .,;%%%%%%%%%%%%%%%%%%%%;,. 					' >&2
+[ "$silent" == "False" ] && echo   '                   %%%%%%%%%%%%%%%%%%%%////%%%%%%, .,;%%;,			' >&2 
+[ "$silent" == "False" ] && echo   '            .;%/,%%%%%/////%%%%%%%%%%%%%%////%%%%,%%//%%%, 			' >&2
+[ "$silent" == "False" ] && echo   '        .,;%%%%/,%%%///%%%%%%%%%%%%%%%%%%%%%%%%%%%%,////%%%%;, 			' >&2
+[ "$silent" == "False" ] && echo   '     .,%%%%%%//,%%%%%%%%%%%%%%%%@@%a%%%%%%%%%%%%%%%%,%%/%%%%%%%;, 		' >&2
+[ "$silent" == "False" ] && echo   '   .,%//%%%%//,%%%%///////%%%%%%%@@@%%%%%%///////%%%%,%%//%%%%%%%%, 		' >&2
+[ "$silent" == "False" ] && echo   ' ,%%%%%///%%//,%%//%%%%%///%%%%%@@@%%%%%////%%%%%%%%%,/%%%%%%%%%%%%% 		' >&2
+[ "$silent" == "False" ] && echo   '.%%%%%%%%%////,%%%%%%%//%///%%%%@@@@%%%////%%/////%%%,/;%%%%%%%%/%%% 		' >&2
+[ "$silent" == "False" ] && echo   '%/%%%%%%%/////,%%%%///%%////%%%@@@@@%%%///%%/%%%%%//%,////%%%%//%%% 		' >&2
+[ "$silent" == "False" ] && echo   '%//%%%%%//////,%/%a\`   a%///%%%@@@@@@%%////a    a%%%%,//%///%/%%%%% 		' >&2
+[ "$silent" == "False" ] && echo   '%///%%%%%%///,%%%%@@aa@@%//%%%@@@@S@@@%%///@@aa@@%%%%%,/%////%%%%% 		' >&2
+[ "$silent" == "False" ] && echo   '%%//%%%%%%%//,%%%%%///////%%%@S@@@@SS@@@%%/////%%%%%%%,%////%%%%%		' >&2
+[ "$silent" == "False" ] && echo   '%%//%%%%%%%//,%%%%/////%%@%@SS@@@@@@@S@@@@%%%%/////%%%,////%%%%%		' >&2 
+[ "$silent" == "False" ] && echo   '`%/%%%%//%%//,%%%///%%%%@@@S@@@@@@@@@@@@@@@S%%%%////%%,///%%%%%			' >&2
+[ "$silent" == "False" ] && echo   '  %%%%//%%%%/,%%%%%%%%@@@@@@@@@@@@@@@@@@@@@SS@%%%%%%%%,//%%%%%			' >&2
+[ "$silent" == "False" ] && echo   '  `%%%//%%%%/,%%%%@%@@@@@@@@@@@@@@@@@@@@@@@@@S@@%%%%%,/////%%			' >&2 
+[ "$silent" == "False" ] && echo   '   `%%%//%%%/,%%%@@@SS@@SSs@@@@@@@@@@@@@sSS@@@@@@%%%,//%%//%			' >&2
+[ "$silent" == "False" ] && echo   '    `%%%%%%/  %%S@@SS@@@@@Ss` .,,.    .sS@@@S@@@@%.  ///%/%			' >&2
+[ "$silent" == "False" ] && echo   '      `%%%/    %SS@@@@SSS@@S.         .S@@SSS@@@@.    //%%			' >&2
+[ "$silent" == "False" ] && echo   '               /`S@@@@@@SSSSSs,     ,sSSSSS@@@@@. 				' >&2
+[ "$silent" == "False" ] && echo   '                 \@@@@@@@@@@@@@Ss,sS@@@@@@@@@@@./ 				' >&2
+[ "$silent" == "False" ] && echo   '                  \@@@@@@@@@@@@@.@@@@@@@@@@@.// 				' >&2
+[ "$silent" == "False" ] && echo   '                   \00aaaaaaaaa00a00aaaaaaa00/ 					' >&2
+[ "$silent" == "False" ] && echo   '                    \@@000000000000000000@@@/					' >&2
+[ "$silent" == "False" ] && echo   '                     00000000000000@@@@@@@@@ 					' >&2
+[ "$silent" == "False" ] && printf "${logo}${program} ${version}${end}\t	${green}KARMA IS MY BITCH.....🧠${end}\n" >&2
+[ "$silent" == "False" ] && printf "${logo}- twitter.com/Dheerajmadhukar : @me_dheeraj${end}"
+[ "$silent" == "False" ] && printf '\n\n' >&2
+[ "$silent" == "False" ] && printf "#########################################################################################################################################\n"
+[ "$silent" == "False" ] && printf "###																	#\n"
+[ "$silent" == "False" ] && printf "### ${red}>>>${end} ${yellow}Description:${end} 															#\n"
+[ "$silent" == "False" ] && printf "###		${logo}Query credits are used to download data via the website, command-line interface or the API.${end} 				#\n"
+[ "$silent" == "False" ] && printf "###		${logo}If you're using the CLI or API then query credits are deducted if one of the following 2 conditions is met:${end}		#\n"
+[ "$silent" == "False" ] && printf "###			${logo}- A search filter is used${end}											#\n"
+[ "$silent" == "False" ] && printf "###			${logo}- Page 2 or beyond is requested${end}											#\n"
+[ "$silent" == "False" ] && printf "###																	#\n"
+[ "$silent" == "False" ] && printf "### ${red}>>>${end} ${yellow}1 query credit lets you download 100 results${end}											#\n"
+[ "$silent" == "False" ] && printf "###																	#\n"
+[ "$silent" == "False" ] && printf "#########################################################################################################################################\n"
+[ "$silent" == "False" ] && printf '\n\n' >&2
+}
+
+# ╭──────────────────────────────╮
+# │		DORK LIST	 │
+# ╰──────────────────────────────╯
+dorks(){
+shodan stats --facets ssl.cert.fingerprint ssl:"${target}"|grep -Eo "[[:xdigit:]]{40}" | grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt
+shodan stats --facets ssl.cert.fingerprint org:"${target}"|grep -Eo "[[:xdigit:]]{40}" | grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt
+shodan stats --facets ssl.cert.fingerprint ssl.cert.issuer.cn:"${target}"|grep -Eo "[[:xdigit:]]{40}" | grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt
+shodan stats --facets ssl.cert.fingerprint ssl.cert.subject.cn:"${target}"|grep -Eo "[[:xdigit:]]{40}" | grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt
+shodan stats --facets ssl.cert.fingerprint ssl.cert.expired:true hostname:"*.${target}"|grep -Eo "[[:xdigit:]]{40}"|grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt
+shodan stats --facets ssl.cert.fingerprint ssl.cert.subject.commonName:"*.${target}"|grep -Eo "[[:xdigit:]]{40}"|grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt
+#Dork List Start
+cat << !
+`cat /tmp/fingerprints.txt|while read -r line;do echo "ssl_fingerprint::ssl.cert.fingerprint:\"$line\"";done;rm /tmp/fingerprints.txt > /dev/null`
+ssl_domain::ssl:"${target}"
+org_domain::org:"${target}"
+host_domain::hostname:"${target}"
+ssl_issuer::ssl.cert.issuer.cn:"${target}"
+ssl_subject::ssl.cert.subject.cn:"${target}"
+ssl_expired::ssl.cert.expired:true hostname:"*.${target}"
+ssl_subjectCN::ssl.cert.subject.commonName:"*.${target}"
+Indexing_Hostname::http.title:"Index of /" hostname:"*.${target}"
+Indexing_SSL::http.title:"Index of /" ssl.cert.subject.cn:"${target}"
+NDMP_Hostname::ftp port:"10000" hostname:"*.${target}"
+NDMP_SSL::ftp port:"10000" ssl.cert.subject.cn:"${target}"
+SMB_file_sharing_Hostname::"Authentication: disabled" port:445 product:"Samba" hostname:"*.${target}"
+Login_Adminer_Hostname::title:"Login - Adminer" hostname:"*.${target}"
+Login_Adminer_SSL::title:"Login - Adminer" ssl.cert.subject.cn:"${target}"
+SignUp_title_SSL_subject::http.title:"sign up" ssl.cert.subject.cn:"${target}"
+SignUp_title_SSL::http.title:"sign up" ssl:"${target}"
+SignUp_title_Hostname::http.title:"sign up" hostname:"*.${target}"
+SignUp_body_SSL_subject::"sign up" ssl.cert.subject.cn:"${target}"
+SignUp_body_SSL::"sign up" ssl:"${target}"
+SignUp_body_Hostname::"sign up" hostname:"*.${target}"
+LogIn_title_SSL_subject::http.title:"LogIn" ssl.cert.subject.cn:"${target}"
+LogIn_title_SSL::http.title:"LogIn" ssl:"${target}"
+LogIn_title_Hostname::http.title:"LogIn" hostname:"*.${target}"
+LogIn_body_SSL_subject::"LogIn" ssl.cert.subject.cn:"${target}"
+LogIn_body_SSL::"LogIn" ssl:"${target}"
+LogIn_body_Hostname::"LogIn" hostname:"*.${target}"
+OAuth_status_SSL_subject::http.status:"302" oauth ssl.cert.subject.cn:"${target}"
+OAuth_status_SSL::http.status:"302" oauth ssl:"${target}"
+OAuth_status_Hostname::http.status:"302" oauth hostname:"*.${target}"
+OAuth_title_SSL_subject::http.title:"log in with" ssl.cert.subject.cn:"${target}"
+OAuth_title_SSL::http.title:"log in with" ssl:"${target}"
+OAuth_title_Hostname::http.title:"log in with" hostname:"*.${target}"
+OAuth_body_SSL_subject::"log in with" ssl.cert.subject.cn:"${target}"
+OAuth_body_SSL::"log in with" ssl:"${target}"
+OAuth_body_Hostname::"log in with" hostname:"*.${target}"
+SSO_status_SSL_subject::http.status:"302" sso ssl.cert.subject.cn:"${target}"
+SSO_status_SSL::http.status:"302" sso ssl:"${target}"
+SSO_status_Hostname::http.status:"302" sso hostname:"*.${target}"
+SSO_title_SSL_subject::http.title:"login sso" ssl.cert.subject.cn:"${target}"
+SSO_title_SSL::http.title:"login sso" ssl:"${target}"
+SSO_title_Hostname::http.title:"login sso" hostname:"*.${target}"
+SSO_body_SSL_subject::"login sso" ssl.cert.subject.cn:"${target}"
+SSO_body_SSL::"login sso" ssl:"${target}"
+SSO_body_Hostname::"login sso" hostname:"*.${target}"
+401_Authorization_Required_Hostname::title:"401 Authorization Required" hostname:"*.${target}"
+403_Forbidden_SSL_subject::http.html:"403 Forbidden" ssl.cert.subject.cn:"${target}"
+403_Forbidden_SSL::http.html:"403 Forbidden" ssl:"${target}"
+403_Forbidden_Hostname::http.html:"403 Forbidden" hostname:"*.${target}"
+500_Status_html_SSL_subject::http.html:"500 Internal Server Error" ssl.cert.subject.cn:"${target}"
+500_Status_html_SSL::http.html:"500 Internal Server Error" ssl:"${target}"
+500_Status_html_Hostname::http.html:"500 Internal Server Error" hostname:"*.${target}"
+500_Status_SSL_subject::"500 Internal Server Error" ssl.cert.subject.cn:"${target}"
+500_Status_SSL::"500 Internal Server Error" ssl:"${target}"
+500_Status_Hostname::"500 Internal Server Error" hostname:"*.${target}"
+VPN_SSL_subject::ssl.cert.subject.cn:*vpn* ssl.cert.subject.cn:"${target}"
+VPN_SSL::ssl.cert.subject.cn:*vpn* ssl:"${target}"
+VPN_Hostname::ssl.cert.subject.cn:*vpn* hostname:"*.${target}"
+Citrix_gateway_SSL_subject::title:"citrix gateway" ssl.cert.subject.cn:"${target}"
+Citrix_gateway_SSL::title:"citrix gateway" ssl:"${target}"
+Citrix_gateway_Hostname::title:"citrix gateway" hostname:"*.${target}"
+JFrog_html_SSL_subject::http.html:"JFrog" ssl.cert.subject.cn:"${target}"
+JFrog_html_SSL::http.html:"JFrog" ssl:"${target}"
+JFrog_html_Hostname::http.html:"JFrog" hostname:"*.${target}"
+X_Jfrog_SSL_subject::"X-Jfrog" ssl.cert.subject.cn:"${target}"
+X_Jfrog_SSL::"X-Jfrog" ssl:"${target}"
+X_Jfrog_Hostname::"X-Jfrog" hostname:"*.${target}"
+Dashboard_title_Hostname::http.title:"dashboard" hostname:"*.${target}"
+Dashboard_title_SSL::http.title:"dashboard" ssl.cert.subject.cn:"${target}"
+Dashboard_title_body::dashboard ssl.cert.subject.cn:"${target}"
+Openfire_Admin_Console_Hostname::http.title:"Openfire Admin Console" hostname:"*.${target}"
+Control_panels_Hostname::http.title:"control panel" hostname:"*.${target}"
+Control_panels_SSL::http.title:"control panel" ssl.cert.subject.cn:"${target}"
+Control_panels_body::control panel ssl.cert.subject.cn:"${target}"
+WordPress_misconfigured_Hostname::http.html:"* The wp-config.php creation script uses this file" hostname:"*.${target}"
+WordPress_misconfigured_SSL::http.html:"* The wp-config.php creation script uses this file" ssl.cert.subject.cn:"${target}"
+Laravel_clockwork_Hostname::clockwork hostname:"*.${target}"
+Laravel_clockwork_SSL::clockwork ssl.cert.subject.cn:"${target}"
+Jetty_Detect_SSL_subject::"Server: Jetty" ssl.cert.subject.cn:"${target}"
+Jetty_Detect_SSL::"Server: Jetty" ssl:"${target}"
+Jetty_Detect_Hostname::"Server: Jetty" hostname:"*.${target}"
+S3_bucket_AWS_Hostname::X-Amz-Bucket-Region hostname:"*.${target}"
+S3_bucket_AWS_SSL::X-Amz-Bucket-Region ssl.cert.subject.cn:"${target}"
+Cloudfront_AWS_ssl:"development" org:"Amazon.com" ssl.cert.subject.cn:"${target}"
+Jenkins_detect_Hostname::"X-Jenkins" "Set-Cookie: JSESSIONID" http.title:"Jenkins [Jenkins]" hostname:"*.${target}"
+Jenkins_detect_SSL::"X-Jenkins" "Set-Cookie: JSESSIONID" http.title:"Jenkins [Jenkins]" ssl.cert.subject.cn:"${target}"
+Jenkins_detect_favicon_Hostname::http.favicon.hash:81586312 200 hostname:"*.${target}"
+Jenkins_detect_favicon_SSL::http.favicon.hash:81586312 200 ssl.cert.subject.cn:"${target}"
+Kubernetes_Detect_SSL_subject::product:"Kubernetes" port:"10250, 2379" ssl.cert.subject.cn:"${target}"
+Kubernetes_Detect_SSL::product:"Kubernetes" port:"10250, 2379" ssl:"${target}"
+Kubernetes_Detect_Hostname::product:"Kubernetes" port:"10250, 2379" hostname:"*.${target}"
+Node_Exporter_metrics_SSL_subject::port:"9100" http.title:"Node Exporter" ssl.cert.subject.cn:"${target}"
+Node_Exporter_metrics_SSL::port:"9100" http.title:"Node Exporter" ssl:"${target}"
+Node_Exporter_metrics_Hostname::port:"9100" http.title:"Node Exporter" hostname:"*.${target}"
+Grafana_Detect_SSL_subject::http.title:"Grafana" ssl.cert.subject.cn:"${target}"
+Grafana_Detect_SSL::http.title:"Grafana" ssl:"${target}"
+Grafana_Detect_Hostname::http.title:"Grafana" hostname:"*.${target}"
+RabbitMQ_Detect_SSL_subject::http.title:"RabbitMQ" ssl.cert.subject.cn:"${target}"
+RabbitMQ_Detect_SSL::http.title:"RabbitMQ" ssl:"${target}"
+RabbitMQ_Detect_Hostname::http.title:"RabbitMQ" hostname:"*.${target}"
+containers_SSL_subject::HTTP/1.1 307 Temporary Redirect "Location: /containers" ssl.cert.subject.cn:"${target}"
+containers_SSL::HTTP/1.1 307 Temporary Redirect "Location: /containers" ssl:"${target}"
+containers_Hostname::HTTP/1.1 307 Temporary Redirect "Location: /containers" hostname:"*.${target}"
+GitLab_repo_SSL_subject::http.favicon.hash:1278323681 ssl.cert.subject.cn:"${target}"
+GitLab_repo_SSL::http.favicon.hash:1278323681 ssl:"${target}"
+GitLab_repo_Hostname::http.favicon.hash:1278323681 hostname:"*.${target}"
+MongoDB_Server_Info_Hostname::"MongoDB Server Information" port:27017 "-authentication" hostname:"*.${target}"
+MongoDB_Server_Info_SSL::"MongoDB Server Information" port:27017 "-authentication" ssl.cert.subject.cn:"${target}"
+MongoDB_Express_Web_GUI_Hostname::"Set-Cookie: mongo-express=" "200 OK" hostname:"*.${target}"
+MongoDB_Express_Web_GUI_SSL::"Set-Cookie: mongo-express=" "200 OK" ssl.cert.subject.cn:"${target}"
+MongoDB_Server_Metrics_Hostname::all:"mongodb server information" all:"metrics" hostname:"*.${target}"
+MongoDB_Server_Metrics_SSL::all:"mongodb server information" all:"metrics" ssl.cert.subject.cn:"${target}"
+ElasticSearch-powered_instances_Hostname::port:"9200" all:"elastic indices" hostname:"*.${target}"
+ElasticSearch-powered_instances_SSL::port:"9200" all:"elastic indices" ssl.cert.subject.cn:"${target}"
+FTP_anonymous_Hostname::"220" "230 Login successful." port:21 hostname:"*.${target}"
+FTP_anonymous_SSL::"220" "230 Login successful." port:21 ssl.cert.subject.cn:"${target}"
+Memcached_Hostname::port:"11211" product:"Memcached" hostname:"*.${target}"
+Memcached_SSL::port:"11211" product:"Memcached" ssl.cert.subject.cn:"${target}"
+DNS_Recursion_Hostname::"port: 53" Recursion: Enabled hostname:"*.${target}"
+DNS_Recursion_SSL::"port: 53" Recursion: Enabled ssl.cert.subject.cn:"${target}"
+Kibana_detect_Hostname::title:"kibana" hostname:"*.${target}"
+Kibana_detect_SSL::title:"kibana" ssl.cert.subject.cn:"${target}"
+Prometheus_Detect_SSL_subject::port:9090 http.title:"Prometheus Time Series Collection and Processing Server" ssl.cert.subject.cn:"${target}"
+Prometheus_Detect_SSL::port:9090 http.title:"Prometheus Time Series Collection and Processing Server" ssl:"${target}"
+Prometheus_Detect_Hostname::port:9090 http.title:"Prometheus Time Series Collection and Processing Server" hostname:"*.${target}"
+default_password_Hostname::"default password" hostname:"*.${target}"
+default_password_SSL::"default password" ssl.cert.subject.cn:"${target}"
+Protected_Objects_Hostname::title:protected hostname:"*.${target}"
+Protected_Objects_SSL::title:protected ssl.cert.subject.cn:"${target}"
+Moodle_RXSS_Hostname::http.component:Moodle hostname:"*.${target}"
+Moodle_RXSS_SSL::http.component:Moodle ssl.cert.subject.cn:"${target}"
+Spring_Boot_Hostname::http.favicon.hash:116323821 hostname:"*.${target}"
+Spring_Boot_SSL::http.favicon.hash:116323821 ssl.cert.subject.cn:"${target}"
+Django_login_Hostname::html:"/login/?next=" title:"Django" hostname:"*.${target}"
+Django_login_SSL::html:"/login/?next=" title:"Django" ssl.cert.subject.cn:"${target}"
+Django_admin_Hostname::html:"/admin/login/?next=" title:"Django" hostname:"*.${target}"
+Django_admin_SSL::html:"/admin/login/?next=" title:"Django" ssl.cert.subject.cn:"${target}"
+Jira_Dashboard_Hostname::title:"system dashboard" html:jira hostname:"*.${target}"
+Jira_Dashboard_SSL::title:"system dashboard" html:jira ssl.cert.subject.cn:"${target}"
+Jira_Dashboard_SSL::"system dashboard" html:jira ssl.cert.subject.cn:"${target}"
+Ruby_Login_Hostname::http.component:ruby port:3000 hostname:"*.${target}"
+Ruby_Login_SSL::http.component:ruby port:3000 ssl.cert.subject.cn:"${target}"
+secret_key_base_Hostname::html:"secret_key_base" hostname:"*.${target}"
+secret_key_base_SSL::html:"secret_key_base" ssl.cert.subject.cn:"${target}"
+!
+#Dork List End
+}
+# ╭──────────────────────╮
+# │		Usage	 │
+# ╰──────────────────────╯
+
+usage(){
+	echo "WILL UPDATE WHEN COMPLETE THE SCRIPT"
+}
+# ╭──────────────────────╮
+# │		HELP	 │
+# ╰──────────────────────╯
+help(){
+	printf "\n${logo}${program}${end} ${red}${version}${end}\n"
+	printf "\n${logo}${description}${end}\n"
+	usage
+}
+# ╭──────────────────────╮
+# │		ARGS	 │
+# ╰──────────────────────╯
+args(){
+	BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+	shodan_bin="shodan"
+	httpx_bin="httpx"
+	interlace_bin="interlace"
+	#lolcat_bin="lolcat"
+	jq_bin="jq"
+	sleep_time="5"
+	token="${BASE_DIR}/.token"
+	nuclei_template="/opt/hackerone/TOOLS/me_dheeraj/karma/v2/custom_templates/favicon-detection.yaml"
+}
+# ╭──────────────────────────────╮
+# │		Prerequisites	 │
+# ╰──────────────────────────────╯
+#function check_git(){}
+check_requirements(){
+	
+	# shodan && httpx && interlace && jq
+	"${shodan_bin}" --help > /dev/null 2>&1 || printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${shodan_bin}. Make sure it installed OR \n\t - pip3 install shodan${end}\n;exit 1"
+	"${httpx_bin}" --help > /dev/null 2>&1 || printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${httpx_bin}. Make sure it installed OR \n\t - GO111MODULE=on go get -v github.com/projectdiscovery/httpx/cmd/httpx${end}\n;exit 1"
+	"${interlace_bin}" --help > /dev/null 2>&1 || printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${interlace_bin}. Make sure it installed OR \n\t - Clone https://github.com/codingo/Interlace.git${end}\n;exit 1"
+	"${jq_bin}" --help > /dev/null 2>&1 || printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${jq_bin}. Make sure it installed OR \n\t - apt install jq -y${end}\n;exit 1"
+	#"${lolcat_bin}" --help > /dev/null 2>&1 || printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${lolcat_bin}. Make sure it installed OR \n\t - apt install lolcat -y${end}\n;exit 1"
+}
+# ╭──────────────────────────────╮
+# │		Domain_RegEx	 │
+# ╰──────────────────────────────╯
+domain_check(){
+	 echo "${target}" | grep -E '^([a-zA-Z0-9](([a-zA-Z0-9-]){0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$' &> /dev/null 2>&1 ;if [[ "$?" -gt "0" ]];then printf "\n[${red}!${end}] ${yellow}Domain ${target} seems down or invalid. Make sure its a valid one.${end}\n\n";exit 1;fi
+}
+# ╭──────────────────────────────────────╮
+# │		SHODAN API CHECK	 │
+# ╰──────────────────────────────────────╯
+api_check(){
+		cat ${BASE_DIR}/.token &> /dev/null
+		SUCCESS=$?
+	if [[ $SUCCESS -eq 1 ]]; then
+		printf "\n${yellow} No Premium Shodan API key found, Make sure you store API key in ${BASE_DIR}/.token ${end}\n\n"
+		exit 0
+	else
+		if [[ $SUCCESS -eq 0 ]] ; then
+			"${shodan_bin}" init $(cat ${BASE_DIR}/.token) &> /dev/null
+		fi
+	fi
+}
+# ╭─────────────────────────────────────────────────────╮
+# │		SHODAN COUNT [ WithOUT API Credits ]	│
+# ╰─────────────────────────────────────────────────────╯
+counts(){ #|pv -i 1 -brp -F "%t Counting Dork Results in Progress: %p"
+	result_count=$(cat "${BASE_DIR}/dorks.txt" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | lolcat -a
+}
+# ╭─────────────────────────────────────────────────────────────────────────────╮
+# │		SHODAN COLLECT TARGET INFO [ With API Credits ]	 		│
+# ╰─────────────────────────────────────────────────────────────────────────────╯
+collect(){
+	folder=${target}-$(date '-I')
+	rm -rf ${BASE_DIR}/output/$folder > /dev/null;mkdir -p ${BASE_DIR}/output/$folder/Collect #;cd ${BASE_DIR}/output/$folder;print "\n"
+	shodan info
+
+	echo "$result_count" | sed 's/ /,/g' | awk -F"," '{print $1}' > /tmp/results
+	cat ${BASE_DIR}/dorks.txt | grep -f /tmp/results | while IFS='::' read a b c;do z=$(${shodan_bin} download ${BASE_DIR}/output/$folder/Collect/"$a"_"${target}" --limit "${count}" "$c" |grep "Saved";sleep 10);zero=$(echo $z | awk '{print $2}');if [[ $zero -gt 0 ]];then printf ">> ${green}$z${end}\n";fi;done
+	#grep -E "`echo "$result_count" | awk '{print $1}' | paste -s -d "|"`" ${BASE_DIR}/dorks.txt | while IFS='::' read a b c;do z=$(${shodan_bin} download ${BASE_DIR}/output/$folder/Collect/"$a"_"${target}" --limit "${count}" "$c" |grep "Saved");zero=$(echo $z | awk '{print $2}');if [[ $zero -gt 0 ]];then printf ">> ${green}$z${end}\n";fi;done
+
+#SHODAN PARSE
+	shodan parse --fields ip_str,asn,hostnames,port,product,org,os --separator "::" ${BASE_DIR}/output/$folder/Collect/*.json.gz | anew -q ${BASE_DIR}/output/$folder/main_${target}.data
+}
+# ╭──────────────────────────────────────╮
+# │		Get In-Scope IPs	 │
+# ╰──────────────────────────────────────╯
+inscope_ip(){
+	printf "\n${green}────> In-Scope IPs\n${end}"
+	cat ${BASE_DIR}/output/$folder/main_${target}.data | awk -F"::" '{print $1}' | sort -u | httpx -threads 500 -silent | interlace -threads 100 -c "echo _target_; curl --insecure -v _target_ 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'" --silent | egrep "https:\/\/|CN\=|issuer: |cn: |expired:|org:" | grep -v "^[[:blank:]]*$" | tee ${BASE_DIR}/output/$folder/curl_issuer_$target.data | grep -B 1 "${target}$" | grep -Eo '(http|https)://[^/"]+' | tee ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt;printf "\n"
+}
+# ╭──────────────────────────────────────╮
+# │		Get Out-Of-Scope IPs	 │
+# ╰──────────────────────────────────────╯
+out_of_scope_ip(){
+	printf "\n${green}────> Out-Of-Scope IPs${end} [ ${green}Sometimes its good to check everything!${end} ]\n"
+	o=$(awk -F"::" '{print $1}' ${BASE_DIR}/output/$folder/main_${target}.data | grep -Ev `cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt | cut -d"/" -f3 | paste -s -d "|"`);if [ -z "$o" ];then printf "[${red}!${end}] ${yellow}No results found\n"${end};else printf "$o \n"|sort -u;fi;printf "\n"
+}
+# ╭──────────────────────────────╮
+# │		Favicon Icons	 │
+# ╰──────────────────────────────╯
+favicons(){
+	printf "\n${green}────> Favicons\n${end}"
+	o=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r '.http.favicon.location|select (.!= null)' | sort -u | tee ${BASE_DIR}/output/$folder/favicons_${target}.txt);if [ -z "$o" ];then printf "[${red}!${end}] ${yellow}No results found\n"${end};else printf "$o \n";fi;printf "\n"
+}
+# ╭──────────────────────────────────────╮
+# │		Favicon Detection	 │
+# ╰──────────────────────────────────────╯
+favicons_detection(){
+	printf "\n${green}────> Favicons Technologies Detection${end} [ ${green}Print only detected/matched favicons!${end} ]\n"
+	o=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r '.http.favicon.location|select (.!= null)' | sort -u | nuclei -t ${nuclei_template} -c 100 -silent|awk '{print $NF " : " $3}'|sed 's/ /,|,/g' | column -s ',' -t);if [ -z "$o" ];then printf "\n[${red}!${end}] ${yellow}No results found\n"${end};else printf "$o \n";fi;printf "\n"
+}
+# ╭──────────────────────╮
+# │		ASNs	 │
+# ╰──────────────────────╯
+asn(){
+	printf "\n${green}────> ASNs\n${end}"
+	asn=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r 'select(.asn != null)|.asn' 2> /dev/null | sort -u) 
+	# | anew ${BASE_DIR}/output/$folder/ASNs_${target}.txt |sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')#; printf "\n"
+	
+#ipregex='[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}|(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|'\
+#'([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|'\
+#'([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|'\
+#':((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|'\
+#'(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|'\
+#'1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
+if [ -z "$asn" ];then 
+	printf "[${cross}] ${red}IPs:${end} ${yellow}No ASN found ${end}\n"
+	else 
+
+printf "${asn}\n" | grep -Eo "[0-9]*$" | while read -r line; do
+		name=$(host -t TXT "AS${line}.asn.cymru.com" | grep -v "NXDOMAIN" | awk -F'|' 'NR==1{print substr($NF,2,length($NF)-2)}')
+	if [ -n "$name" ]; then
+		info=$(whois -h whois.pwhois.org "registry source-as=${line}" | grep -E "^Org-Name:|^Create-Date:")
+		org=$(printf "${info}" | grep -E "^Org-Name:" | cut -d ':' -f 2 | sed 's/^[ \t]*//')
+		[[ -z "$org" ]] && org="N/A"
+		createdate=$(printf "${info}" | grep -E "^Create-Date:" | cut -d ':' -f 2- | sed 's/^[ \t]*//')
+		[[ -z "$createdate" ]] && createdate="N/A" || createdate=$(date -d "${createdate}" "+%Y-%m-%d %H:%M:%S")
+	fi
+	
+	data=$(curl -sk "https://stat.ripe.net/data/routing-status/data.json?resource=AS${line}&sourceapp=nitefood-asn")
+	
+	if [ -n "$data" ]; then ipv4=$(printf "${data}" | jq -r '.data.announced_space.v4.prefixes');ipv6=$(printf "${data}" | jq -r '.data.announced_space.v6.prefixes');bgp=$(printf "${data}" | jq -r '.data.observed_neighbours'); fi
+		ipv4_inetnums=""
+		ipv6_inetnums=""
+	for prefix in $(curl -ks "https://stat.ripe.net/data/announced-prefixes/data.json?resource=${line}&sourceapp=nitefood-asn" | jq -r '.data.prefixes | .[] | .prefix'); do
+		
+		if [[ "$prefix" == *':'* ]]; then inet6nums=$(xargs -P500 whois -h whois.ripe.net -- "-T inet6num -K -L --resource $prefix" | grep -m2 inet6num | cut -d ':' -f 2- | sed 's/^[ \t]*//')
+		for inet6num in $inet6nums; do 
+			prefix_size=$(echo "$inet6num" | cut -d '/' -f2);[[ "$prefix_size" -lt 29 ]] && continue || ipv6_inetnums+="${inet6num}\n"; 
+		done
+	
+		else
+			ipv4_inetnums+=$(xargs -P500 whois -h whois.ripe.net -- "-T inetnum -K -L --resource  $prefix" | grep -m1 inetnum | cut -d ':' -f 2 | sed 's/^[ \t]*//' | xargs -P500 ipcalc -r 2> /dev/null | grep -v "deaggregate\|INVALID ADDRESS")
+			ipv4_inetnums+="\n"
+		fi
+	done
+
+	if [ -n "$ipv4_inetnums" ]; then ipv4_inetnums=$(echo -e "$ipv4_inetnums" | sort -u);out="";for inetnum in $ipv4_inetnums; do out+="$inetnum\n";done ; ipv4_inetnums="$out";fi
+	if [ -n "$ipv6_inetnums" ]; then ipv6_inetnums=$(echo -e "$ipv6_inetnums" | sort -u);out="";for inet6num in $ipv6_inetnums; do	out+="$inet6num\n";done ; ipv6_inetnums="$out";fi	
+	ipv4_inet=$(printf "${ipv4_inetnums}" | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+	ipv6_inet=$(printf "${ipv6_inetnums}" | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+
+	printf "${asn}\n" | while read -r asn_num;do 
+   		printf "[${right}] ${red}${asn_num}${end}\n\t┌${bluebg}ASN Name${end}\t\t────>\t $( [[ ! -z $name ]] && printf "${green}${name}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}Org Name${end}\t\t────>\t $( [[ ! -z $org ]] && printf "${green}${org}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}AS Reg Date${end}\t\t────>\t $( [[ ! -z $createdate ]] && printf "${green}${createdate}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}IPv4 Prefixes${end}\t\t────>\t $( [[ ! -z $ipv4 ]] && printf "${green}${ipv4}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}IPv6 Prefixes${end}\t\t────>\t $( [[ ! -z $ipv6 ]] && printf "${green}${ipv6}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}BGP Neighbours${end}\t\t────>\t $( [[ ! -z $bgp ]] && printf "${green}${bgp}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}IPv4 INET${end}\t\t────>\t $( [[ ! -z $ipv4_inet ]] && printf "${green}${ipv4_inet}${end}" || printf "${yellow}No results found"${end} )\n\t└${bluebg}IPv6 INET${end}\t\t────>\t $( [[ ! -z $ipv4_inet ]] && printf "${green}${ipv6_inet}${end}" || printf "${yellow}No results found"${end} )\n\n"
+	done | tee ${BASE_DIR}/output/$folder/ASNs_Detailed_${target}.txt
+done
+fi
+
+}
+# ╭──────────────────────────────╮
+# │		Other Findings	 │
+# ╰──────────────────────────────╯
+findings(){
+	cd ${BASE_DIR}/output/$folder/Collect/
+	ls -1 | grep -f "/tmp/results" | grep -Ev "org_domain|ssl_domain|ssl_expired|ssl_issuer|ssl_subjectCN|ssl_subject|host_domain" | while read -r line;do o=$(zcat ${line} | jq -r 'select(.ip_str != null)|.ip_str + ":" + "\(select(.port != null)|.port)"');if [ ! -z "$o" ];then name=$(echo ${line}|awk -F"." '{print $1}'|cut -d"_" -f1,2|sed 's/\_/ /g');printf "${green}────> ${name} Detected:${end}\n$o\n\n"${end};fi ;done;printf "\n"
+}
+# ╭──────────────────────────────────────────────╮
+# │		Collect Data for each IP	 │
+# ╰──────────────────────────────────────────────╯
+host_scan(){
+	
+	mkdir -p ${BASE_DIR}/output/$folder/IP_VULNS
+	cd ${BASE_DIR}/output/$folder/IP_VULNS;cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"| while read -r line;do shodan host -S --format pretty $line > /dev/null;sleep 5;[ "$silent" == "False" ] && echo -en "💀${bold}${green}🍺💀${end}${normal}";done;printf "\n"
+}
+# ╭──────────────────────────────────────────────────────────────╮
+# │		IPs, Ports, CVEs, Org, Server, Product, OS	 │
+# ╰──────────────────────────────────────────────────────────────╯
+host_enum(){
+	cd ${BASE_DIR}/output/$folder/IP_VULNS/ > /dev/null
+	ls -1 | while read -r x; do
+	IP=$(zcat $x | jq -r 'select(.ip_str != null)|.ip_str' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+	OS=$(zcat $x | jq -r 'select(.os != null)|.os' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+	CVE=$(zcat $x | jq -r '.vulns | to_entries[] | select(.key != null) |.key' 2> /dev/null|sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+	ORG=$(zcat $x | jq -r 'select(.org != null)|.org' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+	PORT=$(zcat $x | jq -r 'select(.port != null)|.port' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+	SERVER=$(zcat $x | jq -r '.http|select(.server != null)|.server' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+	PRODUCT=$(zcat $x | jq -r 'select(.product != null)|.product' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+	HOSTNAME=$(zcat $x | jq -r 'select(.hostnames != null)|.hostnames[]' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')
+
+	if [ -z "$IP" ];then 
+		printf "[${cross}] ${red}IPs:${end} ${yellow}No results found ${end}\n";
+	else 
+		echo ${IP} | while read -r line;do 
+		       printf "[${right}] ${red}${IP}${end}\n\t┌${bluebg}OS${end}\t\t────>\t $( [[ ! -z $OS ]] && printf "${green}${OS}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}HOST${end}\t\t────>\t $( [[ ! -z $HOSTNAME ]] && printf "${green}${HOSTNAME}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}ORGS${end}\t\t────>\t $( [[ ! -z $ORG ]] && printf "${green}${ORG}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}PORTS${end}\t\t────>\t $( [[ ! -z $PORT ]] && printf "${green}${PORT}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}SERVERS${end}\t────>\t $( [[ ! -z $SERVER ]] && printf "${green}${SERVER}${end}" || printf "${yellow}No results found"${end} )\n\t├${bluebg}PRODUCTS${end}\t────>\t $( [[ ! -z $PRODUCT ]] && printf "${green}${PRODUCT}${end}" || printf "${yellow}No results found"${end} )\n\t└${bluebg}CVE VULNs${end}\t────>\t $( [[ ! -z $CVE ]] && printf "${green}${CVE}${end}" || printf "${yellow}No results found"${end} )\n\n"
+			   
+		done
+	fi
+	#IPs
+#	o=$(zcat $x | jq -r 'select(.ip_str != null)|.ip_str' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}IPs:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}IPs:${end} ${green}$o ${end}\n";fi
+	#Hostname
+#	o=$(zcat $x | jq -r 'select(.hostnames != null)|.hostnames[]' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Hostname:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}Hostname:${end} ${green}$o ${end}\n";fi
+	#OS
+#	o=$(zcat $x | jq -r 'select(.os != null)|.os' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}OS:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}OS:${end} ${green}$o ${end}\n";fi
+	#Ports
+#	o=$(zcat $x | jq -r 'select(.port != null)|.port' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Ports:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}Ports:${end} ${green}$o ${end}\n";fi
+	#CVEs
+#	o=$(zcat $x | jq -r '.vulns | to_entries[] | select(.key != null) |.key' 2> /dev/null|sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}CVEs:${end} ${yellow}No results found${end}\n";else printf "[${right}] ${red}CVEs:${end} ${green}$o ${end}\n";fi
+	#Org
+#	o=$(zcat $x | jq -r 'select(.org != null)|.org' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Orgs:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}Orgs:${end} ${green}$o ${end}\n";fi
+	#Server
+#	o=$(zcat $x | jq -r '.http|select(.server != null)|.server' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Servers:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}Servers:${end} ${green}$o ${end}\n";fi
+	#Products
+#	o=$(zcat $x | jq -r 'select(.product != null)|.product' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Products:${end} ${yellow}No results found\n"${end};else printf "[${right}] ${red}Products:${end} ${green}$o ${end}\n";fi
+#	echo "----------------------"
+done | tee ${BASE_DIR}/output/$folder/host_enum_${target}.txt
+
+}
+# ╭──────────────────────────────────────╮
+# │		KARMA IS MY BITCH	 │
+# ╰──────────────────────────────────────╯
+karma(){
+	#banner
+	args
+	check_requirements
+	domain_check
+	api_check
+	dorks > ${BASE_DIR}/dorks.txt
+	counts
+	#collect
+	#inscope_ip
+	#out_of_scope_ip
+	#favicons
+	#favicons_detection
+	#asn
+	#findings
+	#host_scan
+	#host_enum
+}
+# ╭──────────────────────────────╮
+# │		  LIST		 │
+# ╰──────────────────────────────╯
+target=False
+silent=False
+list=(
+	karma
+)
+#if [[ $1 -eq 0 ]]; then
+#set -o posix
+while [ -n "$1" ]; do
+		case "$1" in
+			-d)
+				#if [[ -n $2 ]];then target=$2;shift;else printf "\n${yellow}[-] Unknown Option: $1 || Use -h for help${end}\n";fi
+				target=$2
+				shift	
+				;;
+			-l)
+				count=$2
+				shift
+				;;
+			-s)
+				silent=True ;;
+
+			-h)
+				usage
+				;;
+			*)
+				printf "\n${yellow}[-] Unknown Option: $1 >>>  Use -h for help${end}\n\n"
+				;;
+		esac
+shift
+done
+#fi
+[[ $target == "False" ]] && { 
+	echo -e $red"[-]"$end "Argument: -d domain.tld missing."
+	usage
+}
+(
+karma
+)
