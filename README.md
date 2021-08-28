@@ -11,6 +11,7 @@ https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV
 https://asciinema.org/a/0RcsIp6f6xxX81JmEHvvlepBT
 
 # karma_v2 [mode -cve]
+[![asciicast](https://asciinema.org/a/4Ri9FW97qnVV37v3Mb2mNTKz8.svg)](https://asciinema.org/a/4Ri9FW97qnVV37v3Mb2mNTKz8)
 
 # karma_v2 [mode -favicon]
 
