@@ -9,13 +9,24 @@
 <h2 align="center">
   **𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 is a Passive Scanner Open Source Intelligence (OSINT) Automation Tool**
 </h2>
-</br>
 
+![Follow on Twitter](https://img.shields.io/twitter/follow/Dheerajmadhukar?style=social)
 
 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 can be used by Infosec Researchers, Penetration Testers, Bug Hunters to find deep information, more assets, WAF/CDN bypassed IPs, Internal/External Infra, Publically exposed leaks and many more about their target. Shodan Premium API key is required to use this automation. Output from the `𝚔𝚊𝚛𝚖𝚊 𝚟𝟸` is displayed to the screen and saved to files/directories.
 
 - Regarding Premium Shodan API
 Please see the Shodan site for more information. Shodan website: [Shodan](https://www.shodan.io) API: [https://developer.shodan.io/api](https://developer.shodan.io/api)
+
+
+# Operating Systems Supported
+| OS         | Supported | Easy Install  | Tested        | 
+|------------|-----------|---------------|---------------|
+| Ubuntu     |    Yes    | Yes           | Ubuntu 20.04  |
+| Kali       |    Yes    | Yes           | Kali 2020.4   |
+| Debian     |    Yes    | Yes           | Debian 10     |
+| Windows    |    Yes    | Yes           | WSL w/ Ubuntu |
+| MacOS      |    Yes    | Yes           | MacOS 11.4    |
+| Arch Linux |    Yes    | No            | Yes           |
 
 ## Demo
 
