@@ -55,7 +55,7 @@ Upcoming features for the v2.1:
 ## Demo
 
 - karma_v2 [mode -ip]
-[![asciicast](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV.svg)](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV?t=25&speed=5&theme=solarized-dark)
+[![asciicast](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV.svg)](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV?autoplay=1&t=25&speed=5&theme=solarized-dark)
 https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV
 
 - karma_v2 [mode -asn]
