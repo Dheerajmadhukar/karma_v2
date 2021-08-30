@@ -17,6 +17,31 @@
 - Regarding Premium Shodan API
 Please see the Shodan site for more information. Shodan website: [Shodan](https://www.shodan.io) API: [https://developer.shodan.io/api](https://developer.shodan.io/api)
 
+## Usage
+You should use this with docker, just by sending this command:
+```bash
+$ bash karma_v2 -h
+```
+## Features
+- Import and parse Nmap XML files
+- Run and Schedule Nmap Scan from dashboard
+- Statistics and Charts on discovered services, ports, OS, etc...
+- Inspect a single host by clicking on its IP address
+- Attach labels on a host
+- Insert notes for a specific host
+- Create a PDF Report with charts, details, labels and notes
+- Copy to clipboard as Nikto, Curl or Telnet commands
+- Search for CVE and Exploits based on CPE collected by Nmap
+- RESTful API
+
+## Roadmap for v2.1
+Upcoming features for the v2.1:
+- [todo] Improve template: try to define better the html template and charts
+- [todo] Improve API: create a documentation/wiki about it
+- [todo] Wiki: create WebMap User Guide on GitHub
+- [working] Authentication or something that could blocks access to WebMap if != localhost
+- [working] Scan diff: show difference between two scheduled nmap scan report
+- [todo] Zaproxy: Perform web scan using the OWASP ZAP API
 
 # Operating Systems Supported
 | OS         | Supported | Easy Install  | Tested        | 
