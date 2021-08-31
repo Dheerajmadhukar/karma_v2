@@ -79,7 +79,7 @@ $ bash karma_v2 -h
 ---
 
 - karma_v2 [mode -deep]
-
+**`-deep` support all the above modes e.g. -count,-ip,-asn,-favicon,-cve,-leaks !**
 
 ---
 
