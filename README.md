@@ -22,17 +22,16 @@ $ bash karma_v2 -h
 ```
 <img src="img/karma_v2_help.png" alt="axio m" width="1500px">
 
-## MODEs
-| **MODE** | **Description** |  **Examples**  |
-|:-------------|:----------------|:-----------|
-|**-ip**|Scan for In-Scope-IPs Validated by CN=*.{target} and Out-Of-Scope-IPs|bash karma_v2 -d example.com -l -1 -ip|
-|**-asn**|Detailed Autonomous system number lookup with BGP stats, neighbours, IPv4 & IPv6 Prefixes|
-|**-cve**|Scan hosts for such as OS, Host, Servers, Products, CVEs, Ports are open and which organization owns the IP|
-|**-favicon**|Search for Favicon Icons, Calculate Favicon Hashes and Technology Detection with nuclei custom template|
-|**-leaks**|Look for interesting findings|
-|**-deep**|Deep Scan support all modules/modes [ count, ip, asn, cve, favicon, leaks ]|
-|**-count**|Returns the number of results count for DORKs search [ No API Credit will use ]|
-
+## MODEs 
+| **MODE** |  **Examples**  |
+|:-------------|:----------------|
+|**-ip**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -ip```|
+|**-asn**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -asn```|
+|**-cve**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -cve```|
+|**-favicon**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -favicon```|
+|**-leaks**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -leaks```|
+|**-deep**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -deep```|
+|**-count**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -count```|
 ## Features
 - 
 
