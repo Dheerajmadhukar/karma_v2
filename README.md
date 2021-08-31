@@ -25,13 +25,13 @@ $ bash karma_v2 -h
 ## MODEs
 | **MODE** | **Description** |
 |:-------------|:----------------|
-|-ip|Scan for In-Scope-IPs Validated by CN=*.{target} and Out-Of-Scope-IPs|
-|-asn|Detailed Autonomous system number lookup with BGP stats, neighbours, IPv4 & IPv6 Prefixes|
-|-cve|Scan hosts for such as OS, Host, Servers, Products, CVEs, Ports are open and which organization owns the IP|
-|-favicon|Search for Favicon Icons, Calculate Favicon Hashes and Technology Detection with nuclei custom template|
-|-leaks|Look for interesting findings|
-|-deep|Deep Scan support all modules/modes [ count, ip, asn, cve, favicon, leaks ]|
-|-count|Returns the number of results count for DORKs search [ No API Credit will use ]|
+|**-ip**|Scan for In-Scope-IPs Validated by CN=*.{target} and Out-Of-Scope-IPs|
+|**-asn**|Detailed Autonomous system number lookup with BGP stats, neighbours, IPv4 & IPv6 Prefixes|
+|**-cve**|Scan hosts for such as OS, Host, Servers, Products, CVEs, Ports are open and which organization owns the IP|
+|**-favicon**|Search for Favicon Icons, Calculate Favicon Hashes and Technology Detection with nuclei custom template|
+|**-leaks**|Look for interesting findings|
+|**-deep**|Deep Scan support all modules/modes [ count, ip, asn, cve, favicon, leaks ]|
+|**-count**|Returns the number of results count for DORKs search [ No API Credit will use ]|
 
 ## Features
 - Import and parse Nmap XML files
