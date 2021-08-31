@@ -161,6 +161,8 @@ output/bugcrowd.com-YYYY-MM-DD/
 
 ## Roadmap for v2.1
 * Upcoming features for the v2.1:
+  - [working] GraphQL
+  - [working] Docker Exec
   - [working] Apache kafka
   - [working] Apache Hadoop
   - [working] JBoss
