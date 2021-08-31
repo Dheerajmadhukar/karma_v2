@@ -63,9 +63,8 @@ Upcoming features for the v2.1:
 - [working] [+] Oracle Web Login
 - [working] [+] Still Looking for more . . .
 
-- [working] Authentication or something that could blocks access to WebMap if != localhost
-- [working] Scan diff: show difference between two scheduled nmap scan report
-- [todo] Zaproxy: Perform web scan using the OWASP ZAP API
+CHECK CHECK CHECK  --------
+
 
 # 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 Supported Shodan Dorks
 | **DORKs** | **DORKs** | **DORKs** |
