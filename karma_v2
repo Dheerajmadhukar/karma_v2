@@ -15,19 +15,6 @@
 ###																	
 #########################################################################################################################################
 
-#Attributes:
-#-----------
-#karma_v2 -d domain.com -l -1
-#karma_v2 -d domain.com -ip
-#karma_v2 -d domain.com -ports
-#karma_v2 -d domain.com -asn
-#karma_v2 -d domain.com -cve
-#karma_v2 -d domain.com -cidr
-#karma_v2 -d domain.com -ip -ports -vulns ...
-#karma_v2 -d domain.com -dorks file.txt
-#karma_v2 -d domain.com -a
-#karma_v2 -d domain.com -export file -format csv,xml,json,burp
-
 black='\e[38;5;016m'
 bluebg='\e[48;5;038m'${black}
 red='\e[31m'
@@ -97,15 +84,6 @@ dorks(){
 	shodan stats --facets ssl.cert.fingerprint ssl.cert.subject.cn:"${target}"|grep -Eo "[[:xdigit:]]{40}" | grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt;sleep 2
 	shodan stats --facets ssl.cert.fingerprint ssl.cert.expired:true hostname:"*.${target}"|grep -Eo "[[:xdigit:]]{40}"|grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt;sleep 2
 	shodan stats --facets ssl.cert.fingerprint ssl.cert.subject.commonName:"*.${target}"|grep -Eo "[[:xdigit:]]{40}"|grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt;sleep 2
-	#SSL Serial number
-	#shodan stats --facets ssl.cert.serial has_ssl:true ssl:"${target}"|awk '{print $1}'|grep -Eo "[[:xdigit:]]*"|grep -v "^[[:blank:]]*$" | anew -q /tmp/serial.txt;sleep 2
-	#shodan stats --facets ssl.cert.serial has_ssl:true org:"${target}"|awk '{print $1}'|grep -Eo "[[:xdigit:]]*"| grep -v "^[[:blank:]]*$" | anew -q /tmp/serial.txt;sleep 2
-	#shodan stats --facets ssl.cert.serial has_ssl:true ssl.cert.issuer.cn:"${target}"|awk '{print $1}'|grep -Eo "[[:xdigit:]]*"| grep -v "^[[:blank:]]*$" | anew -q /tmp/serial.txt;sleep 2
-	#shodan stats --facets ssl.cert.serial has_ssl:true ssl.cert.subject.cn:"${target}"|awk '{print $1}'|grep -Eo "[[:xdigit:]]*"| grep -v "^[[:blank:]]*$" | anew -q /tmp/serial.txt;sleep 2
-	#shodan stats --facets ssl.cert.serial has_ssl:true ssl.cert.expired:true hostname:"*.${target}"|awk '{print $1}'|grep -Eo "[[:xdigit:]]*"|grep -v "^[[:blank:]]*$" | anew -q /tmp/serial.txt;sleep 2
-	#shodan stats --facets ssl.cert.serial has_ssl:true ssl.cert.subject.commonName:"*.${target}"|awk '{print $1}'|grep -Eo "[[:xdigit:]]*"|grep -v "^[[:blank:]]*$" | anew -q /tmp/serial.txt;sleep 2
-
-	#`cat /tmp/serial.txt|while read -r line;do echo "ssl_SHA1_${line}::ssl.cert.serial:\"$line\"";sleep 2;done;rm /tmp/serial.txt > /dev/null`
 	#Dork List Start
 cat << !
 `cat /tmp/fingerprints.txt|while read -r line;do echo "ssl_SHA1_${line}::ssl.cert.fingerprint:\"$line\"";done;rm /tmp/fingerprints.txt > /dev/null`
@@ -291,9 +269,7 @@ usage(){
 # ╰──────────────────────╯
 help(){
 	printf "\n${upper}\n\t${logo}${program} is a ${description} based OSINT scanner.\n${lower}${end}\n\n"
-	#printf "\n${logo}${description}${end}\n"
 	usage
-	#usage
  }
 # ╭──────────────────────╮
 # │		ARGS	 │
@@ -316,8 +292,6 @@ args(){
 # │		Prerequisites	 │
 # ╰──────────────────────────────╯
 check_requirements(){
-	
-	# shodan && httprobe && interlace && jq
 	"${shodan_bin}" --help > /dev/null 2>&1
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${shodan_bin}. Make sure it installed OR \n\t - pip3 install shodan${end}\n";exit 1
@@ -406,10 +380,8 @@ collect(){
 	rm -rf ${BASE_DIR}/output/$folder > /dev/null;mkdir -p ${BASE_DIR}/output/$folder/Collect #;cd ${BASE_DIR}/output/$folder;
 	printf "\n"
 	shodan info
-
 	echo "$result_count" | sed 's/ /,/g' | awk -F"," '{print $1}' > /tmp/results
 	cat ${BASE_DIR}/dorks.txt | grep -f /tmp/results | while IFS='::' read a b c;do z=$(${shodan_bin} download ${BASE_DIR}/output/$folder/Collect/"$a"_"${target}" --limit "${count}" "$c" |grep "Saved";sleep 5);zero=$(echo $z | awk '{print $2}');if [[ $zero -gt 0 ]];then printf ">> ${green}$z${end}\n";fi;done
-	#grep -E "`echo "$result_count" | awk '{print $1}' | paste -s -d "|"`" ${BASE_DIR}/dorks.txt | while IFS='::' read a b c;do z=$(${shodan_bin} download ${BASE_DIR}/output/$folder/Collect/"$a"_"${target}" --limit "${count}" "$c" |grep "Saved");zero=$(echo $z | awk '{print $2}');if [[ $zero -gt 0 ]];then printf ">> ${green}$z${end}\n";fi;done
 
  #SHODAN PARSE
 	${shodan_bin} parse --fields ip_str,asn,hostnames,port,product,org,os --separator "::" ${BASE_DIR}/output/$folder/Collect/*.json.gz | anew -q ${BASE_DIR}/output/$folder/main_${target}.data
@@ -418,38 +390,25 @@ collect(){
 # │		Get In-Scope IPs	 │
 # ╰──────────────────────────────────────╯
 inscope_ip(){
-	#printf "\n${green}────> In-Scope IPs\n${end}"
 	printf "${upper}\n  ${greenbg}In-Scope-IPs${end} [ Validated by CN=*.${target} ] \n${lower}\n"
 	cat ${BASE_DIR}/output/$folder/main_${target}.data | awk -F"::" '{print $1":"$4}'|sort -u|grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"|${httprobe_bin} -prefer-https -c 200 | interlace -threads 500 -c "echo _target_; curl --insecure -v _target_ 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'" --silent | egrep '(http|https)://[^/"]+|CN\=|issuer: |cn: |expired:|org:' | grep -v "^[[:blank:]]*$" | grep -B 1 "${target}" | grep -Eo '(http|https)://[^/"]+'|tee ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt|while read -r line;do printf "${yellow}├──►${end} ${line}\n";done
-	
-	#cat ${BASE_DIR}/output/$folder/main_${target}.data | awk -F"::" '{print $1}' | sort -u | httpx -threads 500 -silent | interlace -threads 100 -c "echo _target_; curl --insecure -v _target_ 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'" --silent | egrep "https:\/\/|CN\=|issuer: |cn: |expired:|org:" | grep -v "^[[:blank:]]*$" | tee ${BASE_DIR}/output/$folder/curl_issuer_$target.data | grep -B 1 "${target}$" | grep -Eo '(http|https)://[^/"]+' | tee ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt;printf "\n"
  }
 # ╭──────────────────────────────────────╮
 # │		Get Out-Of-Scope IPs	 │
 # ╰──────────────────────────────────────╯
 out_of_scope_ip(){
-	#printf "\n${green}────> Out-Of-Scope IPs${end} [ ${green}Sometimes its good to check everything!${end} ]\n"
 	printf "${upper}\n  ${bluebg}Out-Of-Scope-IPs${end} [ Verified by SSL/TLS certificate subject CN ] \n${lower}\n"
-	#awk -F"::" '{print $1":"$4}' ${BASE_DIR}/output/$folder/main_${target}.data|sort -u|grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"|grep -Ev `cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt|cut -d"/" -f3|cut -d":" -f1 |sort -u| paste -sd "|"`|sort -u|${httprobe_bin} -prefer-https -c 200|interlace -threads 500 -c "echo _target_; curl --insecure -v _target_ 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'" --silent|egrep '(http|https)://[^/"]+|CN\=|issuer: |cn: |expired:|org:' | grep -v "^[[:blank:]]*$"| grep -B 1 "subject:"|grep -Eo '(http|https)://[^/"]+'|while read -r line;do printf "${red}├──►${end} ${line}\n";done;printf "\n"
 	awk -F"::" '{print $1":"$4}' ${BASE_DIR}/output/$folder/main_${target}.data|sort -u|grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"|grep -Ev `cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt|cut -d"/" -f3|cut -d":" -f1 | paste -sd "|"`|sort -u| grep -v "^[[:blank:]]*$"|while read -r line;do printf "${red}├──►${end} ${line}\n";done;printf "\n"
-	#o=$(awk -F"::" '{print $1}' ${BASE_DIR}/output/$folder/main_${target}.data | grep -Ev `cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt | awk -F"," '{print $1}'|cut -d"/" -f3 | paste -s -d "|"`);if [ -z "$o" ];then printf "[${red}!${end}] ${yellow}No results found\n"${end};else printf "$o \n"|sort -u;fi;printf "\n"
  }
-# ╭──────────────────────────────╮
-# │		other leaks	 │
-# ╰──────────────────────────────╯
-
-
-
 # ╭──────────────────────────────╮
 # │		Favicon Icons	 │
 # ╰──────────────────────────────╯
 favicons(){
 	printf "${upper}\n  ${greenbg}Favicons${end} [ Validated URLs via Shodan Collects ] \n${lower}${end}\n"
-	#printf "\n${green}────> Favicons\n${end}"
 	o=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r '.http.favicon.location|select (.!= null)' | sort -u | grep -v "^data:" | tee ${BASE_DIR}/output/$folder/favicons_${target}.txt);if [ -z "$o" ];then printf "[${red}!${end}] ${yellow}No results found [ By increasing shodan download limit=-1 may help !]\n"${end};else printf "$o \n";fi;printf "\n"
  }
 # ╭──────────────────────────────────────╮
-# │		Favicon HASH	 │
+# │		Favicon HASH		 │
 # ╰──────────────────────────────────────╯
 favicons_hash(){
 	printf "${upper}\n  ${greenbg}Favicon Hash${end} [ Generated Favicon Hash using ${python3_bin} mmh3 Module  ] \n${lower}${end}\n"
@@ -461,27 +420,16 @@ favicons_hash(){
 favicons_detection(){
 	rm -f ${BASE_DIR}/favicon-detection.yaml 2> /dev/null
 	wget -q https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/technologies/favicon-detection.yaml -O ${BASE_DIR}/favicon-detection.yaml > /dev/null
-    sed -i 's/\- \"{{BaseURL}}\/favicon.ico"/- "{{BaseURL}}\"/g' ${BASE_DIR}/favicon-detection.yaml
+    	sed -i 's/\- \"{{BaseURL}}\/favicon.ico"/- "{{BaseURL}}\"/g' ${BASE_DIR}/favicon-detection.yaml
 	printf "${upper}\n  ${greenbg}Favicons Hash Detection${end} [  Technology Detection via Nuclei custom template ] \n${lower}${end}\n"
-	#printf "\n${green}────> Favicons Technologies Detection${end} [ ${green}Print only detected/matched favicons!${end} ]\n"
-	#o=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r '.http.favicon.location|select (.!= null)' | sort -u |grep -v "^data" | nuclei -t ${nuclei_template} -c 100 -silent|awk '{print $NF " : " $3}'|sed 's/ /,|,/g' | column -s ',' -t);if [ -z "$o" ];then printf "\n[${red}!${end}] ${yellow}No results found\n"${end};else printf "$o \n";fi;printf "\n"
 	o=$(cat "${BASE_DIR}/output/$folder/favicons_${target}.txt" | ${nuclei_bin} -t ${nuclei_template} -bs 100 -c 100 -silent|awk '{print $NF " : " $3}'|sed 's/ /,|,/g' | column -s ',' -t);if [ -z "$o" ];then printf "\n[${red}!${end}] ${yellow}No results found [ By increasing shodan download limit=-1 may help !]\n"${end};else printf "$o \n";fi;printf "\n"
  }
 # ╭──────────────────────╮
 # │		ASNs	 │
 # ╰──────────────────────╯
 asn(){
-	printf "${upper}\n  ${greenbg}ASN${end} [  Detailed Scan ASN || BGP neighbours || IPv4 & IPv6 Prefixes ] \n${lower}\n"
-	#printf "\n${green}────> ASNs\n${end}"
-	asn=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r 'select(.asn != null)|.asn' 2> /dev/null | sort -u) 
-	# | anew ${BASE_DIR}/output/$folder/ASNs_${target}.txt |sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}')#; printf "\n"
-	
- #ipregex='[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}|(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|'\
- #'([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|'\
- #'([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|'\
- #':((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|'\
- #'(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|'\
- #'1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'
+ printf "${upper}\n  ${greenbg}ASN${end} [  Detailed Scan ASN || BGP neighbours || IPv4 & IPv6 Prefixes ] \n${lower}\n"
+ asn=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r 'select(.asn != null)|.asn' 2> /dev/null | sort -u) 
  if [ -z "$asn" ];then 
 	printf "[${cross}] ${red}IPs:${end} ${yellow}No ASN found ${end}\n"
 	else 
@@ -532,10 +480,8 @@ asn(){
 findings(){
 	cd ${BASE_DIR}/output/$folder/Collect/
 	printf "╔════════[ ${red}Ineresting Findings${end} ]═══════════════════════════════════════════════════════════════════════╗\n\n"
- #ls -1 | grep -f "/tmp/results" | grep -Ev "ssl_SHA1|org_domain|ssl_domain|ssl_expired|ssl_issuer|ssl_subjectCN|ssl_subject|host_domain" | 
- ls -1 | grep -f "/tmp/results" | grep -Ev "ssl_SHA1|org_domain|ssl_domain|ssl_expired|ssl_issuer|ssl_subjectCN|ssl_subject|host_domain" |
- while read -r line;do printf "├─${bluebg}${line}${end}\n";zcat ${line} | jq -r 'select(.ip_str != null)|.ip_str + ":" + "\(select(.port != null)|.port)"'|awk 'NR%2{printf "%s ",$0;next;}1'|sed 's/ /,|,/g'|column -s"," -t|while read -r leaks;do printf "$( [[ ! -z ${leaks} ]] && printf "\t\t${green}╰─${end} ${leaks}\n" || printf "${yellow}No results found"${end})\n";done;done
-	#ls -1 | grep -f "/tmp/results" | grep -Ev "org_domain|ssl_domain|ssl_expired|ssl_issuer|ssl_subjectCN|ssl_subject|host_domain" | while read -r line;do o=$(zcat ${line} | jq -r 'select(.ip_str != null)|.ip_str + ":" + "\(select(.port != null)|.port)"');if [ ! -z "$o" ];then name=$(echo ${line}|awk -F"." '{print $1}'|cut -d"_" -f1,2|sed 's/\_/ /g');printf "${green}────> ${name} Detected:${end}\n$o\n\n"${end};fi ;done;printf "\n"
+ 	ls -1 | grep -f "/tmp/results" | grep -Ev "ssl_SHA1|org_domain|ssl_domain|ssl_expired|ssl_issuer|ssl_subjectCN|ssl_subject|host_domain" |
+ 	while read -r line;do printf "├─${bluebg}${line}${end}\n";zcat ${line} | jq -r 'select(.ip_str != null)|.ip_str + ":" + "\(select(.port != null)|.port)"'|awk 'NR%2{printf "%s ",$0;next;}1'|sed 's/ /,|,/g'|column -s"," -t|while read -r leaks;do printf "$( [[ ! -z ${leaks} ]] && printf "\t\t${green}╰─${end} ${leaks}\n" || printf "${yellow}No results found"${end})\n";done;done
 }
 # ╭──────────────────────────────────────────────╮
 # │		Collect Data for each IP	 │
@@ -569,23 +515,6 @@ host_enum(){
 			   
 		done
 	fi
-	#IPs
- #	o=$(zcat $x | jq -r 'select(.ip_str != null)|.ip_str' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}IPs:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}IPs:${end} ${green}$o ${end}\n";fi
-	#Hostname
- #	o=$(zcat $x | jq -r 'select(.hostnames != null)|.hostnames[]' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Hostname:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}Hostname:${end} ${green}$o ${end}\n";fi
-	#OS
- #	o=$(zcat $x | jq -r 'select(.os != null)|.os' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}OS:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}OS:${end} ${green}$o ${end}\n";fi
-	#Ports
- #	o=$(zcat $x | jq -r 'select(.port != null)|.port' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Ports:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}Ports:${end} ${green}$o ${end}\n";fi
-	#CVEs
- #	o=$(zcat $x | jq -r '.vulns | to_entries[] | select(.key != null) |.key' 2> /dev/null|sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}CVEs:${end} ${yellow}No results found${end}\n";else printf "[${right}] ${red}CVEs:${end} ${green}$o ${end}\n";fi
-	#Org
- #	o=$(zcat $x | jq -r 'select(.org != null)|.org' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Orgs:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}Orgs:${end} ${green}$o ${end}\n";fi
-	#Server
- #	o=$(zcat $x | jq -r '.http|select(.server != null)|.server' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Servers:${end} ${yellow}No results found ${end}\n";else printf "[${right}] ${red}Servers:${end} ${green}$o ${end}\n";fi
-	#Products
- #	o=$(zcat $x | jq -r 'select(.product != null)|.product' | sort -u | sed -n '1h;2,$H;${g;s/\n/, /g;s/<----- key \(start\|stop\) ----->//g;p}');if [ -z "$o" ];then printf "[${cross}] ${red}Products:${end} ${yellow}No results found\n"${end};else printf "[${right}] ${red}Products:${end} ${green}$o ${end}\n";fi
- #	echo "----------------------"
  done | tee ${BASE_DIR}/output/$folder/host_enum_${target}.txt
 
  }
@@ -751,40 +680,29 @@ prarg(){
         exit 1
 	fi
 	if [ "${mode}" == 'ip' ];then
-        	#echo "Your target is : ${target}"
 			ip
         	exit 0
 	elif [ "${mode}" == 'asn' ];then
-        	#echo "Your target is : ${target}"
-			echo "ASN"
 			asn_scan
         	exit 0
 	elif [ "${mode}" == 'cve' ];then
-        	#echo "Your target is : ${target}"
-			echo "CVE"
 			cve
         	exit 0
 	elif [ "${mode}" == 'favicon' ];then
-        	#echo "Your target is : ${target}"
-        	echo "favicon"
 			favicon_scan
         	exit 0
 	elif [ "${mode}" == 'leaks' ];then
-        	#echo "Your target is : ${target}"
-        	leaks
+        		leaks
         	exit 0
 	elif [ "${mode}" == 'count' ];then
-        	#echo "Your target is : ${target}"
-        	run_counts
+        		run_counts
         	exit 0
 	elif [ "${mode}" == 'deep' ];then
-        	#echo "Your target is : ${target}"
-        	echo "DEEP SCAN"
 			karma
         	exit 0
 	fi
  }
-# check_update
+check_update
 args
 check_requirements
 prarg $@
