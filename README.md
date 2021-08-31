@@ -56,11 +56,11 @@ API : [Developer API](https://developer.shodan.io/api)
 ```bash
 Clone https://github.com/codingo/Interlace.git & install accordingly. 
 ```
-### 5. Install nuclei [@projectdiscovery](github.com/projectdiscovery/nuclei)
+### 6. Install nuclei [@projectdiscovery](github.com/projectdiscovery/nuclei)
 ```bash
 # GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 ```
-### 6. Install lolcat
+### 7. Install lolcat
 ```bash
 # apt install lolcat -y
 ```
