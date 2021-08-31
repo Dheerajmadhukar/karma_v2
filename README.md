@@ -46,22 +46,22 @@ $ bash karma_v2 -h
 - RESTful API
 
 ## Roadmap for v2.1
-Upcoming features for the v2.1:
-- [working] [ ] Apache kafka
-- [working] [ ] Apache Hadoop
-- [working] [ ] JBoss
-- [working] [ ] phpinfo
-- [working] [ ] ID_VC
-- [working] [ ] Service Now
-- [working] [ ] Salesforce
-- [working] [ ] Splunk
-- [working] [ ] SAP S4 Hana
-- [working] [ ] Workday
-- [working] [ ] okta
-- [working] [ ] ADP
-- [working] [ ] IBM MQ
-- [working] [ ] Oracle Web Login
-- [working] [ ] Still Looking for more . . .
+* Upcoming features for the v2.1:
+  - [working] [ ] Apache kafka
+  - [working] [ ] Apache Hadoop
+  - [working] [ ] JBoss
+  - [working] [ ] phpinfo
+  - [working] [ ] ID_VC
+  - [working] [ ] Service Now
+  - [working] [ ] Salesforce
+  - [working] [ ] Splunk
+  - [working] [ ] SAP S4 Hana
+  - [working] [ ] Workday
+  - [working] [ ] okta
+  - [working] [ ] ADP
+  - [working] [ ] IBM MQ
+  - [working] [ ] Oracle Web Login
+  - [working] [ ] Still Looking for more . . .
 
 # 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 Supported Shodan Dorks
 | **DORKs** | **DORKs** | **DORKs** |
