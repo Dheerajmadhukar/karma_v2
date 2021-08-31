@@ -47,9 +47,22 @@ $ bash karma_v2 -h
 
 ## Roadmap for v2.1
 Upcoming features for the v2.1:
-- [todo] Improve template: try to define better the html template and charts
-- [todo] Improve API: create a documentation/wiki about it
-- [todo] Wiki: create WebMap User Guide on GitHub
+- [working] [+] Apache kafka
+- [working] [+] Apache Hadoop
+- [working] [+] JBoss
+- [working] [+] phpinfo
+- [working] [+] ID_VC
+- [working] [+] Service Now
+- [working] [+] Salesforce
+- [working] [+] Splunk
+- [working] [+] SAP S4 Hana
+- [working] [+] Workday
+- [working] [+] okta
+- [working] [+] ADP
+- [working] [+] IBM MQ
+- [working] [+] Oracle Web Login
+- [working] [+] Still Looking for more . . .
+
 - [working] Authentication or something that could blocks access to WebMap if != localhost
 - [working] Scan diff: show difference between two scheduled nmap scan report
 - [todo] Zaproxy: Perform web scan using the OWASP ZAP API
