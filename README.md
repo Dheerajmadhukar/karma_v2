@@ -16,7 +16,7 @@
 Please see the Shodan site for more information. Shodan website: [Shodan](https://www.shodan.io) API: [https://developer.shodan.io/api](https://developer.shodan.io/api)
 
 ## Usage
-You should use this with docker, just by sending this command:
+You can use this command to check help:
 ```bash
 $ bash karma_v2 -h
 ```
