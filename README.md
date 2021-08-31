@@ -54,7 +54,7 @@ Upcoming features for the v2.1:
 - [working] Scan diff: show difference between two scheduled nmap scan report
 - [todo] Zaproxy: Perform web scan using the OWASP ZAP API
 
-# Operating Systems Supported
+# 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 Supported Shodan Dorks
 | **DORKs** | **DORKs** | **DORKs** |
 |:-------------|:----------------|:----------------|
 | ssl.cert.fingerprint  |    http.status:"302" oauth    | "Server: Jetty"           |
