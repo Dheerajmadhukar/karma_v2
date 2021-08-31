@@ -20,7 +20,7 @@ You can use this command to check help:
 ```bash
 $ bash karma_v2 -h
 ```
-<img src="img/karma_v2_help.png" alt="axio m" width="1200px">
+<img src="img/karma_v2_help.png" alt="axio m" width="1500px">
 
 ## MODEs
 | **MODE** | **Description** |  **Examples**  |
