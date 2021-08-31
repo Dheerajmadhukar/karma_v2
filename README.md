@@ -63,9 +63,6 @@ Upcoming features for the v2.1:
 - [working] [+] Oracle Web Login
 - [working] [+] Still Looking for more . . .
 
-CHECK CHECK CHECK  --------
-
-
 # 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 Supported Shodan Dorks
 | **DORKs** | **DORKs** | **DORKs** |
 |:-------------|:----------------|:----------------|
