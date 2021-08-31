@@ -47,8 +47,8 @@ $ bash karma_v2 -h
 
 ## Roadmap for v2.1
 * Upcoming features for the v2.1:
-  - [working] [ ] Apache kafka
-  - [working] [ ] Apache Hadoop
+  - [working] [] Apache kafka
+  - [working] [] Apache Hadoop
   - [working] [ ] JBoss
   - [working] [ ] phpinfo
   - [working] [ ] ID_VC
