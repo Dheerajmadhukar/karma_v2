@@ -18,6 +18,19 @@
 Shodan website: [Shodan Website](https://shodan.io)
 API : [Developer API](https://developer.shodan.io/api)
 
+## Features
+- a
+- b
+- c
+- d
+- e
+- f
+- g
+- h
+- i
+- j
+- k 
+
 ## Usage
 You can use this command to check help:
 ```bash
@@ -35,8 +48,69 @@ $ bash karma_v2 -h
 |**-leaks**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -leaks```|
 |**-deep**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -deep```|
 |**-count**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -count```|
-## Features
-- 
+
+
+## Demo
+
+- karma_v2 [mode -ip]
+[![asciicast](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV.svg)](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV?t=25&speed=5&theme=tango)
+
+---
+
+- karma_v2 [mode -asn]
+[![asciicast](https://asciinema.org/a/0RcsIp6f6xxX81JmEHvvlepBT.svg)](https://asciinema.org/a/0RcsIp6f6xxX81JmEHvvlepBT?t=25&speed=5&theme=tango)
+
+---
+
+- karma_v2 [mode -cve]
+[![asciicast](https://asciinema.org/a/4Ri9FW97qnVV37v3Mb2mNTKz8.svg)](https://asciinema.org/a/4Ri9FW97qnVV37v3Mb2mNTKz8?t=25&speed=5&theme=tango)
+
+---
+
+- karma_v2 [mode -favicon]
+[![asciicast](https://asciinema.org/a/6bnPXhwacmCOanRRsdNIA1rs4.svg)](https://asciinema.org/a/6bnPXhwacmCOanRRsdNIA1rs4?t=25&speed=5&theme=tango)
+
+---
+
+- karma_v2 [mode -deep]
+
+---
+
+# Output
+```bash
+output/bugcrowd.com-YYYY-MM-DD/ 
+
+.
+├── ASNs_Detailed_bugcrowd.com.txt
+├── Collect
+│   ├── host_domain_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_12289a814...83029f8944b6088d60204a92e_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_17537bf84...73cb1d684a495db7ea5aa611b_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_198d6d4ec...681b77585190078b07b37c5e1_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_26a9c5618...d60eae2947b42263e154d203f_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_3da3825a2...3b852a42470410183adc3b9ee_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_4d0eab730...68cf11d2db94cc2454c906532_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_8907dab4c...12fdbdd6c445a4a8152f6b7b7_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_9a9b99eba...5dc5106cea745a591bf96b044_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_a7c14d201...b6fd4bc4e95ab2897e6a0bsfd_bugcrowd.com.json.gz
+│   ├── ssl_SHA1_a90f4ddb0...85780bdb06de83fefdc8a612d_bugcrowd.com.json.gz
+│   ├── ssl_domain_bugcrowd.com.json.gz
+│   ├── ssl_subjectCN_bugcrowd.com.json.gz
+│   └── ssl_subject_bugcrowd.com.json.gz
+|   └── . . .
+├── IP_VULNS
+│   ├── 104.x.x.x.json.gz
+│   ├── 107.x.x.x.json.gz
+│   ├── 107.x.x.x.json.gz
+│   └── 99.x.x.x.json.gz
+|   └── . . .
+├── favicons_bugcrowd.com.txt
+├── host_enum_bugcrowd.com.txt
+├── ips_inscope_bugcrowd.com.txt
+├── main_bugcrowd.com.data
+├── . . . 
+```
+
 
 ## Roadmap for v2.1
 * Upcoming features for the v2.1:
@@ -79,65 +153,7 @@ $ bash karma_v2 -h
 | **`html:"/admin/login/?next=" title:"Django"`** | **`title:"system dashboard" html:jira`** | **`http.component:ruby port:3000`** |
 | **`html:"secret_key_base"`** | **`I will add more soon`** | **`. . .`** |
 
-# Output
-```bash
-output/bugcrowd.com-YYYY-MM-DD/ 
 
-.
-├── ASNs_Detailed_bugcrowd.com.txt
-├── Collect
-│   ├── host_domain_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_12289a814...83029f8944b6088d60204a92e_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_17537bf84...73cb1d684a495db7ea5aa611b_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_198d6d4ec...681b77585190078b07b37c5e1_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_26a9c5618...d60eae2947b42263e154d203f_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_3da3825a2...3b852a42470410183adc3b9ee_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_4d0eab730...68cf11d2db94cc2454c906532_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_8907dab4c...12fdbdd6c445a4a8152f6b7b7_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_9a9b99eba...5dc5106cea745a591bf96b044_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_a7c14d201...b6fd4bc4e95ab2897e6a0bsfd_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_a90f4ddb0...85780bdb06de83fefdc8a612d_bugcrowd.com.json.gz
-│   ├── ssl_domain_bugcrowd.com.json.gz
-│   ├── ssl_subjectCN_bugcrowd.com.json.gz
-│   └── ssl_subject_bugcrowd.com.json.gz
-|   └── . . .
-├── IP_VULNS
-│   ├── 104.x.x.x.json.gz
-│   ├── 107.x.x.x.json.gz
-│   ├── 107.x.x.x.json.gz
-│   └── 99.x.x.x.json.gz
-|   └── . . .
-├── favicons_bugcrowd.com.txt
-├── host_enum_bugcrowd.com.txt
-├── ips_inscope_bugcrowd.com.txt
-├── main_bugcrowd.com.data
-├── . . . 
-```
-## Demo
-
-- karma_v2 [mode -ip]
-[![asciicast](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV.svg)](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV?t=25&speed=5&theme=tango)
-
----
-
-- karma_v2 [mode -asn]
-[![asciicast](https://asciinema.org/a/0RcsIp6f6xxX81JmEHvvlepBT.svg)](https://asciinema.org/a/0RcsIp6f6xxX81JmEHvvlepBT?t=25&speed=5&theme=tango)
-
----
-
-- karma_v2 [mode -cve]
-[![asciicast](https://asciinema.org/a/4Ri9FW97qnVV37v3Mb2mNTKz8.svg)](https://asciinema.org/a/4Ri9FW97qnVV37v3Mb2mNTKz8?t=25&speed=5&theme=tango)
-
----
-
-- karma_v2 [mode -favicon]
-[![asciicast](https://asciinema.org/a/6bnPXhwacmCOanRRsdNIA1rs4.svg)](https://asciinema.org/a/6bnPXhwacmCOanRRsdNIA1rs4?t=25&speed=5&theme=tango)
-
----
-
-- karma_v2 [mode -deep]
-
----
 
 ## Support
 If you like `⡷⠂𝚔𝚊𝚛𝚖𝚊 𝚟𝟸⠐⢾` and it help you in work, money/bounty, pentesting, recon or just brings you happy feelings, please show your support ! 
