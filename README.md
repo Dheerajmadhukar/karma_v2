@@ -16,7 +16,6 @@
 <br>
 
 Shodan website: [Shodan Website](https://shodan.io)
-
 API : [Developer API](https://developer.shodan.io/api)
 
 ## Usage
