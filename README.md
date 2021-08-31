@@ -72,7 +72,13 @@ $ bash karma_v2 -h
 
 ---
 
+- karma_v2 [mode -leaks]
+[![asciicast](https://asciinema.org/a/pZbLefjitk3B3PjKDPetDQGED.svg)](https://asciinema.org/a/pZbLefjitk3B3PjKDPetDQGED?t=25&speed=5&theme=tango)
+
+---
+
 - karma_v2 [mode -deep]
+
 
 ---
 
