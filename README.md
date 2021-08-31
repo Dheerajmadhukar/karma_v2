@@ -59,7 +59,7 @@ Upcoming features for the v2.1:
 |:-------------|:----------------|:----------------|
 | **`ssl.cert.fingerprint`**  |    **`http.status:"302" oauth`**    | **`"Server: Jetty"`**           |
 | **`ssl`** |   **`http.status:"302" sso`**    | **`X-Amz-Bucket-Region`**           |
-| **`org`** |    **`title:"401 Authorization **Required"`**    | **`"development" org:"Amazon.com"`**           |
+| **`org`** |    **`title:"401 Authorization Required"`**    | **`"development" org:"Amazon.com"`**           |
 | **`hostname`**  |    **`http.html:"403 Forbidden"`**    | **`"X-Jenkins" "Set-Cookie: JSESSIONID" http.title:"Jenkins [Jenkins]"`**           |
 | **`ssl.cert.issuer.cn`**      |    **`http.html:"500 Internal Server Error"`**    | **`http.favicon.hash:81586312 200`**           |
 | **`ssl.cert.subject.cn`** |    **`ssl.cert.subject.cn:\*vpn\*`**    | **`product:"Kubernetes" port:"10250, 2379"`**            |
