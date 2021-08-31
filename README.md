@@ -66,11 +66,11 @@ Upcoming features for the v2.1:
 | **`ssl.cert**.expired:true`** **|    **`title:"citrix gateway"`**    | **`port:"9100" http.title:"Node Exporter"`**           |
 | **`ssl.cert.**subject.commonName`** |    **`http.html:"JFrog"`**    | **`http.title:"Grafana"`**           |
 | **`http.title**:"Index of /"`** |    **`"X-Jfrog"`**    | **`http.title:"RabbitMQ"`**           |
-| **`ftp port**:"10000"`** |    **`http.title:"dashboard"`**    | **`HTTP/1.1 307 Temporary Redirect "Location: /containers"`**            |
+| **`ftp port:"10000"`** |    **`http.title:"dashboard"`**    | **`HTTP/1.1 307 Temporary Redirect "Location: /containers"`**            |
 | **`"Authentication: disabled" port:445 product:"Samba"`** |    **`http.title:"Openfire Admin Console"`**    | **`http.favicon.hash:1278323681`**            |
 | **`title:"Login - Adminer"`** |    **`http.title:"control panel"`**    | **`"MongoDB Server Information" port:27017 -authentication`**            |
 | **`http.title:"sign up"`** |    **`http.html:"* The wp-config.php creation script uses this file"`**    | **`port:"9200" all:"elastic indices" `**            |
-| **`http.title:"LogIn"`** |   **`clockwork    | "220" "230 Login successful." port:21`**            |
+| **`http.title:"LogIn"`** |   **`clockwork`**    | **`"220" "230 Login successful." port:21`**            |
 | **`port:"11211" product:"Memcached"`** | **`"port: 53" Recursion: Enabled`** | **`title:"kibana"`** |
 | **`port:9090 http.title:"Prometheus Time Series Collection and Processing Server"`** | **`"default password"`** | **`title:protected`** |
 | **`http.component:Moodle`** | **`http.favicon.hash:116323821`** | **`html:"/login/?next=" title:"Django"`** |
