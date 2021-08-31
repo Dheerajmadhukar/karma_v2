@@ -23,9 +23,17 @@ API : [Developer API](https://developer.shodan.io/api)
 - SSL SHA1 checksum/fingerprint Search
 - Only hit In-Scope IPs
 - Verify each IP with SSL/TLS certificate issuer match RegEx
-- Find out all ports including well known/uncommon
+- Provide Out-Of-Scope IPs
+- Find out all ports including well known/uncommon/dynamic
 - Grab all targets vulnerabilities related to CVEs
-- Banner grab for each IP & Product
+- Banner grab for each IP, Product, OS, Services & Org etc.
+- Grab favicon Icons
+- Generate Favicon Hash using python3 mmh3 Module
+- Favicon Technology Detection using nuclei custom template
+- ASN Scan
+- BGP Neighbour
+- IPv4 & IPv6 Profixes for ASN
+- **Interesting Leaks like Indexing, NDMP, SMB, Login, SignUp, OAuth, SSO, Status 401/403/500, VPN, Citrix, Jfrog, Dashboards, OpenFire, Control Panels, Wordpress, Laravel, Jetty, S3 Buckets, Cloudfront, Jenkins, Kubernetes, Node Exports, Grafana, RabbitMQ, Containers, GitLab, MongoDB, Elastic, FTP anonymous, Memcached, DNS Recursion, Kibana, Prometheus, Default Passwords, Protected Objects, Moodle, Spring Boot, Django, Jira, Ruby, Secret Key and many more...**
 
 ## Installation
 ### 1. Clone the repo
