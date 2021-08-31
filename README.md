@@ -89,20 +89,20 @@ output/bugcrowd.com-YYYY-MM-DD/
 .
 ├── ASNs_Detailed_bugcrowd.com.txt
 ├── Collect
-│   ├── host_domain_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_12289a814...83029f8944b6088d60204a92e_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_17537bf84...73cb1d684a495db7ea5aa611b_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_198d6d4ec...681b77585190078b07b37c5e1_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_26a9c5618...d60eae2947b42263e154d203f_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_3da3825a2...3b852a42470410183adc3b9ee_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_4d0eab730...68cf11d2db94cc2454c906532_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_8907dab4c...12fdbdd6c445a4a8152f6b7b7_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_9a9b99eba...5dc5106cea745a591bf96b044_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_a7c14d201...b6fd4bc4e95ab2897e6a0bsfd_bugcrowd.com.json.gz
-│   ├── ssl_SHA1_a90f4ddb0...85780bdb06de83fefdc8a612d_bugcrowd.com.json.gz
-│   ├── ssl_domain_bugcrowd.com.json.gz
-│   ├── ssl_subjectCN_bugcrowd.com.json.gz
-│   └── ssl_subject_bugcrowd.com.json.gz
+│   ├── host_domain_domain.tld.json.gz
+│   ├── ssl_SHA1_12289a814...83029f8944b6088d60204a92e_domain.tld.json.gz
+│   ├── ssl_SHA1_17537bf84...73cb1d684a495db7ea5aa611b_domain.tld.json.gz
+│   ├── ssl_SHA1_198d6d4ec...681b77585190078b07b37c5e1_domain.tld.json.gz
+│   ├── ssl_SHA1_26a9c5618...d60eae2947b42263e154d203f_domain.tld.json.gz
+│   ├── ssl_SHA1_3da3825a2...3b852a42470410183adc3b9ee_domain.tld.json.gz
+│   ├── ssl_SHA1_4d0eab730...68cf11d2db94cc2454c906532_domain.tld.json.gz
+│   ├── ssl_SHA1_8907dab4c...12fdbdd6c445a4a8152f6b7b7_domain.tld.json.gz
+│   ├── ssl_SHA1_9a9b99eba...5dc5106cea745a591bf96b044_domain.tld.json.gz
+│   ├── ssl_SHA1_a7c14d201...b6fd4bc4e95ab2897e6a0bsfd_domain.tld.json.gz
+│   ├── ssl_SHA1_a90f4ddb0...85780bdb06de83fefdc8a612d_domain.tld.json.gz
+│   ├── ssl_domain_domain.tld.json.gz
+│   ├── ssl_subjectCN_domain.tld.json.gz
+│   └── ssl_subject_domain.tld.json.gz
 |   └── . . .
 ├── IP_VULNS
 │   ├── 104.x.x.x.json.gz
@@ -110,10 +110,10 @@ output/bugcrowd.com-YYYY-MM-DD/
 │   ├── 107.x.x.x.json.gz
 │   └── 99.x.x.x.json.gz
 |   └── . . .
-├── favicons_bugcrowd.com.txt
-├── host_enum_bugcrowd.com.txt
-├── ips_inscope_bugcrowd.com.txt
-├── main_bugcrowd.com.data
+├── favicons_domain.tld.txt
+├── host_enum_domain.tld.txt
+├── ips_inscope_domain.tld.txt
+├── main_domain.tld.data
 ├── . . . 
 ```
 
