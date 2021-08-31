@@ -11,9 +11,9 @@
 ![Follow on Twitter](https://img.shields.io/twitter/follow/Dheerajmadhukar?style=social)  [![Version](https://img.shields.io/badge/Release-%E2%A1%B7%E2%A0%82%F0%9D%9A%94%F0%9D%9A%8A%F0%9D%9A%9B%F0%9D%9A%96%F0%9D%9A%8A%20%F0%9D%9A%9F%F0%9D%9F%B8%E2%A0%90%E2%A2%BE-white.svg)]()  [![Build](https://img.shields.io/badge/Supported_OS-Linux-white.svg)]() [![Build](https://img.shields.io/badge/Supported_WSL-Windows-white.svg)]()   [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/dheerajkmadhukar)
 </h2>
 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 can be used by Infosec Researchers, Penetration Testers, Bug Hunters to find deep information, more assets, WAF/CDN bypassed IPs, Internal/External Infra, Publicly exposed leaks and many more about their target. Shodan Premium API key is required to use this automation. Output from the `𝚔𝚊𝚛𝚖𝚊 𝚟𝟸` is displayed to the screen and saved to files/directories.
-
-- Regarding Premium Shodan API
-Please see the Shodan site for more information. Shodan website: [Shodan](https://www.shodan.io) API: [https://developer.shodan.io/api](https://developer.shodan.io/api)
+</br></br>
+ ℹ  Regarding Premium Shodan API
+Please see the Shodan site for more information. Shodan website: [https://www.shodan.io](https://www.shodan.io) API: [https://developer.shodan.io/api](https://developer.shodan.io/api)
 
 ## Usage
 You can use this command to check help:
@@ -55,7 +55,7 @@ Upcoming features for the v2.1:
 - [todo] Zaproxy: Perform web scan using the OWASP ZAP API
 
 # Operating Systems Supported
-| **MODE** | **Description** | **sssss** |
+| **DORKs** | **DORKs** | **DORKs** |
 |:-------------|:----------------|:----------------|
 | ssl.cert.fingerprint  |    http.status:"302" oauth    | "Server: Jetty"           |
 | ssl |    http.status:"302" sso    | X-Amz-Bucket-Region           |
@@ -139,7 +139,7 @@ output/bugcrowd.com-YYYY-MM-DD/
 
 ## Support
 If you like `⡷⠂𝚔𝚊𝚛𝚖𝚊 𝚟𝟸⠐⢾` and it help you in work, money/bounty, pentesting, recon or just brings you happy feelings, please show your support ! 
-
+:stop_sign:   **Please avoid opening GitHub issues for support requests or questions!**
 buy me a beer to keep me powered :)
 
 <a href="https://www.buymeacoffee.com/me_dheeraj" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=medheeraj&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" alt="Buy Me A Beer"></a>
