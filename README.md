@@ -19,17 +19,49 @@ Shodan website: [Shodan Website](https://shodan.io)
 API : [Developer API](https://developer.shodan.io/api)
 
 ## Features
-- a
-- b
-- c
-- d
-- e
-- f
-- g
-- h
-- i
-- j
-- k 
+- Powerful and flexible results via Shodan Dorks
+- SSL SHA1 checksum/fingerprint Search
+- Only hit In-Scope IPs
+- Verify each IP with SSL/TLS certificate issuer match RegEx
+- Find out all ports including well known/uncommon
+- Grab all targets vulnerabilities related to CVEs
+- Banner grab for each IP & Product
+
+## Installation
+### 1. Clone the repo
+ ```bash
+# git clone https://github.com/Dheerajmadhukar/karma_v2.git
+```
+### 2. Install shodan & mmh3 python module
+```bash
+# python3 -m pip install shodan mmh3
+```
+### 3. Install JSON Parser [JQ]
+```bash
+# apt install jq -y
+```
+### 4. Install httprobe [@tomnomnom](https://github.com/tomnomnom/httprobe) to probe the requests
+```bash
+# GO111MODULE=on go get -v github.com/tomnomnom/httprobe
+```
+### 5. Install Interlace [@codingo](https://github.com/codingo/Interlace.git) to multithread [Follow the codingo interlace repo instructions]
+```bash
+Clone https://github.com/codingo/Interlace.git & install accordingly. 
+```
+### 5. Install nuclei [@projectdiscovery](github.com/projectdiscovery/nuclei)
+```bash
+# GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+```
+### 6. Install lolcat
+```bash
+# apt install lolcat -y
+```
+
+## Ok, how do I use it?
+```bash
+# cat > .token
+SHODAN_PREMIUM_API_HERE
+```
 
 ## Usage
 You can use this command to check help:
