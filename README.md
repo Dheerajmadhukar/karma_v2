@@ -12,15 +12,18 @@
 </h2>
 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 can be used by Infosec Researchers, Penetration Testers, Bug Hunters to find deep information, more assets, WAF/CDN bypassed IPs, Internal/External Infra, Publicly exposed leaks and many more about their target. Shodan Premium API key is required to use this automation. Output from the `𝚔𝚊𝚛𝚖𝚊 𝚟𝟸` is displayed to the screen and saved to files/directories.
 </br></br>
- ℹ  Regarding Premium Shodan API
-Please see the Shodan site for more information. Shodan website: [https://www.shodan.io](https://www.shodan.io) API: [https://developer.shodan.io/api](https://developer.shodan.io/api)
+ ℹ  Regarding Premium Shodan API, Please see the Shodan site for more information. 
+<br>
+Shodan website: [Shodan Website](https://shodan.io)
+
+API : [Developer API](https://developer.shodan.io/api)
 
 ## Usage
 You can use this command to check help:
 ```bash
 $ bash karma_v2 -h
 ```
-<img src="img/karma_v2_help.png" alt="axio m" width="1500px">
+<img src="img/karma_v2_help.png" alt="axio m" width="1000px">
 
 ## MODEs 
 | **MODE** |  **Examples**  |
