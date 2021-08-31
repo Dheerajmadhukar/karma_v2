@@ -55,14 +55,27 @@ Upcoming features for the v2.1:
 - [todo] Zaproxy: Perform web scan using the OWASP ZAP API
 
 # Operating Systems Supported
-| OS         | Supported | Easy Install  | Tested        | 
-|------------|-----------|---------------|---------------|
-| Ubuntu     |    Yes    | Yes           | Ubuntu 20.04  |
-| Kali       |    Yes    | Yes           | Kali 2020.4   |
-| Debian     |    Yes    | Yes           | Debian 10     |
-| Windows    |    Yes    | Yes           | WSL w/ Ubuntu |
-| MacOS      |    Yes    | Yes           | MacOS 11.4    |
-| Arch Linux |    Yes    | No            | Yes           |
+| **MODE** | **Description** | **sssss** |
+|:-------------|:----------------|:----------------|
+| ssl.cert.fingerprint  |    http.status:"302" oauth    | "Server: Jetty"           |
+| ssl |    http.status:"302" sso    | X-Amz-Bucket-Region           |
+| org |    title:"401 Authorization Required"    | "development" org:"Amazon.com"           |
+| hostname  |    http.html:"403 Forbidden"    | "X-Jenkins" "Set-Cookie: JSESSIONID" http.title:"Jenkins [Jenkins]"           |
+| ssl.cert.issuer.cn      |    http.html:"500 Internal Server Error"    | http.favicon.hash:81586312 200           |
+| ssl.cert.subject.cn |    ssl.cert.subject.cn:\*vpn\*    | product:"Kubernetes" port:"10250, 2379"            |
+| ssl.cert.expired:true |    title:"citrix gateway"    | port:"9100" http.title:"Node Exporter"            |
+| ssl.cert.subject.commonName |    http.html:"JFrog"    | http.title:"Grafana"            |
+| http.title:"Index of /" |    "X-Jfrog"    | http.title:"RabbitMQ"           |
+| ftp port:"10000" |    http.title:"dashboard"    | HTTP/1.1 307 Temporary Redirect "Location: /containers"            |
+| "Authentication: disabled" port:445 product:"Samba" |    http.title:"Openfire Admin Console"    | http.favicon.hash:1278323681            |
+| title:"Login - Adminer" |    http.title:"control panel"    | "MongoDB Server Information" port:27017 -authentication            |
+| http.title:"sign up" |    http.html:"* The wp-config.php creation script uses this file"    | port:"9200" all:"elastic indices"            |
+| http.title:"LogIn" |    clockwork    | "220" "230 Login successful." port:21            |
+| port:"11211" product:"Memcached" | "port: 53" Recursion: Enabled | title:"kibana" |
+| port:9090 http.title:"Prometheus Time Series Collection and Processing Server" | "default password" | title:protected |
+| http.component:Moodle | http.favicon.hash:116323821 | html:"/login/?next=" title:"Django" |
+| html:"/admin/login/?next=" title:"Django" | title:"system dashboard" html:jira | http.component:ruby port:3000 |
+| html:"secret_key_base" | `I will add more soon` | `. . .` |
 
 # Output
 ```bash
