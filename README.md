@@ -23,9 +23,9 @@ $ bash karma_v2 -h
 <img src="img/karma_v2_help.png" alt="axio m" width="1200px">
 
 ## MODEs
-| **MODE** | **Description** |
-|:-------------|:----------------|
-|**-ip**|Scan for In-Scope-IPs Validated by CN=*.{target} and Out-Of-Scope-IPs|
+| **MODE** | **Description** |  **Examples**  |
+|:-------------|:----------------|:-----------|
+|**-ip**|Scan for In-Scope-IPs Validated by CN=*.{target} and Out-Of-Scope-IPs|bash karma_v2 -d example.com -l -1 -ip|
 |**-asn**|Detailed Autonomous system number lookup with BGP stats, neighbours, IPv4 & IPv6 Prefixes|
 |**-cve**|Scan hosts for such as OS, Host, Servers, Products, CVEs, Ports are open and which organization owns the IP|
 |**-favicon**|Search for Favicon Icons, Calculate Favicon Hashes and Technology Detection with nuclei custom template|
@@ -34,34 +34,25 @@ $ bash karma_v2 -h
 |**-count**|Returns the number of results count for DORKs search [ No API Credit will use ]|
 
 ## Features
-- Import and parse Nmap XML files
-- Run and Schedule Nmap Scan from dashboard
-- Statistics and Charts on discovered services, ports, OS, etc...
-- Inspect a single host by clicking on its IP address
-- Attach labels on a host
-- Insert notes for a specific host
-- Create a PDF Report with charts, details, labels and notes
-- Copy to clipboard as Nikto, Curl or Telnet commands
-- Search for CVE and Exploits based on CPE collected by Nmap
-- RESTful API
+- 
 
 ## Roadmap for v2.1
 * Upcoming features for the v2.1:
-  - [working] [] Apache kafka
-  - [working] [] Apache Hadoop
-  - [working] [ ] JBoss
-  - [working] [ ] phpinfo
-  - [working] [ ] ID_VC
-  - [working] [ ] Service Now
-  - [working] [ ] Salesforce
-  - [working] [ ] Splunk
-  - [working] [ ] SAP S4 Hana
-  - [working] [ ] Workday
-  - [working] [ ] okta
-  - [working] [ ] ADP
-  - [working] [ ] IBM MQ
-  - [working] [ ] Oracle Web Login
-  - [working] [ ] Still Looking for more . . .
+  - [working] Apache kafka
+  - [working] Apache Hadoop
+  - [working] JBoss
+  - [working] phpinfo
+  - [working] ID_VC
+  - [working] Service Now
+  - [working] Salesforce
+  - [working] Splunk
+  - [working] SAP S4 Hana
+  - [working] Workday
+  - [working] okta
+  - [working] ADP
+  - [working] IBM MQ
+  - [working] Oracle Web Login
+  - [ToDo] Still Looking for more . . .
 
 # 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 Supported Shodan Dorks
 | **DORKs** | **DORKs** | **DORKs** |
