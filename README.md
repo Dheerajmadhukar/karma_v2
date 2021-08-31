@@ -14,6 +14,7 @@
 </br></br>
  ℹ  Regarding Premium Shodan API, Please see the Shodan site for more information. 
 <br>
+
 Shodan website: [Shodan Website](https://shodan.io)
 
 API : [Developer API](https://developer.shodan.io/api)
