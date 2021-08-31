@@ -481,7 +481,7 @@ findings(){
 	cd ${BASE_DIR}/output/$folder/Collect/
 	printf "╔════════[ ${red}Ineresting Findings${end} ]═══════════════════════════════════════════════════════════════════════╗\n\n"
  	ls -1 | grep -f "/tmp/results" | grep -Ev "ssl_SHA1|org_domain|ssl_domain|ssl_expired|ssl_issuer|ssl_subjectCN|ssl_subject|host_domain" |
- 	while read -r line;do printf "├─${bluebg}${line}${end}\n";zcat ${line} | jq -r 'select(.ip_str != null)|.ip_str + ":" + "\(select(.port != null)|.port)"'|awk 'NR%2{printf "%s ",$0;next;}1'|sed 's/ /,|,/g'|column -s"," -t|while read -r leaks;do printf "$( [[ ! -z ${leaks} ]] && printf "\t\t${green}╰─${end} ${leaks}\n" || printf "${yellow}No results found"${end})\n";done;done
+ 	while read -r line;do printf "├─${bluebg}${line}${end}\n";zcat ${line} | jq -r 'select(.ip_str != null)|.ip_str + ":" + "\(select(.port != null)|.port)"'|tee ${BASE_DIR}/output/$folder/shodan_leaks_${target}.txt| awk 'NR%2{printf "%s ",$0;next;}1'|sed 's/ /,|,/g'|column -s"," -t|while read -r leaks;do printf "$( [[ ! -z ${leaks} ]] && printf "\t\t${green}╰─${end} ${leaks}\n" || printf "${yellow}No results found"${end})\n";done;done
 }
 # ╭──────────────────────────────────────────────╮
 # │		Collect Data for each IP	 │
@@ -489,7 +489,7 @@ findings(){
 host_scan(){
 	printf "${upper}\n  ${greenbg}Scanning In-Scope Hosts${end} [ Validated IPs via Shodan Collects ] \n${lower}${end}\n"
 	mkdir -p ${BASE_DIR}/output/$folder/IP_VULNS
-	cd ${BASE_DIR}/output/$folder/IP_VULNS;cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"| while read -r line;do shodan host -S --format pretty $line > /dev/null;sleep 5;[ "$silent" == "False" ] && echo -en "💀${bold}${green}🍺💀${end}${normal}";done;printf "\n"
+	cd ${BASE_DIR}/output/$folder/IP_VULNS;cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"| while read -r line;do shodan host -S --format pretty $line > /dev/null;sleep 5;echo -en "💀${bold}${green}🍺💀${end}${normal}";done;printf "\n"
  }
 # ╭──────────────────────────────────────────────────────────────╮
 # │		IPs, Ports, CVEs, Org, Server, Product, OS	 │
