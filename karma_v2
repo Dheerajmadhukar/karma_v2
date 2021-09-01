@@ -66,10 +66,10 @@ banner(){
 	[ "$silent" == "False" ] && echo   '                    \@@000000000000000000@@@/					' >&2
 	[ "$silent" == "False" ] && echo   '                     00000000000000@@@@@@@@@ 					' >&2
 	[ "$silent" == "False" ] && printf "${logo}╭───────────────────────────────────────────────────────────────────────────────╮${end}\n" >&2
-    [ "$silent" == "False" ] && printf "  ${greenbg} ${program} ${end}\t\t\t\t\t${green}KARMA IS MY BITCH.....🧠${end}\n\n" >&2
-    [ "$silent" == "False" ] && printf "${logo}\t\t - https://github.com/Dheerajmadhukar${end}\n" >&2
+   	[ "$silent" == "False" ] && printf "  ${greenbg} ${program} ${end}\t\t\t\t\t${green}KARMA IS MY BITCH.....🧠${end}\n\n" >&2
+    	[ "$silent" == "False" ] && printf "${logo}\t\t - https://github.com/Dheerajmadhukar${end}\n" >&2
 	[ "$silent" == "False" ] && printf "${logo}\t\t - https://twitter.com/Dheerajmadhukar${end}\n" >&2
-    [ "$silent" == "False" ] && printf "${logo}╰───────────────────────────────────────────────────────────────────────────────╯${end}\n" >&2
+    	[ "$silent" == "False" ] && printf "${logo}╰───────────────────────────────────────────────────────────────────────────────╯${end}\n" >&2
 	[ "$silent" == "False" ] && printf '\n\n' >&2
 }
 
@@ -292,35 +292,35 @@ args(){
 # │		Prerequisites	 │
 # ╰──────────────────────────────╯
 check_requirements(){
-	"${shodan_bin}" --help > /dev/null 2>&1
+	"$(which ${shodan_bin})" --help > /dev/null 2>&1
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${shodan_bin}. Make sure it installed OR \n\t - pip3 install shodan${end}\n";exit 1
 	fi
-	"${httprobe_bin}" --help > /dev/null 2>&1 
+	"$(which ${httprobe_bin})" --help > /dev/null 2>&1 
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${httprobe_bin}. Make sure it installed OR \n\t - GO111MODULE=on go get -v github.com/tomnomnom/httprobe${end}\n";exit 1
 	fi
-	"${interlace_bin}" --help > /dev/null 2>&1 
+	"$(which ${interlace_bin})" --help > /dev/null 2>&1 
 	if [[ ! $? -eq 0 ]]; then
 	printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${interlace_bin}. Make sure it installed OR \n\t - Clone https://github.com/codingo/Interlace.git${end}\n";exit 1
 	fi
-	"${jq_bin}" --help > /dev/null 2>&1 
+	"$(which ${jq_bin})" --help > /dev/null 2>&1 
 	if [[ ! $? -eq 0 ]]; then
 	printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${jq_bin}. Make sure it installed OR \n\t - apt install jq -y${end}\n";exit 1
 	fi
-	"${lolcat_bin}" --version > /dev/null 2>&1
+	"$(which ${lolcat_bin})" --version > /dev/null 2>&1
 	if [[ ! $? -eq 0 ]]; then
 	printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${lolcat_bin}. Make sure it installed OR \n\t - apt install lolcat -y${end}\n";exit 1
 	fi
-	"${nuclei_bin}" --help > /dev/null 2>&1
+	"$(which ${nuclei_bin})" --help > /dev/null 2>&1
 	if [[ ! $? -eq 0 ]]; then
 	printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${nuclei_bin}. Make sure it installed OR \n\t - GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei${end}\n";exit 1
 	fi
-	"${python3_bin}" --help > /dev/null 2>&1
+	"$(which ${python3_bin})" --help > /dev/null 2>&1
 	if [[ ! $? -eq 0 ]]; then
 	printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${python3_bin}. Make sure it installed OR \n\t - apt install python3 python3-pip -y${end}\n";exit 1
 	fi
-	"${python3_bin}" -c 'import mmh3' > /dev/null 2>&1
+	"$(which ${python3_bin})" -c 'import mmh3' > /dev/null 2>&1
 	if [[ ! $? -eq 0 ]]; then
 	printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${python3_bin} mmh3 module. Make sure it installed OR \n\t - ${python3_bin} -m pip install mmh3${end}\n";exit 1
 	fi
