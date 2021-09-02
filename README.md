@@ -64,6 +64,10 @@ Clone https://github.com/codingo/Interlace.git & install accordingly.
 ```bash
 # apt install lolcat -y
 ```
+### 8. Install anew
+```bash
+# GO111MODULE=on go get -u github.com/tomnomnom/anew
+```
 
 ## Ok, how do I use it?
 ```bash
