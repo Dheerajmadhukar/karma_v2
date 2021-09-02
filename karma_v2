@@ -708,7 +708,7 @@ prarg(){
         	exit 0
 	fi
  }
-check_update
+#check_update
 args
 check_requirements
 prarg $@
