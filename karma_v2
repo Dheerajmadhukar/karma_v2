@@ -335,7 +335,7 @@ check_requirements(){
 # │		Check Update	 │
 # ╰──────────────────────────────╯
 check_update(){
-	timeout 10 git fetch &>/dev/null
+	timeout 20 git fetch &>/dev/null
 	exit_code=$?
 	if [ $exit_code -eq 0 ]; then
 		BRANCH=$(git rev-parse --abbrev-ref HEAD)
