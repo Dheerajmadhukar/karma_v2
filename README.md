@@ -40,7 +40,7 @@ API : [Developer API](https://developer.shodan.io/api)
  ```bash
 $ git clone https://github.com/Dheerajmadhukar/karma_v2.git
 ```
-### 2. Install shodan & mmh3 python module
+#### 2. Install shodan & mmh3 python module
 ```bash
 $ python3 -m pip install shodan mmh3
 ```
