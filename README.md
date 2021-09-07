@@ -36,42 +36,42 @@ API : [Developer API](https://developer.shodan.io/api)
 - **Interesting Leaks like Indexing, NDMP, SMB, Login, SignUp, OAuth, SSO, Status 401/403/500, VPN, Citrix, Jfrog, Dashboards, OpenFire, Control Panels, Wordpress, Laravel, Jetty, S3 Buckets, Cloudfront, Jenkins, Kubernetes, Node Exports, Grafana, RabbitMQ, Containers, GitLab, MongoDB, Elastic, FTP anonymous, Memcached, DNS Recursion, Kibana, Prometheus, Default Passwords, Protected Objects, Moodle, Spring Boot, Django, Jira, Ruby, Secret Key and many more...**
 
 ## Installation
-### 1. Clone the repo
+#### 1. Clone the repo
  ```bash
-# git clone https://github.com/Dheerajmadhukar/karma_v2.git
+$ git clone https://github.com/Dheerajmadhukar/karma_v2.git
 ```
 ### 2. Install shodan & mmh3 python module
 ```bash
-# python3 -m pip install shodan mmh3
+$ python3 -m pip install shodan mmh3
 ```
-### 3. Install JSON Parser [JQ]
+#### 3. Install JSON Parser [JQ]
 ```bash
-# apt install jq -y
+$ apt install jq -y
 ```
-### 4. Install httprobe [@tomnomnom](https://github.com/tomnomnom/httprobe) to probe the requests
+#### 4. Install httprobe [@tomnomnom](https://github.com/tomnomnom/httprobe) to probe the requests
 ```bash
-# GO111MODULE=on go get -v github.com/tomnomnom/httprobe
+$ GO111MODULE=on go get -v github.com/tomnomnom/httprobe
 ```
-### 5. Install Interlace [@codingo](https://github.com/codingo/Interlace.git) to multithread [Follow the codingo interlace repo instructions]
+#### 5. Install Interlace [@codingo](https://github.com/codingo/Interlace.git) to multithread [Follow the codingo interlace repo instructions]
 ```bash
-# git clone https://github.com/codingo/Interlace.git & install accordingly. 
+$ git clone https://github.com/codingo/Interlace.git && cd Interlace && python3 setup.py install 
 ```
-### 6. Install nuclei [@projectdiscovery](github.com/projectdiscovery/nuclei)
+#### 6. Install nuclei [@projectdiscovery](github.com/projectdiscovery/nuclei)
 ```bash
-# GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+$ GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
 ```
-### 7. Install lolcat
+#### 7. Install lolcat
 ```bash
-# apt install lolcat -y
+$ apt install lolcat -y
 ```
-### 8. Install anew
+#### 8. Install anew
 ```bash
-# GO111MODULE=on go get -u github.com/tomnomnom/anew
+$ GO111MODULE=on go get -u github.com/tomnomnom/anew
 ```
 
 ## Ok, how do I use it?
 ```bash
-# cat > .token
+$ cat > .token
 SHODAN_PREMIUM_API_HERE
 ```
 
@@ -97,21 +97,25 @@ $ bash karma_v2 -h
 ## Demo
 
 - karma_v2 [mode -ip]
+
 [![asciicast](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV.svg)](https://asciinema.org/a/1aKFM3oyQZ14t9H8V0qjp2lUV?t=25&speed=5&theme=tango)
 
 ---
 
 - karma_v2 [mode -asn]
+
 [![asciicast](https://asciinema.org/a/0RcsIp6f6xxX81JmEHvvlepBT.svg)](https://asciinema.org/a/0RcsIp6f6xxX81JmEHvvlepBT?t=25&speed=5&theme=tango)
 
 ---
 
 - karma_v2 [mode -cve]
+
 [![asciicast](https://asciinema.org/a/4Ri9FW97qnVV37v3Mb2mNTKz8.svg)](https://asciinema.org/a/4Ri9FW97qnVV37v3Mb2mNTKz8?t=25&speed=5&theme=tango)
 
 ---
 
 - karma_v2 [mode -favicon]
+
 [![asciicast](https://asciinema.org/a/6bnPXhwacmCOanRRsdNIA1rs4.svg)](https://asciinema.org/a/6bnPXhwacmCOanRRsdNIA1rs4?t=25&speed=5&theme=tango)
 
 ---
