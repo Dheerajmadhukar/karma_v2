@@ -208,6 +208,20 @@ output/bugcrowd.com-YYYY-MM-DD/
 | **`html:"secret_key_base"`** | **`I will add more soon`** | **`. . .`** |
 
 
+# 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 Newly Added Shodan Dorks
+| **DORKs** | **DORKs** | **DORKs** |
+|:-------------|:----------------|:----------------|
+| **`"netweaver"`**  |    **`port:"2379" product:"etcd"`**    | **`http.title:"DisallowedHost"`**           |
+| **`ssl:"${target}" "-AkamaiGHost" "-GHost"`**  |    **`ssl:"${target}" "-Cloudflare"`**    | **`ssl:"${target}" "-Cloudfront"`**           |
+| **`"X-Debug-Token-Link" port:443`**  |    **`http.title:"shipyard" HTTP/1.1 200 OK Accept-Ranges: bytes Content-Length: 5664`**    | **`http.title:"TIBCO Jaspersoft:" port:"443" "1970"`**           |
+| **`"Confluence"`**  |    **`http.title:"SonarQube"`**    | **`html:"jmx?qry=Hadoop:*"`**           |
+| **`http.title:"Directory Listing"`**  |    **`http.title:"H-SPHERE"`**    | **`http.title:"Swagger UI - "`**           |
+| **`Server: Apache-Coyote/1.1 Tomcat-5.5"`**  |    **`port:2375 product:"Docker"`**    | **`http.title:"phpinfo()"`**           |
+| **`http.title:"ID_VC_Welcome"`**  |    **`"x-powered-by" "jboss"`**    | **`jboss http.favicon.hash:-656811182`**           |
+| **`http.title:"Welcome to JBoss"`**  |    **`port:"8089, 8000" "splunkd"`**    | **`http.favicon.hash:-316785925`**           |
+| **`title:"splunkd" org:"Amazon.com"`**  |    **`http.title:"oracle business intelligence sign in"`**    | **`http.title:"Oracle WebLogic Server Administration Console"`**           |
+| **`http.title:"Apache Status"`**  |    **`I will add more soon`**    | **`. . .`**           |
+
 
 ## Support
 If you like `⡷⠂𝚔𝚊𝚛𝚖𝚊 𝚟𝟸⠐⢾` and it help you in work, money/bounty, pentesting, recon or just brings you happy feelings, please show your support ! 
