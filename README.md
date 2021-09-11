@@ -164,26 +164,32 @@ output/bugcrowd.com-YYYY-MM-DD/
 ```
 
 
-## Roadmap for v2.1
-* Upcoming features for the v2.1:
-  - [working] GraphQL
-  - [working] Docker Exec
-  - [working] Apache kafka
-  - [working] Apache Hadoop
-  - [working] JBoss
-  - [working] phpinfo
-  - [working] ID_VC
-  - [working] Service Now
-  - [working] Salesforce
-  - [working] Splunk
-  - [working] SAP S4 Hana
-  - [working] Workday
-  - [working] okta
-  - [working] ADP
-  - [working] IBM MQ
-  - [working] Oracle Web Login
-  - [ToDo] Still Looking for more . . .
 
+## karma_v2 Newly Added Shodan Dorks
+
+- SonarQube
+- Apache hadoop node
+- Directory Listing
+- Oracle Business intelligence
+- Oracle Web Login
+- Docker Exec
+- Apache Status
+- Apache-Coyote/1.1 Tomcat-5.5
+- Swagger UI
+- H-SPHERE
+- Splunk
+- JBoss
+- phpinfo
+- ID_VC
+- Confluence
+- TIBCO_Jaspersoft
+- Shipyard_Docker_management
+- Symfony PHP info AWS creds
+- Ignored-by_CDNs
+- Django_Exposed
+- Cluster_Node_etcd
+- SAP_NetWeaver_Application
+					
 # 𝚔𝚊𝚛𝚖𝚊 𝚟𝟸 Supported Shodan Dorks
 | **DORKs** | **DORKs** | **DORKs** |
 |:-------------|:----------------|:----------------|
