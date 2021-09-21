@@ -691,7 +691,7 @@ prarg(){
 						;;
 				'-v'|'--version')
 						banner
-						printf "Corrent Version: ${version}\n\n"
+						printf "Current Version: ${version}\n\n"
 						exit 0
 						;;
                 '-h'|'--help')
