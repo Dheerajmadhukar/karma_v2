@@ -15,6 +15,7 @@
 ###																	
 #########################################################################################################################################
 
+
 black='\e[38;5;016m'
 bluebg='\e[48;5;038m'${black}
 red='\e[31m'
@@ -27,7 +28,6 @@ yellow='\e[33m'
 logo='\033[0;36m'
 upper="${lightblue}╔$(printf '%.0s═' $(seq "80"))╗${end}"
 lower="${lightblue}╚$(printf '%.0s═' $(seq "80"))╝${end}"
-#right=$(printf '\xE2\x9C\x94')
 right=$(printf '\u2714')
 cross=$(printf '\u2718')
 end='\e[0m'
@@ -66,11 +66,70 @@ banner(){
 	[ "$silent" == "False" ] && echo   '                    \@@000000000000000000@@@/					' >&2
 	[ "$silent" == "False" ] && echo   '                     00000000000000@@@@@@@@@ 					' >&2
 	[ "$silent" == "False" ] && printf "${logo}╭───────────────────────────────────────────────────────────────────────────────╮${end}\n" >&2
-   	[ "$silent" == "False" ] && printf "  ${greenbg} ${program} ${end}\t\t\t\t\t${green}KARMA IS MY BITCH.....🧠${end}\n\n" >&2
-    	[ "$silent" == "False" ] && printf "${logo}\t\t - https://github.com/Dheerajmadhukar${end}\n" >&2
+    [ "$silent" == "False" ] && printf "  ${greenbg} ${program} ${end}\t\t\t\t\t${green}KARMA IS MY BITCH.....🧠${end}\n\n" >&2
+    [ "$silent" == "False" ] && printf "${logo}\t\t - https://github.com/Dheerajmadhukar${end}\n" >&2
 	[ "$silent" == "False" ] && printf "${logo}\t\t - https://twitter.com/Dheerajmadhukar${end}\n" >&2
-    	[ "$silent" == "False" ] && printf "${logo}╰───────────────────────────────────────────────────────────────────────────────╯${end}\n" >&2
+    [ "$silent" == "False" ] && printf "${logo}╰───────────────────────────────────────────────────────────────────────────────╯${end}\n" >&2
 	[ "$silent" == "False" ] && printf '\n\n' >&2
+}
+
+secret(){
+	echo -e "		xxkX[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mW[0m[37mX[0m[31md[0m[31mo[0ml[37ml[0m[37ml[0m[37ml[0m[37ml[0m[37ml[0mo[31mo[0m[31mo[0ml[31mo[0m[31mo[0m[31mo[0m[31mo[0m[31mx[0m[31md[0m
+		xx[33mO[0mXNW[37mW[0m[37mW[0m[37mW[0m[37mW[0mWXKX00XNXNWNXN[37mN[0m[37mW[0m[37mN[0m[37mN[0m[37mX[0m[37mN[0m[37mN[0m[37mX[0m[37mX[0m[37mW[0m[37mW[0m[37mW[0m[37mX[0m[31mx[0m[31mo[0ml[37ml[0m[37mc[0m[37ml[0m[37ml[0m[37ml[0mo[31mo[0m[31md[0m[31mo[0m[31md[0m[31md[0m[31md[0m[31md[0m[31mk[0m[31mx[0m
+		xxx[33mk[0m[33mO[0mKW[37mW[0m[37mW[0mX0kx[33mx[0m[33mx[0m[33mk[0m[33mk[0m[33mk[0m[33mk[0m[33mk[0m[33mk[0m[33mk[0mk[37mx[0m[37mo[0mk[37md[0m[34m:[0m[34mc[0m[34mc[0m[34mc[0m[34mc[0m[34mc[0m[34mo[0m[37mx[0m[37mO[0m[37m0[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m0[31mK[0m[31mK[0m
+		kxxdxOXW[37mW[0mXkd[33md[0m[33mx[0m[33md[0m[33md[0m[33md[0m[33md[0m[33md[0m[33md[0m[33md[0md[34m;[0m[34m,[0m[34m,[0m[37m;[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m;[0m[34m;[0m[34m;[0m[34m:[0m[34m;[0m[34m;[0m[34mc[0m[34mo[0m[37mx[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0mK[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m
+		k[33mk[0m[33mk[0m[33mk[0m[33mO[0mxk0[37mO[0mkxddooooold[37md[0m[34m:[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m:[0m[34m:[0m[34ml[0m[37mO[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m[31m0[0m
+		xddk[33mO[0mOx[37md[0m[37mo[0m[37mo[0mddolooodo[37m:[0m[34m.[0m[34m.[0m[34m.[0m[34m.[0m[34m.[0m[34m.[0m[34m.[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m,[0m[34m;[0m[34m:[0m[34mc[0m[37mx[0m[31mk[0m[31mx[0m[31mx[0m[31mx[0m[31mo[0m[31mo[0m[31mo[0m[31mo[0m[31ml[0m[31ml[0m[31ml[0m[31ml[0m[31md[0m
+		[37mo[0m[37mo[0modoxxxxxk[33mk[0mxxxd[37mo[0m[37ml[0m[34m;[0m[34m,[0m[34m'[0m[34m.[0m[34m.[0m[37m.[0m[37m.[0m[34m.[0m[34m.[0m[34m.[0m[37m;[0m[37mo[0m[37mc[0m[37mc[0m[37m:[0m[37m;[0m[34m,[0m[34m'[0m[34m'[0m[34m,[0m[34m;[0m[34m;[0m[34m;[0m[34m:[0m[37md[0m[31mk[0m[31mk[0m[31mx[0m[31mo[0mllll[31ml[0ml[31mo[0m[33md[0m
+		oddoox[33mk[0m[33mk[0m[33mk[0m[33md[0m[37m'[0m[37m;[0m[34ml[0m[34mo[0m[34mo[0m[34ml[0m[34ml[0m[34mo[0m[34ml[0m[34ml[0m[34mo[0m[34ml[0m[34mc[0m[34m:[0m[34m;[0m[34m,[0m[34m.[0m[37m.[0m[37m.[0m[37m'[0m[37m,[0m[37mc[0m[37mc[0m[37ml[0m[37md[0m[37m:[0m[34m'[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[37mo[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31mk[0m[31mk[0m[33mx[0m[33mx[0m[33md[0m[33mo[0m
+		[33mk[0m[33mk[0m[33m0[0m[33mO[0m[33mO[0m[33mk[0m[33mk[0m[33mx[0m[33mx[0m[33mx[0m,[37m [0m[37m [0m[37m.[0m[34m,[0m[34m;[0m[34m:[0m[34mc[0m[37mc[0m[34mc[0m[34m:[0m[37m,[0m[37m'[0m[37m,[0m[37m,[0m[31m'[0m.[37m.[0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m.[0m[37m.[0m[37m.[0m[37m'[0m[37m,[0m[34m,[0m[37m;[0m[31mk[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31mO[0m[31mk[0m[31mk[0m[31mk[0m[33md[0m[33md[0m[33mo[0m[33ml[0m[33mo[0m
+		[33md[0m[33md[0m[33mk[0m[33mx[0m[33mO[0m[33mk[0m[33mk[0m[33mx[0m[33mx[0m[33mk[0m[33m0[0m[33mx[0m[33mc[0m:::[33mc[0m;,..[37m.[0m.[31m,[0m[31m;[0m[31m;[0m[31m:[0m[31m;[0m[37m.[0m[37m.[0m[37m [0m[37m [0m.[31m;[0m[31m:[0m[31mc[0m[31m:[0m[37m.[0m[37m'[0m[37m'[0m[37mc[0m[31mO[0m[31mO[0m[31mO[0m[31mk[0m[31mk[0mo[33mc[0m[33mc[0m[33ml[0mc[33mc[0m[33ml[0m[33ml[0m[33mo[0m
+		[33m0[0m[33md[0m[33md[0m[33md[0m[33mx[0m[33mx[0m[33mk[0m[33mO[0m[33md[0m[33mk[0m[33mO[0m[33mx[0m[33mk[0m[33m0[0m[33m0[0m[33mo[0m[33md[0m[33ml[0m;[31m,[0m[31m.[0m[31m,[0m[31m,[0m[31m,[0m[31m;[0m[31m:[0m[31mc[0m[31mc[0m[37m.[0m[37m.[0m[37m.[0m[31mc[0m[31m:[0m[31m.[0m[31m,[0m[31m:[0m[31m:[0m[37m.[0m[37m.[0m[37m.[0m[37m,[0m[37mx[0m[31mO[0m[31mO[0mk[33mo[0m[33ml[0m[33mc[0m[33mc[0mccc[33mc[0m[33mc[0m[33mc[0m
+		[31md[0m[33mo[0m[33mo[0m[33ml[0m[33ml[0m[33mo[0m[33mk[0m[33mk[0m[33mO[0m[33mk[0m[33mk[0m[33mx[0m[31mx[0m[31md[0m[33mx[0m[33mx[0m[33mx[0m[33mo[0m[31m;[0m[31m,[0m[31m;[0m[31mc[0m[31ml[0m[31mc[0m[31m:[0m[31m:[0m[31m:[0m,[37m.[0m[37m.[0m[37m.[0m[31mo[0m[31mc[0m[31m;[0m[31m:[0m[31m;[0m[31m,[0m[37m.[0m[37m.[0m[37m.[0m[37m'[0mOOOO[33mo[0mx0Od[33ml[0m[33ml[0m[33ml[0m[33mo[0m[33mo[0m
+		[31m0[0m[33m0[0m[33mO[0m[33mx[0m[33mo[0mc[33ml[0m[33mx[0m[33mk[0m[33mx[0m[33md[0m[33ml[0m[33ml[0m[33ml[0m[33ml[0m[33mO[0m[33m0[0m[31mo[0m[31m;[0m[31m;[0m[31m.[0m[31m,[0m[31mc[0m[31mc[0m[31m;[0m.[37m.[0m[37m.[0m[37m [0m[37m [0m[37m.[0m[31mc[0m[31m:[0m[31ml[0m[31ml[0m[31mc[0m'[37m.[0m[37m'[0m[37m'[0mckdxOx[33mx[0mOd[33ml[0m[33mc[0mc:c:
+		[31mK[0m[33m0[0mKK[33m0[0mOk[33mk[0m[33m0[0m[33md[0m[33md[0m[33mx[0mkOO[33m0[0m[33m0[0m[33mk[0m[33mc[0m[37m.[0m[37m.[0m[37m.[0m[37m [0m[37m.[0m[37m.[0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m.[0m'[31m;[0m[31mc[0m[31m:[0m[31m,[0m.';[37mc[0m[37ml[0md[37mo[0mkOkk[33md[0m[33ml[0m[33ml[0mlcc:,
+		[33mK[0m[33m0[0m[33mO[0m[33mx[0m[33mO[0m[33mO[0mx[33mx[0m[33mo[0mclkOOOOO[33mo[0m[33mx[0mx;'[37m.[0m[37m.[0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m.[0m[37m.[0m[37m'[0m[37m.[0m[37m'[0m[34m,[0m[34m;[0m[34m;[0m[34m:[0m[34mc[0m[34ml[0m[34ml[0m[34mo[0m[36md[0mlooo[33ml[0m:::;,
+		[33mK[0m[33m0[0m[33mx[0m[33mo[0m[33mo[0m[32mc[0m:[33ml[0m[33mo[0m[33mc[0m[33mo[0mx[33mx[0m[33md[0m[33mk[0mkO[33md[0m[33mc[0md[37m,[0m[37m [0m[37m.[0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m.[0m[34m'[0m[34m,[0m[34m,[0m[34m'[0m[34m,[0m[34m,[0m[34m;[0m[34mc[0m[34ml[0m[34mo[0m[34md[0m[34mx[0m[36mx[0mool:::;;c
+		[33m0[0m[33mk[0m[33mx[0m[33md[0m[33ml[0m[33mo[0m[33mo[0m[33mo[0m[33md[0m[33mo[0m[33mo[0m[33md[0m[33md[0m[33mo[0m[33md[0m[33mO[0m[33mk[0m[33md[0m[33mx[0m[33mo[0m'[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m [0m[37m.[0m[34m.[0m[34m'[0m[34m,[0m[34m,[0m[34m,[0m[34m:[0m[34mc[0m[34mo[0m[34md[0m[34mx[0m[34mx[0m[34mx[0m[34mk[0m[34m0[0m[34m0[0m[34m0[0m[34m0[0m[34m0[0m[34m0[0m[36mO[0m[37mx[0m[37mo[0m[37ml[0m[37mc[0m
+		[33mx[0m[33mk[0m[31mO[0m[31mk[0m[31ml[0m[33mc[0m[33ml[0m[33mo[0m[33mo[0m[33ml[0m[33ml[0m[33md[0m[33mo[0m[31mo[0m[31mk[0m[33mk[0m[33mo[0m[33mc[0m[33mc[0m[33ml[0m:'.[37m.[0m...[37m.[0m[37m.[0m[37m'[0m[34m,[0m[34m:[0m[34ml[0m[34md[0m[34mk[0m[34m0[0m[34mO[0m[34mO[0m[34mk[0m[34mO[0m[34mk[0m[34mk[0m[34mk[0m[34mk[0m[34mO[0m[34m0[0m[34m0[0m[34m0[0m[34mO[0m[34m0[0m[34mO[0m[34m0[0m[34m0[0m[34mK[0m[34mK[0m
+		[33mo[0m[33ml[0m[33mk[0m[33mO[0m[31mx[0m[31mo[0m[33ml[0m[33ml[0m[33mo[0m[33mx[0m[33mx[0m[33md[0m[33ml[0m:[33ml[0m[33mc[0m;;,;;;;;::;[37m.[0m[37m:[0m[37md[0m[37mO[0m[37mK[0m[37mK[0m[37m0[0m[37mK[0m[37mX[0m[37mX[0m[37mK[0m[37mX[0m[36m0[0m[36mk[0m[36md[0m[34mo[0m[34md[0m[34md[0m[34md[0m[34mx[0m[34mx[0m[34mx[0m[34mO[0m[34mk[0m[34m0[0m[34mO[0m[34m0[0m[34m0[0m
+		[33mx[0m[33md[0m[33mo[0m[33mO[0m[33m0[0m[33mO[0m[33mx[0m[33ml[0m[33mo[0m[33ml[0m;:;:[33ml[0m[33mo[0m[33mo[0m[33md[0m[33md[0m[33ml[0m[33md[0m[33mc[0m:[37m:[0m[37m,[0m[37mc[0m[37md[0m[37mO[0m[37mK[0m[37mK[0m[37mK[0m[37mX[0m[37mK[0m[37m0[0m[37mO[0m[37mK[0m[37mN[0m[37mK[0m[37mK[0m[37mN[0m[36mK[0m[36mO[0m[34mo[0m[34mo[0m[36mo[0m[36mo[0m[36mo[0m[36mx[0m[36mx[0m[36mx[0m[36mx[0m[36mx[0m[36mk[0m[36mx[0m[36mk[0m
+		[31mO[0m[31mO[0m[31mk[0m[31mO[0m[33mk[0m[33mk[0m[33m0[0m[33mk[0m[33mk[0m[33mo[0m[33ml[0m[33ml[0m[33mo[0m[33md[0m[33mk[0m[33mO[0m[33mO[0m[33mO[0m[33m0[0m[33mO[0m[31mx[0md[37md[0m[37mk[0m[37m0[0m[37mK[0m[37mK[0m[37mK[0m[37m0[0m[37mK[0m[37mX[0m[37mK[0m[37mK[0m[37mK[0m[37mO[0m[37mK[0m[37mN[0m[37mX[0m[37mK[0m[37mX[0m[37mX[0m[37mK[0m[37mk[0m[36mo[0m[36md[0m[36mo[0m[36mo[0m[36md[0m[36mx[0m[36mx[0m[36mo[0m[34mo[0m[34mk[0m[34mk[0m[34mO[0m
+		[31mO[0m[31mO[0m[33mk[0m[33mO[0m[33mO[0m[33mk[0m[33mO[0m[33mk[0m[31mO[0m[31mO[0m[33mk[0m[31mO[0m[31mO[0m[33mx[0m[33mx[0m[33mO[0m[33m0[0m[33mk[0m[33mx[0m[33mk[0mk[37md[0m[37mo[0m[37mx[0m[37m0[0m[37m0[0m[37m0[0m[37m0[0m[37m0[0m[37m0[0m[37mO[0m[37mX[0m[37mK[0m[37m0[0m[37mO[0m[37mK[0m[37mK[0m[37mK[0m[37m0[0m[37m0[0m[37mK[0m[37mX[0m[37mK[0m[36mx[0m[36mo[0m[36mx[0m[36md[0m[36mx[0m[34mx[0m[34md[0m[36mc[0m[36mc[0m[34mk[0m[34mx[0m[34mO[0m
+		[33mO[0m[33mk[0m[33mk[0m[33md[0m[33mx[0m[33mO[0m[33mO[0m[33m0[0m[31m0[0m[31m0[0m[31m0[0m[33m0[0m[33m0[0m[33mk[0m[33mk[0m[33m0[0m[33mO[0m[33mk[0md[36mo[0m[36mc[0m[37ml[0m[37mx[0m[37ml[0m[37mO[0m[37md[0m[37md[0m[37md[0m[37mk[0m[37mk[0m[37mo[0m[37mk[0m[37m0[0m[37mO[0m[37mO[0m[37m0[0m[37mK[0m[37mk[0m[37m0[0m[37mX[0m[37mK[0m[37mN[0m[37mN[0m[36mO[0m[36ml[0m[34ml[0m[36md[0m[36md[0m[34mx[0m[34mo[0m[36m:[0m[36m:[0m[34mk[0m[34mx[0m[34mx[0m
+		[33mx[0m[33mO[0m[33mO[0m[33mO[0m[33mx[0m[33mx[0m[33mk[0m[33mO[0m[33mk[0m[33m0[0m[33mO[0m[33mO[0m[33m0[0m[33m0[0m[33mO[0m[33mO[0m[33mk[0m[37mo[0m[37mo[0m[37ml[0m[36ml[0m[37mo[0m[37mc[0m[37m:[0m[37mc[0m[37m:[0m[34mc[0m[34m;[0m[37ml[0m[37md[0m[37mx[0m[37mc[0m[37md[0m[37mO[0m[37mO[0m[37mk[0m[37mX[0m[37mO[0m[37mO[0m[37mX[0m[37mK[0m[37mK[0m[37mN[0m[36m0[0m[36ml[0m[36ml[0m[36mo[0m[36mk[0m[36md[0m[34mo[0m[36m:[0m[36m;[0m[34md[0m[34mO[0m[36mo[0m
+		[33mx[0m[33mO[0m[33m0[0m[33m0[0m[33mk[0m[33mo[0m[33mk[0m[33mk[0m[33mx[0m[33md[0m[33md[0m[33md[0m[33mx[0m[33mk[0m[33mk[0m[33mx[0md[37mo[0m[37ml[0m[37ml[0m[37mc[0m[37m:[0m[37m:[0m[37m:[0m[37mc[0m[37m'[0m[37m.[0m[37m'[0m[37m;[0m[34mc[0m[37m:[0m[37m;[0m[37md[0m[37mO[0m[37m0[0m[37mO[0m[37mK[0m[37mk[0m[37mx[0m[37m0[0m[37mX[0m[37m0[0m[37mN[0m[36m0[0m[36mo[0m[36mc[0m[36mo[0m[36mk[0m[36mo[0m[36mo[0m[37m;[0m[37m;[0m[36md[0m[36mk[0m[36mo[0m
+		[33md[0m[33mk[0m[33mO[0m[33mO[0m[33mk[0m[33mx[0m[33mx[0m[33mk[0m[33mx[0m[33mo[0m[33ml[0m[33mx[0m[33mx[0m[33mo[0m[33mo[0m[33md[0m[37mo[0m[37mo[0m[37ml[0m[37mc[0m[37m:[0m[37m:[0m[37m;[0m[37m;[0m[37m;[0m[37m'[0m[37m.[0m[37m.[0m[37m.[0m[34m,[0m[34m:[0m[34mc[0m[37m:[0m[37mk[0m[37mk[0m[37mk[0m[37mO[0m[37mx[0m[37mk[0m[37m0[0m[37mK[0m[37mO[0m[37mX[0m[36m0[0m[36mo[0m[36mc[0m[34md[0m[34mx[0m[36mo[0m[34ml[0m[37m;[0m[37m;[0m[36md[0m[36md[0m[36mo[0m
+		[33mo[0m[33mk[0m[33mk[0m[33m0[0m[33mk[0m[33mk[0m[33mO[0m[33mk[0m[33mx[0m[33md[0m[33md[0m[33mo[0m[33mo[0m[33mo[0m[33mo[0m[33md[0m[37mo[0m[37ml[0m[37mc[0m[37m:[0m[37m:[0m[37m:[0m[37m;[0m[34m;[0m[34m,[0m[34m,[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m;[0m[37ml[0m[37mo[0m[37mx[0m[37mx[0m[37m:[0m[37mo[0m[37mk[0m[37mk[0m[37mk[0m[37mk[0m[37mK[0m[37m0[0m[36md[0m[36ml[0m[34mx[0m[34md[0m[34ml[0m[34m:[0m[34m,[0m[34m;[0m[34md[0m[34mc[0m[34ml[0m
+		[33mc[0m[33mo[0m[33mo[0m[33mo[0m[33mx[0m[33mk[0m[33mx[0m[33md[0m[33mx[0m[33mo[0m[33md[0m[33mk[0m[33mO[0m[33mk[0m[33mk[0m[33md[0m[37ml[0m[37ml[0m[37mc[0m[37m:[0m[37m:[0m[37m;[0m[37m,[0m[37m,[0m[34m,[0m[37m:[0m[37mc[0m[34m;[0m[34m,[0m[34m'[0m[37m.[0m[34m.[0m[34m:[0m[37md[0m[37mc[0m[37m,[0m[37m;[0m[37mk[0m[37mO[0m[37m:[0m[37mx[0m[37mO[0m[37mK[0m[37mO[0m[36mo[0m[36mo[0m[34md[0m[34ml[0m[34m:[0m[34m,[0m[34m'[0m[34m;[0m[34ml[0m[34m:[0m[34mc[0m
+		[33mo[0m[33mk[0m[33ml[0m[33mc[0m[33mo[0m[33md[0m[33md[0m[33mx[0m[33mx[0m[33md[0m[33mx[0m[33mx[0m[33mk[0m[33mk[0m[33mx[0md[37mo[0m[37mc[0m[37m:[0m[37m:[0m[37m;[0m[37m,[0m[37m'[0m[37m'[0m[37m,[0m[37m;[0m[37m,[0m[34m,[0m[34m,[0m[34m,[0m[34m'[0m[34m'[0m[34m:[0m[37m,[0m[37m.[0m[37m.[0m[37m:[0m[37mk[0m[37mc[0m[34m;[0m[37mc[0m[37mx[0m[34mO[0m[34mx[0m[34mo[0m[34ml[0m[34ml[0m[34m:[0m[34m'[0m[34m.[0m[34m'[0m[34mc[0m[34m:[0m[34m:[0m[34mc[0m
+		[33mo[0m[33md[0m[33mo[0m[33ml[0m[33ml[0m[33ml[0m[33md[0m[33md[0m[33ml[0m[33mc[0m[33mo[0m[33md[0m[33md[0m[33mo[0m[33mo[0mo[37mc[0m[37m:[0m[37m;[0m[37m,[0m[37m,[0m[37m'[0m[37m'[0m[37m,[0m[37m'[0m[37m,[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[37m:[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37mo[0m[34mc[0m[34m,[0m[34m:[0m[37mc[0m[37mx[0m[34md[0m[34ml[0m[34m:[0m[34mc[0m[34m:[0m[34m,[0m[34m.[0m[34m.[0m[34m;[0m[34mc[0m[34m:[0m[34m:[0m[34m:[0m
+		[33md[0m[33md[0m[33mo[0m[33mo[0m[33ml[0m[33mo[0m[33md[0m[33md[0m[33mc[0m[33mc[0m[33mo[0m[33md[0m[33md[0m[33mo[0m[33mo[0m[37mc[0m[34m:[0m[34m,[0m[34m,[0m[37m'[0m[37m'[0m[37m'[0m[37m'[0m[37m'[0m[37m,[0m[34m,[0m[34m'[0m[34m'[0m[34m'[0m[34m'[0m[34m,[0m[37m,[0m[37m.[0m[37m [0m[37m.[0m[34ml[0m[34mc[0m[34m'[0m[34m,[0m[34mc[0m[37mc[0m[37mo[0m[34mc[0m[34m;[0m[34m;[0m[34m:[0m[34m;[0m[34m.[0m[34m.[0m[34m'[0m[34mc[0m[34m;[0m[34m;[0m[34m:[0m[34m:[0m
+		[33ml[0m[33m:[0m[33mc[0m[33mc[0m[33ml[0m[33mx[0m[33mx[0m[33md[0m[33m:[0m[33ml[0m[33mk[0m[33mx[0m[33mc[0m[33md[0mc[34m:[0m[34m;[0m[34m,[0m[37m,[0m[37m'[0m[37m'[0m[37m'[0m[37m'[0m[37m'[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m'[0m[37m'[0m[37m;[0m[37m [0m[37m [0m[37m'[0m[34ml[0m[34mc[0m[34m,[0m[34m,[0m[34mc[0m[34ml[0m[37m;[0m[34m:[0m[34m,[0m[34m,[0m[34m:[0m[34m:[0m[34m.[0m[34m.[0m[34m.[0m[34m;[0m[34m:[0m[34m;[0m[34m:[0m[34m:[0m[34mc[0m
+		;;[33m:[0m[33ml[0m[33ml[0m[33mo[0m[33ml[0m[33mc[0m::[33ml[0m[33ml[0m[33ml[0m[33ml[0m[36m:[0m[34m:[0m[34m;[0m[34m,[0m[37m'[0m[37m'[0m[37m'[0m[37m'[0m[37m'[0m[37m'[0m[34m;[0m[34mc[0m[34ml[0m[34mo[0m[34mo[0m[34m:[0m[37m.[0m[37m [0m[37m.[0m[34m:[0m[34mc[0m[34m,[0m[34m;[0m[34mc[0m[34m;[0m[34m'[0m[37m,[0m[34m,[0m[34m'[0m[34m;[0m[34m;[0m[34m.[0m[34m.[0m[34m.[0m[34m;[0m[34mc[0m[34m;[0m[34m;[0m[34m:[0m[34m:[0m[34m:[0m
+		[33mo[0m[33ml[0m:[33mc[0m[33ml[0m[33mo[0m[33ml[0m:;:[33mc[0m[33ml[0m[33md[0m[33md[0m[34ml[0m[34m:[0m[34m;[0m[34m,[0m[37m,[0m[37m'[0m[37m,[0m[37m,[0m[37m'[0m[34m'[0m[34m'[0m[34mc[0m[34m:[0m[34m:[0m[34mc[0m[37m'[0m[37m [0m[37m.[0m[34m'[0m[34m'[0m[34m,[0m[34m;[0m[34m,[0m[34m'[0m[34m'[0m[34m.[0m[37m'[0m[34m,[0m[34m,[0m[34m;[0m[34m'[0m[34m.[0m[34m.[0m[34m,[0m[34mc[0m[34m:[0m[34m;[0m[34m:[0m[34m:[0m[34m:[0m[34m;[0m
+		[33mO[0m[33mk[0m[33mx[0m[33mc[0m[33mo[0m[33mx[0m[33mk[0m[33md[0m[33mo[0m[33mc[0m[33m:[0m:[33mc[0ml[37ml[0m[37m:[0m[37m;[0m[37m;[0m[37m,[0m[37m;[0m[37m,[0m[37m,[0m[37m,[0m[34m'[0m[34m'[0m[34mo[0m[34m:[0m[34m,[0m[34m'[0m[37m.[0m[37m.[0m[37m.[0m[34m'[0m[34m;[0m[34m;[0m[34m'[0m[34m'[0m[34m,[0m[34m'[0m[34m'[0m[37m,[0m[34m;[0m[34m,[0m[34m.[0m[34m.[0m[34m.[0m[34m,[0m[34mc[0m[34m:[0m[34m;[0m[34m:[0m[34m;[0m[34m;[0m[34m,[0m[34m,[0m
+		[33ml[0m[33ml[0m[33mo[0m[33mc[0m[33ml[0m[33ml[0m[33ml[0m[33ml[0m[33ml[0m[33ml[0m:;:[37ml[0m[37mc[0m[37mc[0m[37mc[0m[37mc[0m[37m:[0m[37m:[0m[37m:[0m[37mc[0m[37m:[0m[37m,[0m[37m,[0m[34m:[0m[34mc[0m[37m.[0m[37m [0m[37m [0m[37m.[0m[34m'[0m[34m;[0m[34m,[0m[34m'[0m[34m'[0m[37m.[0m[37m.[0m[37m.[0m[34m'[0m[37m;[0m[34m,[0m[34m.[0m[34m.[0m[34m.[0m[34m'[0m[34mc[0m[34m:[0m[34m;[0m[34m;[0m[34m;[0m[34m;[0m[34m,[0m[34m'[0m[34m,[0m
+		:;;;,[33m:[0m;',;:;[37m,[0m[37ml[0m[37mc[0m[37mc[0m[37ml[0m[37mc[0m[37m:[0m[37m;[0m[37m:[0m[37mk[0m[37mO[0m[37mo[0m[37m:[0m[37ml[0m[37mc[0m[37m [0m[37m.[0m[34m'[0m[34m,[0m[34m'[0m[37m.[0m[37m.[0m[37m.[0m[34m.[0m[37m.[0m[37m'[0m[34m,[0m[37m,[0m[37m'[0m[34m.[0m[34m.[0m[34m.[0m[34m,[0m[34m:[0m[34m:[0m[34m;[0m[34m;[0m[34m;[0m[34m,[0m[34m'[0m[34m'[0m[34m,[0m[34m:[0m
+		:;,,.','';c[34m:[0m[34mc[0m[37mc[0m[37mc[0m[37mc[0m[37mc[0m[37mc[0m[37mc[0m[37mc[0m[37mc[0m[37mk[0m[37mk[0m[37md[0m[37mo[0m[34m:[0m[34m,[0m[37m.[0m[34m'[0m[34m'[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[34m'[0m[34m,[0m[34m'[0m[34m.[0m[37m.[0m[37m.[0m[34m.[0m[34m.[0m[34m,[0m[34m:[0m[34m:[0m[34m;[0m[34m;[0m[34m,[0m[34m,[0m[34m'[0m[34m'[0m[34m,[0m[34m:[0m[34ml[0m
+		;';:,;::;,;[37ml[0m[37ml[0m[37ml[0m[37ml[0m[37mc[0m[37mc[0m[37ml[0m[37ml[0m[37mc[0m[37mx[0m[37mK[0m[37m0[0m[37mO[0m[34mk[0m[34mx[0m[37m,[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[34m'[0m[34m,[0m[34m'[0m[34m.[0m[34m.[0m[37m.[0m[37m.[0m[34m.[0m[34m.[0m[34m,[0m[34m:[0m[34mc[0m[34m:[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m;[0m[34mc[0m[34ml[0m
+		',,,,;;,',;[37mc[0m[37ml[0m[37ml[0m[37ml[0m[37ml[0m[37ml[0m[37mc[0m[37mc[0m[37mc[0m[37mo[0m[37mk[0m[37mk[0m[37mx[0m[37mx[0m[37m,[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[34m.[0m[34m'[0m[34m,[0m[34m,[0m[34m.[0m[34m.[0m[34m.[0m[34m.[0m[37m.[0m[37m.[0m[34m'[0m[34m,[0m[34m:[0m[34m:[0m[34m;[0m[34m,[0m[34m'[0m[34m,[0m[34m,[0m[34m'[0m[34m,[0m[34m;[0m[34mc[0m[34ml[0m[34mc[0m
+		[33mc[0m:;;;'''',;[36mc[0m[37ml[0m[37mo[0m[37ml[0m[37ml[0m[37mc[0m[37m:[0m[37mc[0m[37ml[0m[37ml[0m[37mc[0m[37mc[0m[37mc[0m[37m:[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[34m,[0m[34m,[0m[34m'[0m[34m.[0m[34m.[0m[34m'[0m[34m'[0m[34m'[0m[37m.[0m[37m'[0m[34m,[0m[34m:[0m[34m:[0m[34m;[0m[34m,[0m[34m,[0m[34m'[0m[34m,[0m[34m,[0m[34m,[0m[34m;[0m[34m:[0m[34mc[0m[34mc[0m[34m:[0m
+		:;'',[33mc[0m[33mc[0m;,,;[37m:[0m[37mc[0m[37mo[0m[37mo[0m[37mo[0m[37mo[0m[37mc[0m[37mo[0m[37mk[0m[37mO[0m[37mO[0m[37mO[0m[37m;[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[34m,[0m[34m,[0m[34m'[0m[34m'[0m[34m'[0m[34m,[0m[34m'[0m[34m'[0m[34m.[0m[37m'[0m[37m;[0m[34m:[0m[34m;[0m[34m,[0m[34m,[0m[34m'[0m[34m'[0m[34m,[0m[34m,[0m[34m;[0m[34m;[0m[34m:[0m[34mc[0m[34mc[0m[34m:[0m[34m:[0m
+		[33mc[0m[33mc[0m,,.,:,',,:[37mc[0m[37mc[0m[37ml[0m[37mo[0m[37ml[0m[37ml[0m[37ml[0m[37ml[0m[37md[0m[37mo[0m[37m'[0m[37m [0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[34m'[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m'[0m[34m.[0m[34m.[0m[37m.[0m[37m'[0m[37m:[0m[34m:[0m[34m;[0m[34m,[0m[34m'[0m[34m'[0m[34m'[0m[34m,[0m[34m,[0m[34m;[0m[34m;[0m[34m:[0m[34mc[0m[34mc[0m[34m:[0m[34m:[0m[34m:[0m
+		;;,'..'..,,:[37mc[0m[37mc[0m[37mc[0m[37m:[0m[37mc[0m[37mc[0m[37mc[0m[37mc[0m[36m:[0m[37m,[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m.[0m[37m'[0m[34m,[0m[34m,[0m[34m,[0m[34m'[0m[37m.[0m[37m.[0m[37m.[0m[34m'[0m[34m,[0m[34m,[0m[34m;[0m[34m,[0m[34m,[0m[34m'[0m[34m.[0m[34m'[0m[34m,[0m[34m;[0m[34m;[0m[34m;[0m[34m:[0m[34mc[0m[34mc[0m[34m:[0m[34m:[0m[34m:[0m[34m:[0m
+		;;;...'.',;;[37mc[0m[37mc[0m[37mc[0m[37m:[0m[37mc[0m[37m:[0m[36mc[0m[36m:[0m[37m;[0m[37m'[0m[37m [0m[37m.[0m[37m.[0m[34m.[0m[34m,[0m[34m,[0m[34m'[0m[34m'[0m[37m.[0m[37m.[0m[37m.[0m[34m'[0m[34m,[0m[34m;[0m[34m;[0m[37m,[0m[34m;[0m[34m'[0m[34m'[0m[34m.[0m[34m'[0m[34m;[0m[34m;[0m[34m;[0m[34m;[0m[34m:[0m[34m:[0m[34mc[0m[34m:[0m[34m:[0m[34m:[0m[34m;[0m[34m;[0m
+		;'...';;,'..[37m;[0m[34mc[0m[37mc[0m[37m:[0m[37m:[0m[37m:[0m[36m:[0m[37m,[0m[37m'[0m[37m.[0m[37m.[0m[37m.[0m[37m'[0m[37m,[0m[34m,[0m[34m'[0m[34m.[0m[34m.[0m[34m.[0m[34m'[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m'[0m[37m'[0m[34m,[0m[34m,[0m[34m'[0m[34m'[0m[34m;[0m[34m;[0m[34m;[0m[34m;[0m[34m:[0m[34m:[0m[34m:[0m[34m:[0m[34mc[0m[34m:[0m[34m:[0m[34m:[0m[34m:[0m
+		;,,,;;,,''.'[36m:[0m[34m:[0m[36mc[0m[37m:[0m[37m:[0m[37m:[0m[37m;[0m[37m,[0m[37m.[0m[37m [0m[37m.[0m[37m'[0m[37m'[0m[37m,[0m[34m'[0m[34m.[0m[34m.[0m[34m'[0m[34m'[0m[34m,[0m[34m,[0m[34m,[0m[34m,[0m[34m;[0m[34m;[0m[34m;[0m[34m:[0m[34m;[0m[34m;[0m[34m;[0m[34m;[0m[34m;[0m[34m,[0m[34m,[0m[34mc[0m[34m;[0m[34m:[0m[34m:[0m[34m:[0m[34m:[0m[34m;[0m[34m,[0m[34m,[0m
+	" >&2
+	printf "╔════════[ ${lightred}me_dheeraj [Author]${end} ]═════════════════════════════════════════════════════════════╗\n\n" >&2
+    printf "${logo}\t - https://buymeacoffee.com/medheeraj${end}\n" >&2
+	printf "${logo}\t - https://github.com/Dheerajmadhukar${end}\n" >&2
+	printf "${logo}\t - https://twitter.com/Dheerajmadhukar${end}\n" >&2
+	printf "${logo}\t - https://instagram.com/me_dheeraj${end}\n" >&2
+	printf "${logo}\t - https://linkedin.com/in/dheerajtechnolegends${end}\n" >&2
+	printf "╚════════════════════════════════════════════════════════════════════════════════════════════╝\n\n" >&2
+	printf '\n\n' >&2
 }
 
 # ╭──────────────────────────────╮
@@ -85,17 +144,32 @@ dorks(){
 	shodan stats --facets ssl.cert.fingerprint ssl.cert.expired:true hostname:"*.${target}"|grep -Eo "[[:xdigit:]]{40}"|grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt;sleep 2
 	shodan stats --facets ssl.cert.fingerprint ssl.cert.subject.commonName:"*.${target}"|grep -Eo "[[:xdigit:]]{40}"|grep -v "^[[:blank:]]*$" | anew -q /tmp/fingerprints.txt;sleep 2
 	#Dork List Start
+	
 cat << !
 `cat /tmp/fingerprints.txt|while read -r line;do echo "ssl_SHA1_${line}::ssl.cert.fingerprint:\"$line\"";done;rm /tmp/fingerprints.txt > /dev/null`
-ssl_domain::ssl:"${target}"
-org_domain::org:"${target}"
-host_domain::hostname:"${target}"
-ssl_issuer::ssl.cert.issuer.cn:"${target}"
-ssl_subject::ssl.cert.subject.cn:"${target}"
-ssl_expired::ssl.cert.expired:true hostname:"*.${target}"
-ssl_subjectCN::ssl.cert.subject.commonName:"*.${target}"
+SSL_Domain::ssl:"${target}"
+Org_Domain::org:"${target}"
+Hostname_Domain::hostname:"${target}"
+SSL_Issuer::ssl.cert.issuer.cn:"${target}"
+SSL_Subject::ssl.cert.subject.cn:"${target}"
+SSL_Expired::ssl.cert.expired:true hostname:"*.${target}"
+SSL_SubjectCN::ssl.cert.subject.commonName:"*.${target}"
+Ignored-by_CDNs_SSL::ssl:"${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
+Ignored-by_CDNs_hostname::hostname:"*.${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
+Ignored-by_CDNs_issuer_cn::ssl.cert.issuer.cn:"${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
+Ignored-by_CDNs_subject_cn::ssl.cert.subject.cn:"${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
+Directory_Listing_hostname::http.title:"Directory Listing" hostname:"*.${target}"
+Directory_Listing_subject::http.title:"Directory Listing" ssl.cert.subject.cn:"${target}"
 Indexing_Hostname::http.title:"Index of /" hostname:"*.${target}"
 Indexing_SSL::http.title:"Index of /" ssl.cert.subject.cn:"${target}"
+phpinfo_hostname::http.title:"phpinfo()" hostname:"*.${target}"
+phpinfo_subject::http.title:"phpinfo()" ssl.cert.subject.cn:"${target}"
+Apache_Status_hostname::http.title:"Apache Status" hostname:"*.${target}"
+Apache_Status_subject::http.title:"Apache Status" ssl.cert.subject.cn:"${target}"
+Apache_Coyote_hostname::Server: Apache-Coyote/1.1 Tomcat-5.5 hostname:"*.${target}"
+Apache_Coyote_subject::Server: Apache-Coyote/1.1 Tomcat-5.5 ssl.cert.subject.cn:"${target}"
+Apache_hadoop_node_hostname::html:"jmx?qry=Hadoop:*" hostname:"*.${target}"
+Apache_hadoop_node_subject::html:"jmx?qry=Hadoop:*" ssl.cert.subject.cn:"${target}"
 NDMP_Hostname::ftp port:"10000" hostname:"*.${target}"
 NDMP_SSL::ftp port:"10000" ssl.cert.subject.cn:"${target}"
 SMB_file_sharing_Hostname::"Authentication: disabled" port:445 product:"Samba" hostname:"*.${target}"
@@ -157,6 +231,7 @@ Dashboard_title_Hostname::http.title:"dashboard" hostname:"*.${target}"
 Dashboard_title_SSL::http.title:"dashboard" ssl.cert.subject.cn:"${target}"
 Dashboard_title_body::dashboard ssl.cert.subject.cn:"${target}"
 Openfire_Admin_Console_Hostname::http.title:"Openfire Admin Console" hostname:"*.${target}"
+Openfire_Admin_Console_subject::http.title:"Openfire Admin Console" ssl.cert.subject.cn:"${target}"
 Control_panels_Hostname::http.title:"control panel" hostname:"*.${target}"
 Control_panels_SSL::http.title:"control panel" ssl.cert.subject.cn:"${target}"
 Control_panels_body::control panel ssl.cert.subject.cn:"${target}"
@@ -189,6 +264,10 @@ RabbitMQ_Detect_Hostname::http.title:"RabbitMQ" hostname:"*.${target}"
 Containers_SSL_subject::HTTP/1.1 307 Temporary Redirect "Location: /containers" ssl.cert.subject.cn:"${target}"
 Containers_SSL::HTTP/1.1 307 Temporary Redirect "Location: /containers" ssl:"${target}"
 Containers_Hostname::HTTP/1.1 307 Temporary Redirect "Location: /containers" hostname:"*.${target}"
+Docker_exec_hostname::port:2375 product:"Docker" hostname:"*.${target}"
+Docker_exec_subject::port:2375 product:"Docker" ssl.cert.subject.cn:"${target}"
+Cluster_Node_etcd_hostname::port:"2379" product:"etcd" hostname:"*.${target}"
+Cluster_Node_etcd_subject::port:"2379" product:"etcd" ssl.cert.subject.cn:"${target}"
 GitLab_repo_SSL_subject::http.favicon.hash:1278323681 ssl.cert.subject.cn:"${target}"
 GitLab_repo_SSL::http.favicon.hash:1278323681 ssl:"${target}"
 GitLab_repo_Hostname::http.favicon.hash:1278323681 hostname:"*.${target}"
@@ -223,6 +302,8 @@ Django_login_Hostname::html:"/login/?next=" title:"Django" hostname:"*.${target}
 Django_login_SSL::html:"/login/?next=" title:"Django" ssl.cert.subject.cn:"${target}"
 Django_admin_Hostname::html:"/admin/login/?next=" title:"Django" hostname:"*.${target}"
 Django_admin_SSL::html:"/admin/login/?next=" title:"Django" ssl.cert.subject.cn:"${target}"
+Django_Exposed_hostname::http.title:"DisallowedHost" hostname:"*.${target}"
+Django_Exposed_subject::http.title:"DisallowedHost" hostname:"*.${target}" ssl.cert.subject.cn:"${target}"
 Jira_Dashboard_Hostname::title:"system dashboard" html:jira hostname:"*.${target}"
 Jira_Dashboard_SSL::title:"system dashboard" html:jira ssl.cert.subject.cn:"${target}"
 Jira_Dashboard_SSL::"system dashboard" html:jira ssl.cert.subject.cn:"${target}"
@@ -230,41 +311,8 @@ Ruby_Login_Hostname::http.component:ruby port:3000 hostname:"*.${target}"
 Ruby_Login_SSL::http.component:ruby port:3000 ssl.cert.subject.cn:"${target}"
 Secret_key_base_Hostname::html:"secret_key_base" hostname:"*.${target}"
 Secret_key_base_SSL::html:"secret_key_base" ssl.cert.subject.cn:"${target}"
-SAP_NetWeaver_Application_hostname::"netweaver" hostname:"*.${target}"
-SAP_NetWeaver_Application_subject::"netweaver" ssl.cert.subject.cn:"${target}"
-Cluster_Node_etcd_hostname::port:"2379" product:"etcd" hostname:"*.${target}"
-Cluster_Node_etcd_subject::port:"2379" product:"etcd" ssl.cert.subject.cn:"${target}"
-Django_Exposed_hostname::http.title:"DisallowedHost" hostname:"*.${target}"
-Django_Exposed_subject::http.title:"DisallowedHost" hostname:"*.${target}" ssl.cert.subject.cn:"${target}"
-Ignored-by_CDNs_SSL::ssl:"${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
-Ignored-by_CDNs_hostname::hostname:"*.${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
-Ignored-by_CDNs_issuer_cn::ssl.cert.issuer.cn:"${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
-Ignored-by_CDNs_subject_cn::ssl.cert.subject.cn:"${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
-Ignored-by_CDNs_hostname::hostname:"*.${target}" "-AkamaiGHost" "-GHost" "-Cloudflare" "-Cloudfront"
-Symfony_phpinfo_AWS_creds_hostname::"X-Debug-Token-Link" port:443 hostname:"*.${target}"
-Symfony_phpinfo_AWS_creds_subject::"X-Debug-Token-Link" port:443 ssl.cert.subject.cn:"${target}"
-Shipyard_Docker_mngmnt_hostname::http.title:"shipyard" HTTP/1.1 200 OK Accept-Ranges: bytes Content-Length: 5664 hostname:"*.${target}"
-Shipyard_Docker_mngmnt_subject::http.title:"shipyard" HTTP/1.1 200 OK Accept-Ranges: bytes Content-Length: 5664 ssl.cert.subject.cn:"${target}"
-TIBCO_Jaspersoft_hostname::http.title:"TIBCO Jaspersoft:" port:"443" "1970" hostname:"*.${target}"
-TIBCO_Jaspersoft_subject::http.title:"TIBCO Jaspersoft:" port:"443" "1970" ssl.cert.subject.cn:"${target}"
-Confluence_hostname::"Confluence" hostname:"*.${target}"
-Confluence_subject::"Confluence" ssl.cert.subject.cn:"${target}"
-SonarQube_hostname::http.title:"SonarQube" hostname:"*.${target}"
-SonarQube_subject::http.title:"SonarQube" ssl.cert.subject.cn:"${target}"
-Apache_hadoop_node_hostname::html:"jmx?qry=Hadoop:*" hostname:"*.${target}"
-Apache_hadoop_node_subject::html:"jmx?qry=Hadoop:*" ssl.cert.subject.cn:"${target}"
-Directory_Listing_hostname::http.title:"Directory Listing" hostname:"*.${target}"
-Directory_Listing_subject::http.title:"Directory Listing" ssl.cert.subject.cn:"${target}"
 H-SPHERE_hostname::http.title:"H-SPHERE" hostname:"*.${target}"
 H-SPHERE_subject::http.title:"H-SPHERE" ssl.cert.subject.cn:"${target}"
-Swagger_UI_hostname::http.title:"Swagger UI - " hostname:"*.${target}"
-Swagger_UI_subject::http.title:"Swagger UI - " ssl.cert.subject.cn:"${target}"
-Apache_Coyote_hostname::Server: Apache-Coyote/1.1 Tomcat-5.5 hostname:"*.${target}"
-Apache_Coyote_subject::Server: Apache-Coyote/1.1 Tomcat-5.5 ssl.cert.subject.cn:"${target}"
-Docker_exec_hostname::port:2375 product:"Docker" hostname:"*.${target}"
-Docker_exec_subject::port:2375 product:"Docker" ssl.cert.subject.cn:"${target}"
-phpinfo_hostname::http.title:"phpinfo()" hostname:"*.${target}"
-phpinfo_subject::http.title:"phpinfo()" ssl.cert.subject.cn:"${target}"
 ID_VC_hostname::http.title:"ID_VC_Welcome" hostname:"*.${target}"
 ID_VC_subject::http.title:"ID_VC_Welcome" ssl.cert.subject.cn:"${target}"
 JBoss_header_hostname::"x-powered-by" "jboss" hostname:"*.${target}"
@@ -275,16 +323,28 @@ JBoss_Application_hostname::http.title:"Welcome to JBoss" hostname:"*.${target}"
 JBoss_Application_subject::http.title:"Welcome to JBoss" ssl.cert.subject.cn:"${target}"
 Splunkd_hostname::port:"8089, 8000" "splunkd" hostname:"*.${target}"
 Splunkd_subject::port:"8089, 8000" "splunkd" ssl.cert.subject.cn:"${target}"
-Splunk_favicon_hostname::http.favicon.hash:-316785925 hostname:"*.${target}"
-Splunk_favicon_subject::http.favicon.hash:-316785925 ssl.cert.subject.cn:"${target}"
 Splunkd_Atom_hostname::title:"splunkd" org:"Amazon.com" hostname:"*.${target}"
 Splunkd_Atom_hostname::title:"splunkd" org:"Amazon.com" ssl.cert.subject.cn:"${target}"
+Splunk_favicon_hostname::http.favicon.hash:-316785925 hostname:"*.${target}"
+Splunk_favicon_subject::http.favicon.hash:-316785925 ssl.cert.subject.cn:"${target}"
 Oracle_Business_hostname::http.title:"oracle business intelligence sign in" hostname:"*.${target}"
 Oracle_Business_subject::http.title:"oracle business intelligence sign in" ssl.cert.subject.cn:"${target}"
 Oracle_WebLogic_hostname::http.title:"Oracle WebLogic Server Administration Console" hostname:"*.${target}"
 Oracle_WebLogic_subject::http.title:"Oracle WebLogic Server Administration Console" ssl.cert.subject.cn:"${target}"
-Apache_Status_hostname::http.title:"Apache Status" hostname:"*.${target}"
-Apache_Status_subject::http.title:"Apache Status" ssl.cert.subject.cn:"${target}"
+Swagger_UI_hostname::http.title:"Swagger UI - " hostname:"*.${target}"
+Swagger_UI_subject::http.title:"Swagger UI - " ssl.cert.subject.cn:"${target}"
+SonarQube_hostname::http.title:"SonarQube" hostname:"*.${target}"
+SonarQube_subject::http.title:"SonarQube" ssl.cert.subject.cn:"${target}"
+Confluence_hostname::"Confluence" hostname:"*.${target}"
+Confluence_subject::"Confluence" ssl.cert.subject.cn:"${target}"
+TIBCO_Jaspersoft_hostname::http.title:"TIBCO Jaspersoft:" port:"443" "1970" hostname:"*.${target}"
+TIBCO_Jaspersoft_subject::http.title:"TIBCO Jaspersoft:" port:"443" "1970" ssl.cert.subject.cn:"${target}"
+Shipyard_Docker_mngmnt_hostname::http.title:"shipyard" HTTP/1.1 200 OK Accept-Ranges: bytes Content-Length: 5664 hostname:"*.${target}"
+Shipyard_Docker_mngmnt_subject::http.title:"shipyard" HTTP/1.1 200 OK Accept-Ranges: bytes Content-Length: 5664 ssl.cert.subject.cn:"${target}"
+Symfony_phpinfo_AWS_creds_hostname::"X-Debug-Token-Link" port:443 hostname:"*.${target}"
+Symfony_phpinfo_AWS_creds_subject::"X-Debug-Token-Link" port:443 ssl.cert.subject.cn:"${target}"
+SAP_NetWeaver_Application_hostname::"netweaver" hostname:"*.${target}"
+SAP_NetWeaver_Application_subject::"netweaver" ssl.cert.subject.cn:"${target}"
 !
 #Dork List End
  }
@@ -298,6 +358,7 @@ usage(){
 	printf '\n' >&2
 	printf "Flags:\nTARGET:\n">&2
 	printf "\t-d, --domain string\ttarget DOMAIN.TLD to scan [${lightred}*${end} Required]\n">&2
+	printf "\t-b, --banner\t\tKarma Is My Bitch\n">&2
 	printf "\t-h, --help\t\tshow this help message and exit\n">&2
 	printf "\t-s, --silent\t\tIf set only findings will be displayed and banners will be redacted.\n">&2
 	printf "\t-v, --version\t\tshow Karma version\n">&2
@@ -310,13 +371,16 @@ usage(){
 	printf "\t-asn\t\t\tDetailed Autonomous system number lookup with BGP stats, neighbours, IPv4 & IPv6 Prefixes\n" >&2
 	printf "\t-cve\t\t\tScan hosts for such as OS, Host, Servers, Products, CVEs, Ports are open and which organization owns the IP\n" >&2
 	printf "\t-favicon\t\tSearch for Favicon Icons, Calculate Favicon Hashes and Technology Detection with ${nuclei_bin} custom template\n" >&2
+	printf "\t-cdn\t\t\tSSL/TLS, Hostnames, IPs Ignored any CDN Nodes [ Supported: Akamighost, Cloud(flare||front) ]\n" >&2
 	printf "\t-leaks\t\t\tLook for interesting findings\n">&2
-	#printf "\t\t\t\te.g. Indexing, NDMP, SMB, Login, SignUp, OAuth, SSO, Status 401/403/500, VPN, Citrix, Jfrog, Dashboards, OpenFire, Control Panels, Wordpress, Laravel, Jetty, S3 Buckets, Cloudfront\n" >&2
 	printf "\t-deep\t\t\tDeep Scan support all modules/modes [ count, ip, asn, cve, favicon, leaks ]\n" >&2
 	printf "\t-count\t\t\tReturns the number of results count for DORKs search [ No API Credit will use ]\n">&2
 	printf '\n' >&2
 	printf "UPDATE:\n"
 	printf "\t-u, --update\t\tUpdate karma to the latest released version\n">&2
+	printf '\n' >&2
+	printf "SECRET:\n"
+	printf "\t--secret\t\tReveal me !!!\n">&2
 	printf '\n' >&2
  }
 # ╭──────────────────────╮
@@ -349,43 +413,35 @@ args(){
 # ╰──────────────────────────────╯
 check_requirements(){
 	
-	# shodan && httprobe && interlace && jq
-	#$(which "${shodan_bin}") --help > /dev/null 2>&1
+	# shodan && httprobe && interlace && jq && lolcat && anew && nuclei && python3 && mmh3
 	type -P "${shodan_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${shodan_bin}. Make sure it installed OR \n\t - pip3 install shodan${end}\n";exit 1
 	fi
-	#$(which "${httprobe_bin}") --help > /dev/null 2>&1 
 	type -P "${httprobe_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${httprobe_bin}. Make sure it installed OR \n\t - GO111MODULE=on go get -v github.com/tomnomnom/httprobe${end}\n";exit 1
 	fi
-	#$(which "${interlace_bin}") --help > /dev/null 2>&1 
 	type -P "${interlace_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${interlace_bin}. Make sure it installed OR \n\t - Clone https://github.com/codingo/Interlace.git${end}\n";exit 1
 	fi
-	#$(which "${jq_bin}") --help > /dev/null 2>&1 
 	type -P "${jq_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${jq_bin}. Make sure it installed OR \n\t - apt install jq -y${end}\n";exit 1
 	fi
-	#$(which "${lolcat_bin}") --version > /dev/null 2>&1
 	type -P "${lolcat_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${lolcat_bin}. Make sure it installed OR \n\t - apt install lolcat -y${end}\n";exit 1
 	fi
-	#which "${anew_bin}" > /dev/null 2>&1
 	type -P "${anew_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${anew_bin}. Make sure it installed OR \n\t - GO111MODULE=on go get -u github.com/tomnomnom/anew${end}\n";exit 1
 	fi
-	#$(which "${nuclei_bin}") --help > /dev/null 2>&1
 	type -P "${nuclei_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${nuclei_bin}. Make sure it installed OR \n\t - GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei${end}\n";exit 1
 	fi
-	#$(which "${python3_bin}") --help > /dev/null 2>&1
 	type -P "${python3_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
 		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${python3_bin}. Make sure it installed OR \n\t - apt install python3 python3-pip -y${end}\n";exit 1
@@ -407,7 +463,7 @@ check_update(){
 		UPSTREAMHASH=$(git rev-parse ${BRANCH}@{upstream})
 		if [ "$HEADHASH" != "$UPSTREAMHASH" ]; then
 			printf "${upper}\n [${right}] ${yellow}There is a new version, ${end} run 'git pull' to get latest version \n${lower}\n"
-			git pull
+			#git pull
 		fi
 	else
 		printf "${upper}\n [${cross}] ${yellow}Unable to check updates OR not a git repository OR any of the parent dir ${end}\n${lower}\n"
@@ -440,18 +496,19 @@ api_check(){
 # ╰─────────────────────────────────────────────────────╯
 counts(){
 	printf "${upper}\n  ${greenbg}Shodan Result Count ${end} [ No API Credits Use ] \n${lower}${end}\n"
-	result_count=$(cat "${BASE_DIR}/dorks.txt" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t );echo -e "\n${result_count}"  | ${lolcat_bin} -a
+	result_count=$(cat "${BASE_DIR}/dorks.txt" | while IFS='::' read a b c;do z=$("${shodan_bin}" count "${c}" 2> /dev/null;sleep 2); printf "${a} ${z}\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t );echo -e "\n${result_count}"  | ${lolcat_bin} -a
  }
 # ╭─────────────────────────────────────────────────────────────────────────────╮
 # │		SHODAN COLLECT TARGET INFO [ With API Credits ]	 		│
 # ╰─────────────────────────────────────────────────────────────────────────────╯
 collect(){
 	folder=${target}-$(date '-I')
-	rm -rf ${BASE_DIR}/output/$folder > /dev/null;mkdir -p ${BASE_DIR}/output/$folder/Collect #;cd ${BASE_DIR}/output/$folder;
+	rm -rf ${BASE_DIR}/output/$folder > /dev/null;mkdir -p ${BASE_DIR}/output/${folder}/Collect #;cd ${BASE_DIR}/output/$folder;
 	printf "\n"
-	shodan info
-	echo "$result_count" | sed 's/ /,/g' | awk -F"," '{print $1}' > /tmp/results
-	cat ${BASE_DIR}/dorks.txt | grep -f /tmp/results | while IFS='::' read a b c;do z=$(${shodan_bin} download ${BASE_DIR}/output/$folder/Collect/"$a"_"${target}" --limit "${count}" "$c" |grep "Saved";sleep 5);zero=$(echo $z | awk '{print $2}');if [[ $zero -gt 0 ]];then printf ">> ${green}$z${end}\n";fi;done
+	"${shodan_bin}" info
+
+	echo "${result_count}" | sed 's/ /,/g' | awk -F"," '{print $1}' > /tmp/results
+	cat ${BASE_DIR}/dorks.txt | grep -f /tmp/results | while IFS='::' read a b c;do z=$(${shodan_bin} download ${BASE_DIR}/output/$folder/Collect/"${a}"_"${target}" --limit "${count}" "${c}" |grep "Saved";sleep 5);zero=$(echo ${z} | awk '{print $2}');if [[ ${zero} -gt 0 ]];then printf ">> ${green}${z}${end}\n";fi;done
 
  #SHODAN PARSE
 	${shodan_bin} parse --fields ip_str,asn,hostnames,port,product,org,os --separator "::" ${BASE_DIR}/output/$folder/Collect/*.json.gz | anew -q ${BASE_DIR}/output/$folder/main_${target}.data
@@ -460,8 +517,11 @@ collect(){
 # │		Get In-Scope IPs	 │
 # ╰──────────────────────────────────────╯
 inscope_ip(){
+	#printf "\n${green}────> In-Scope IPs\n${end}"
 	printf "${upper}\n  ${greenbg}In-Scope-IPs${end} [ Validated by CN=*.${target} ] \n${lower}\n"
 	cat ${BASE_DIR}/output/$folder/main_${target}.data | awk -F"::" '{print $1":"$4}'|sort -u|grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"|${httprobe_bin} -prefer-https -c 200 | interlace -threads 500 -c "echo _target_; curl --insecure -v _target_ 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'" --silent | egrep '(http|https)://[^/"]+|CN\=|issuer: |cn: |expired:|org:' | grep -v "^[[:blank:]]*$" | grep -B 1 "${target}" | grep -Eo '(http|https)://[^/"]+'|tee ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt|while read -r line;do printf "${yellow}├──►${end} ${line}\n";done
+	
+	#cat ${BASE_DIR}/output/$folder/main_${target}.data | awk -F"::" '{print $1}' | sort -u | httpx -threads 500 -silent | interlace -threads 100 -c "echo _target_; curl --insecure -v _target_ 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'" --silent | egrep "https:\/\/|CN\=|issuer: |cn: |expired:|org:" | grep -v "^[[:blank:]]*$" | tee ${BASE_DIR}/output/$folder/curl_issuer_$target.data | grep -B 1 "${target}$" | grep -Eo '(http|https)://[^/"]+' | tee ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt;printf "\n"
  }
 # ╭──────────────────────────────────────╮
 # │		Get Out-Of-Scope IPs	 │
@@ -470,6 +530,7 @@ out_of_scope_ip(){
 	printf "${upper}\n  ${bluebg}Out-Of-Scope-IPs${end} [ Verified by SSL/TLS certificate subject CN ] \n${lower}\n"
 	awk -F"::" '{print $1":"$4}' ${BASE_DIR}/output/$folder/main_${target}.data|sort -u|grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"|grep -Ev `cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt|cut -d"/" -f3|cut -d":" -f1 | paste -sd "|"`|sort -u| grep -v "^[[:blank:]]*$"|while read -r line;do printf "${red}├──►${end} ${line}\n";done;printf "\n"
  }
+
 # ╭──────────────────────────────╮
 # │		Favicon Icons	 │
 # ╰──────────────────────────────╯
@@ -478,7 +539,7 @@ favicons(){
 	o=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r '.http.favicon.location|select (.!= null)' | sort -u | grep -v "^data:" | tee ${BASE_DIR}/output/$folder/favicons_${target}.txt);if [ -z "$o" ];then printf "[${red}!${end}] ${yellow}No results found [ By increasing shodan download limit=-1 may help !]\n"${end};else printf "$o \n";fi;printf "\n"
  }
 # ╭──────────────────────────────────────╮
-# │		Favicon HASH		 │
+# │		Favicon HASH	 │
 # ╰──────────────────────────────────────╯
 favicons_hash(){
 	printf "${upper}\n  ${greenbg}Favicon Hash${end} [ Generated Favicon Hash using ${python3_bin} mmh3 Module  ] \n${lower}${end}\n"
@@ -490,7 +551,7 @@ favicons_hash(){
 favicons_detection(){
 	rm -f ${BASE_DIR}/favicon-detection.yaml 2> /dev/null
 	wget -q https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/master/technologies/favicon-detection.yaml -O ${BASE_DIR}/favicon-detection.yaml > /dev/null
-    	sed -i 's/\- \"{{BaseURL}}\/favicon.ico"/- "{{BaseURL}}\"/g' ${BASE_DIR}/favicon-detection.yaml
+    sed -i 's/\- \"{{BaseURL}}\/favicon.ico"/- "{{BaseURL}}\"/g' ${BASE_DIR}/favicon-detection.yaml
 	printf "${upper}\n  ${greenbg}Favicons Hash Detection${end} [  Technology Detection via Nuclei custom template ] \n${lower}${end}\n"
 	o=$(cat "${BASE_DIR}/output/$folder/favicons_${target}.txt" | ${nuclei_bin} -t ${nuclei_template} -bs 100 -c 100 -silent|awk '{print $NF " : " $3}'|sed 's/ /,|,/g' | column -s ',' -t);if [ -z "$o" ];then printf "\n[${red}!${end}] ${yellow}No results found [ By increasing shodan download limit=-1 may help !]\n"${end};else printf "$o \n";fi;printf "\n"
  }
@@ -498,8 +559,9 @@ favicons_detection(){
 # │		ASNs	 │
 # ╰──────────────────────╯
 asn(){
- printf "${upper}\n  ${greenbg}ASN${end} [  Detailed Scan ASN || BGP neighbours || IPv4 & IPv6 Prefixes ] \n${lower}\n"
- asn=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r 'select(.asn != null)|.asn' 2> /dev/null | sort -u) 
+	printf "${upper}\n  ${greenbg}ASN${end} [  Detailed Scan ASN || BGP neighbours || IPv4 & IPv6 Prefixes ] \n${lower}\n"
+	asn=$(zcat ${BASE_DIR}/output/$folder/Collect/*.json.gz | jq -r 'select(.asn != null)|.asn' 2> /dev/null | sort -u) 
+	
  if [ -z "$asn" ];then 
 	printf "[${cross}] ${red}IPs:${end} ${yellow}No ASN found ${end}\n"
 	else 
@@ -550,8 +612,8 @@ asn(){
 findings(){
 	cd ${BASE_DIR}/output/$folder/Collect/
 	printf "╔════════[ ${red}Ineresting Findings${end} ]═══════════════════════════════════════════════════════════════════════╗\n\n"
- 	ls -1 | grep -f "/tmp/results" | grep -Ev "ssl_SHA1|org_domain|ssl_domain|ssl_expired|ssl_issuer|ssl_subjectCN|ssl_subject|host_domain" |
- 	while read -r line;do printf "├─${bluebg}${line}${end}\n";zcat ${line} | jq -r 'select(.ip_str != null)|.ip_str + ":" + "\(select(.port != null)|.port)"'|tee ${BASE_DIR}/output/$folder/shodan_leaks_${target}.txt| awk 'NR%2{printf "%s ",$0;next;}1'|sed 's/ /,|,/g'|column -s"," -t|while read -r leaks;do printf "$( [[ ! -z ${leaks} ]] && printf "\t\t${green}╰─${end} ${leaks}\n" || printf "${yellow}No results found"${end})\n";done;done
+ ls -1 | grep -f "/tmp/results" | grep -Ev "ssl_SHA1|Org_Domain|SSL_Domain|SSL_Expired|SSL_Issuer|SSL_SubjectCN|SSL_Subject|Host_Domain" |
+ while read -r line;do printf "├─${bluebg}${line}${end}\n";zcat ${line} | jq -r 'select(.ip_str != null)|.ip_str + ":" + "\(select(.port != null)|.port)"'|awk 'NR%2{printf "%s ",$0;next;}1'|sed 's/ /,|,/g'|column -s"," -t|while read -r leaks;do printf "$( [[ ! -z ${leaks} ]] && printf "\t\t${green}╰─${end} ${leaks}\n" || printf "${yellow}No results found"${end})\n";done;done
 }
 # ╭──────────────────────────────────────────────╮
 # │		Collect Data for each IP	 │
@@ -559,7 +621,7 @@ findings(){
 host_scan(){
 	printf "${upper}\n  ${greenbg}Scanning In-Scope Hosts${end} [ Validated IPs via Shodan Collects ] \n${lower}${end}\n"
 	mkdir -p ${BASE_DIR}/output/$folder/IP_VULNS
-	cd ${BASE_DIR}/output/$folder/IP_VULNS;cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"| while read -r line;do shodan host -S --format pretty $line > /dev/null;sleep 5;echo -en "💀${bold}${green}🍺💀${end}${normal}";done;printf "\n"
+	cd ${BASE_DIR}/output/$folder/IP_VULNS;cat ${BASE_DIR}/output/$folder/ips_inscope_${target}.txt |grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b"| while read -r line;do shodan host -S --format pretty $line > /dev/null;sleep 5;[ "$silent" == "False" ] && echo -en "💀${bold}${green}🍺💀${end}${normal}";done;printf "\n"
  }
 # ╭──────────────────────────────────────────────────────────────╮
 # │		IPs, Ports, CVEs, Org, Server, Product, OS	 │
@@ -618,7 +680,7 @@ ip(){
 	api_check
 	dorks > ${BASE_DIR}/dorks.txt
 	printf "${upper}\n  ${greenbg}Shodan Result Count ${end} [ No API Credits Use ] \n${lower}\n"
-	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -E "ssl_SHA1|ssl_domain|org_domain|host_domain|ssl_issuer|ssl_subject|ssl_expired|ssl_subjectCN" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
+	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -E "ssl_SHA1|SSL_Domain|Org_Domain|Hostname_Domain|SSL_Issuer|SSL_Subject|SSL_Expired|SSL_SubjectCN" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
 	collect
 	inscope_ip
 	out_of_scope_ip
@@ -628,7 +690,7 @@ asn_scan(){
 	api_check
 	dorks > ${BASE_DIR}/dorks.txt
 	printf "${upper}\n  ${greenbg}Shodan Result Count ${end} [ No API Credits Use ] \n${lower}\n"
-	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -E "ssl_domain|host_domain" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
+	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -E "SSL_Domain|Hostname_Domain" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
 	collect
 	asn
  }
@@ -637,7 +699,7 @@ favicon_scan(){
 	api_check
 	dorks > ${BASE_DIR}/dorks.txt
 	printf "${upper}\n  ${greenbg}Shodan Result Count ${end} [ No API Credits Used ] \n${lower}\n"
-	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -E "ssl_domain|org_domain|host_domain|ssl_issuer|ssl_subject|ssl_expired|ssl_subjectCN" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
+	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -E "SSL_Domain|Org_Domain|Hostname_Domain|SSL_Issuer|SSL_Subject|SSL_Expired|SSL_SubjectCN" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
 	collect
 	favicons
 	favicons_hash
@@ -648,7 +710,7 @@ cve(){
 	api_check
 	dorks > ${BASE_DIR}/dorks.txt
 	printf "${upper}\n  ${greenbg}Shodan Result Count ${end} [ No API Credits Use ] \n${lower}\n"
-	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -E "ssl_SHA1|ssl_domain|org_domain|host_domain|ssl_issuer|ssl_subject|ssl_expired|ssl_subjectCN" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
+	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -E "ssl_SHA1|SSL_Domain|Org_Domain|Hostname_Domain|SSL_Issuer|SSL_Subject|SSL_Expired|SSL_SubjectCN" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
 	collect
 	inscope_ip >/dev/null 2>/dev/null
 	host_scan
@@ -665,9 +727,19 @@ leaks(){
 	api_check
 	dorks > ${BASE_DIR}/dorks.txt
 	printf "${upper}\n  ${greenbg}Shodan Result Count ${end} [ No API Credits Use ] \n${lower}\n"
-	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -Ev "ssl_SHA1|ssl_domain|org_domain|host_domain|ssl_issuer|ssl_subject|ssl_expired|ssl_subjectCN" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
+	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep -Ev "ssl_SHA1|SSL_Domain|Org_Domain|Hostname_Domain|SSL_Issuer|SSL_Subject|SSL_Expired|SSL_SubjectCN" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
 	collect
 	findings
+}
+cnd_ignore_ips(){
+	banner
+	api_check
+	dorks > ${BASE_DIR}/dorks.txt
+	printf "${upper}\n  ${greenbg}SSL/TLS, Hosts, IPs Ignored any CDN Nodes.${end} [ Akamighost, Cloud(flare||front) ] \n${lower}\n"
+	result_count=$(cat "${BASE_DIR}/dorks.txt"|grep "Ignored-by_CDNs" | while IFS='::' read a b c;do z=$(shodan count "$c";sleep 2); printf "$a $z\n";done| awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
+	collect
+	inscope_ip
+	out_of_scope_ip
 }
 
 prarg(){
@@ -689,9 +761,17 @@ prarg(){
 						check_update
 						exit 0
 						;;
+				'-b'|'--banner')
+						banner
+						exit 0
+						;;
+				'--secret')
+						secret
+						exit 0
+						;;
 				'-v'|'--version')
 						banner
-						printf "Current Version: ${version}\n\n"
+						printf "Corrent Version: ${version}\n\n"
 						exit 0
 						;;
                 '-h'|'--help')
@@ -710,6 +790,9 @@ prarg(){
                         ;;
 				'-favicon')
                         mode='favicon'
+                        ;;
+				'-cdn')
+                        mode='cdn'
                         ;;
 				'-leaks')
                         mode='leaks'
@@ -750,29 +833,45 @@ prarg(){
         exit 1
 	fi
 	if [ "${mode}" == 'ip' ];then
+        	#echo "Your target is : ${target}"
 			ip
         	exit 0
 	elif [ "${mode}" == 'asn' ];then
+        	#echo "Your target is : ${target}"
+			echo "ASN"
 			asn_scan
         	exit 0
 	elif [ "${mode}" == 'cve' ];then
+        	#echo "Your target is : ${target}"
+			echo "CVE"
 			cve
         	exit 0
+	elif [ "${mode}" == 'cdn' ];then
+        	#echo "Your target is : ${target}"
+        	echo "cdn"
+			cnd_ignore_ips
+        	exit 0
 	elif [ "${mode}" == 'favicon' ];then
+        	#echo "Your target is : ${target}"
+        	echo "favicon"
 			favicon_scan
         	exit 0
 	elif [ "${mode}" == 'leaks' ];then
-        		leaks
+        	#echo "Your target is : ${target}"
+        	leaks
         	exit 0
 	elif [ "${mode}" == 'count' ];then
-        		run_counts
+        	#echo "Your target is : ${target}"
+        	run_counts
         	exit 0
 	elif [ "${mode}" == 'deep' ];then
+        	#echo "Your target is : ${target}"
+        	echo "DEEP SCAN"
 			karma
         	exit 0
 	fi
  }
-#check_update
+# check_update
 args
 check_requirements
 prarg $@
