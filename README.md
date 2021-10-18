@@ -80,7 +80,7 @@ You can use this command to check help:
 ```bash
 $ bash karma_v2 -h
 ```
-<img src="img/karma_v2_help.png" alt="axio m" width="1000px">
+<img src="img/karma_v2_help.png" alt="karma_v2" width="1000px">
 
 ## MODEs 
 | **MODE** |  **Examples**  |
