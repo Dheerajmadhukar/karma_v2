@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="img/karma_v2_logo.png" alt="axio m" width="530px"></a>
+  <img src="img/karma_v2_logo.png" alt="karma_v2" width="530px"></a>
   <br>
 
 ⡷⠂𝚔𝚊𝚛𝚖𝚊 𝚟𝟸⠐⢾
