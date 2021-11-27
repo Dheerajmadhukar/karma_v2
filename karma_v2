@@ -370,6 +370,7 @@ usage(){
 	printf "\t-ip\t\t\tScan for In-Scope-IPs Validated by CN=*.{target} and Out-Of-Scope-IPs\n" >&2
 	printf "\t-asn\t\t\tDetailed Autonomous system number lookup with BGP stats, neighbours, IPv4 & IPv6 Prefixes\n" >&2
 	printf "\t-cve\t\t\tScan hosts for such as OS, Host, Servers, Products, CVEs, Ports are open and which organization owns the IP\n" >&2
+	printf "\t-cveid\t\t\tScan a host/domain for specific CVE ID for vulnerabilities & exploits \n" >&2
 	printf "\t-favicon\t\tSearch for Favicon Icons, Calculate Favicon Hashes and Technology Detection with ${nuclei_bin} custom template\n" >&2
 	printf "\t-cdn\t\t\tSSL/TLS, Hostnames, IPs Ignored any CDN Nodes [ Supported: Akamighost, Cloud(flare||front) ]\n" >&2
 	printf "\t-leaks\t\t\tLook for interesting findings\n">&2
