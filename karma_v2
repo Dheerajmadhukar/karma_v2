@@ -716,6 +716,18 @@ cve(){
 	host_scan
 	host_enum
  }
+cveid(){
+	banner
+	api_check
+	printf "${upper}\n  ${greenbg}Shodan Result CVE ID ${end} [  ${cveid} ] \n${lower}\n"
+	printf "CVE_ID::vuln:${cveid} ssl:${target}\n" > ${BASE_DIR}/dorks.txt
+	result_count=$(cat "${BASE_DIR}/dorks.txt" | while IFS='::' read a b c; do z=$(${shodan_bin} count "$c");printf "$a $z\n";done | awk '{if ($NF > 0)print $1 " " $NF }' | sed 's/ /,|,/g' | column -s ',' -t);echo -e "\n$result_count"  | ${lolcat_bin} -a
+	o=$(echo ${result_count}|awk '{print $NF}');if [ -z ${o} ]; then printf "[${red}!${end}] ${yellow}Not vulnerable to ${red}${cveid}${end}\n\n";exit 0;fi
+	collect
+	inscope_ip >/dev/null 2>/dev/null
+	host_scan >/dev/null 2>/dev/null
+	host_enum
+}
 run_counts(){
 	banner
 	api_check
@@ -788,28 +800,33 @@ prarg(){
                 '-cve')
                         mode='cve'
                         ;;
-				'-favicon')
+		'-cveid')
+                        mode='cveid'
+			cveid=$2
+			shift
+                        ;;
+		'-favicon')
                         mode='favicon'
                         ;;
-				'-cdn')
+		'-cdn')
                         mode='cdn'
                         ;;
-				'-leaks')
+		'-leaks')
                         mode='leaks'
                         ;;
-				'-count')
+		'-count')
                         mode='count'
                         ;;
                 '-deep')
                         mode='deep'
                         ;;
                 "")
-						shift
+			shift
                         break
                         ;;
                 '*')
                         echo "Error: unknown: $1"
-						usage
+			usage
                         exit 1
                         ;;
         esac
@@ -833,42 +850,34 @@ prarg(){
         exit 1
 	fi
 	if [ "${mode}" == 'ip' ];then
-        	#echo "Your target is : ${target}"
 			ip
-        	exit 0
+        		exit 0
 	elif [ "${mode}" == 'asn' ];then
         	#echo "Your target is : ${target}"
 			echo "ASN"
 			asn_scan
-        	exit 0
+        		exit 0
 	elif [ "${mode}" == 'cve' ];then
-        	#echo "Your target is : ${target}"
-			echo "CVE"
 			cve
-        	exit 0
+        		exit 0
+	elif [ "${mode}" == 'cveid' ];then
+			cveid
+        		exit 0
 	elif [ "${mode}" == 'cdn' ];then
-        	#echo "Your target is : ${target}"
-        	echo "cdn"
 			cnd_ignore_ips
-        	exit 0
+        		exit 0
 	elif [ "${mode}" == 'favicon' ];then
-        	#echo "Your target is : ${target}"
-        	echo "favicon"
 			favicon_scan
-        	exit 0
+        		exit 0
 	elif [ "${mode}" == 'leaks' ];then
-        	#echo "Your target is : ${target}"
-        	leaks
+		leaks
         	exit 0
 	elif [ "${mode}" == 'count' ];then
-        	#echo "Your target is : ${target}"
         	run_counts
         	exit 0
 	elif [ "${mode}" == 'deep' ];then
-        	#echo "Your target is : ${target}"
-        	echo "DEEP SCAN"
 			karma
-        	exit 0
+        		exit 0
 	fi
  }
 # check_update
