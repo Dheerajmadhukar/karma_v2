@@ -88,6 +88,7 @@ $ bash karma_v2 -h
 |**-ip**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -ip```|
 |**-asn**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -asn```|
 |**-cve**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -cve```|
+|**-cveid**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -cveid CVE-2021-34473```|
 |**-favicon**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -favicon```|
 |**-leaks**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -leaks```|
 |**-deep**|``` bash karma_v2 -d <DOMAIN.TLD> -l <INTEGER> -deep```|
