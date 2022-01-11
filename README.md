@@ -46,11 +46,11 @@ API : [Developer API](https://developer.shodan.io/api)
 ```
 ### 3. Install JSON Parser [JQ]
 ```bash
-# apt install jq -y
+# sudo apt install jq -y
 ```
-### 4. Install httprobe [@tomnomnom](https://github.com/tomnomnom/httprobe) to probe the requests
+### 4. Install httprobe update version [@tomnomnom](https://github.com/tomnomnom/httprobe) to probe the requests
 ```bash
-# GO111MODULE=on go get -v github.com/tomnomnom/httprobe
+# go install github.com/tomnomnom/httprobe@master
 ```
 ### 5. Install Interlace [@codingo](https://github.com/codingo/Interlace.git) to multithread [Follow the codingo interlace repo instructions]
 ```bash
@@ -62,11 +62,11 @@ API : [Developer API](https://developer.shodan.io/api)
 ```
 ### 7. Install lolcat
 ```bash
-# apt install lolcat -y
+# sudo apt install lolcat -y
 ```
 ### 8. Install anew
 ```bash
-# GO111MODULE=on go get -u github.com/tomnomnom/anew
+# go install github.com/tomnomnom/anew@master
 ```
 
 ## Ok, how do I use it?
