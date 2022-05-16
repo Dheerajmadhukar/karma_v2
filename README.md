@@ -50,15 +50,15 @@ API : [Developer API](https://developer.shodan.io/api)
 ```
 ### 4. Install httprobe [@tomnomnom](https://github.com/tomnomnom/httprobe) to probe the requests
 ```bash
-# GO111MODULE=on go get -v github.com/tomnomnom/httprobe
+# go install -v github.com/tomnomnom/httprobe@master
 ```
 ### 5. Install Interlace [@codingo](https://github.com/codingo/Interlace.git) to multithread [Follow the codingo interlace repo instructions]
 ```bash
 # git clone https://github.com/codingo/Interlace.git & install accordingly. 
 ```
-### 6. Install nuclei [@projectdiscovery](github.com/projectdiscovery/nuclei)
+### 6. Install nuclei [@projectdiscovery](https://github.com/projectdiscovery/nuclei)
 ```bash
-# GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+# go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 ```
 ### 7. Install lolcat
 ```bash
@@ -66,7 +66,7 @@ API : [Developer API](https://developer.shodan.io/api)
 ```
 ### 8. Install anew
 ```bash
-# GO111MODULE=on go get -u github.com/tomnomnom/anew
+# go install -v github.com/tomnomnom/anew@master
 ```
 
 ## Ok, how do I use it?
