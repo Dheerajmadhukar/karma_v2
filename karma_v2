@@ -407,7 +407,7 @@ args(){
 	sleep_time="5"
 	silent=False
 	token="${BASE_DIR}/.token"
-	nuclei_template="${BASE_DIR}/favicon-detection.yaml"
+	nuclei_template="${BASE_DIR}/favicon-detect.yaml"
  }
 # ╭──────────────────────────────╮
 # │		Prerequisites	 │
