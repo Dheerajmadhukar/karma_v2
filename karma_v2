@@ -550,9 +550,9 @@ favicons_hash(){
 # │		Favicon Detection	 │
 # ╰──────────────────────────────────────╯
 favicons_detection(){
-	rm -f ${BASE_DIR}/favicon-detection.yaml 2> /dev/null
-	wget -q https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/main/http/technologies/favicon-detect.yaml -O ${BASE_DIR}/favicon-detection.yaml > /dev/null
-    sed -i 's/\- \"{{BaseURL}}\/favicon.ico"/- "{{BaseURL}}\"/g' ${BASE_DIR}/favicon-detection.yaml
+	rm -f ${BASE_DIR}/favicon-detect.yaml 2> /dev/null
+	wget -q https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/main/http/technologies/favicon-detect.yaml -O ${BASE_DIR}/favicon-detect.yaml > /dev/null
+    sed -i 's/\- \"{{BaseURL}}\/favicon.ico"/- "{{BaseURL}}\"/g' ${BASE_DIR}/favicon-detect.yaml
 	printf "${upper}\n  ${greenbg}Favicons Hash Detection${end} [  Technology Detection via Nuclei custom template ] \n${lower}${end}\n"
 	o=$(cat "${BASE_DIR}/output/$folder/favicons_${target}.txt" | ${nuclei_bin} -t ${nuclei_template} -bs 100 -c 100 -silent|awk '{print $NF " : " $3}'|sed 's/ /,|,/g' | column -s ',' -t);if [ -z "$o" ];then printf "\n[${red}!${end}] ${yellow}No results found [ By increasing shodan download limit=-1 may help !]\n"${end};else printf "$o \n";fi;printf "\n"
  }
