@@ -101,7 +101,7 @@ function install_tools(){
                 if [[ $i == "mmh3" ]];then
                         if ! python3 -c "import mmh3" &> /dev/null;then
                                 echo "Installing tool...: ${tools[$i]}"
-                                python3 -m pip install -U mmh3 &> /dev/null
+                                python3 -m pip install -U pip mmh3 &> /dev/null
                                 printf "${green} [+] ${i} Installed${end}\n"
                         fi
                 else
