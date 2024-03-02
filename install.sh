@@ -20,57 +20,74 @@ version="v2"
 description="Premium Shodan Recon"
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
+
 declare -A tools='(
-["python3"]="apt install python3 -y"
-["cvemap"]="go install github.com/projectdiscovery/cvemap/cmd/cvemap@latest"
-["pip3"]="apt install python3-pip -y"
-["shodan"]="python3 -m pip install -U shodan"
-["mmh3"]="python3 -m pip install -U mmh3"
-["jq"]="apt install jq -y"
-["httprobe"]="go install github.com/tomnomnom/httprobe@master"
-["interlace"]="git clone https://github.com/codingo/Interlace.git;cd ./Interlace;python3 setup.py install;cd ${BASE_DIR}"
-["nuclei"]="go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
-["lolcat"]="apt install lolcat -y"
-["anew"]="go install github.com/tomnomnom/anew@master"
+["python3"]="sudo apt install python3 -y -qq"
+["cvemap"]="sudo go install github.com/projectdiscovery/cvemap/cmd/cvemap@latest"
+["pip3"]="sudo apt install python3-pip -y -qq"
+["shodan"]="sudo python3 -m pip install -U shodan"
+["mmh3"]="sudo python3 -m pip install -U mmh3"
+["jq"]="sudo apt install jq -y -qq"
+["httprobe"]="sudo go install github.com/tomnomnom/httprobe@master"
+["interlace"]="sudo git clone https://github.com/codingo/Interlace.git;cd ./Interlace;python3 setup.py install;cd ${BASE_DIR}"
+["nuclei"]="sudo go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
+["lolcat"]="sudo apt install lolcat -y -qq"
+["anew"]="sudo go install github.com/tomnomnom/anew@master"
 )'
 ##########
-printf "\n${upper}\n\t${logo}Helper script to prepare the ${program} environment\n${lower}${end}\n\n"
-##########
+function banner(){
+        printf "\n${upper}\n\t${logo}${program} helper script to prepare the environment\n${lower}${end}\n\n">&2
+}
+
+function help(){
+        printf "Usage:\n">&2
+        printf "\t--check :\t\tTo check installed prerequisite packages/tools/libs\n">&2
+        printf "\t--install :\t\tTo install prerequisite packages/tools/libs\n">&2
+        printf "\t-h/--help :\t\tHelp\n">&2
+        printf '\n\n' >&2
+        printf "╔════════[ ${lightred}me_dheeraj [Author]${end} ]═════════════════════════════════════════════════════════════╗\n\n" >&2
+        printf "${logo}\t - https://buymeacoffee.com/medheeraj${end}\n" >&2
+        printf "${logo}\t - https://github.com/Dheerajmadhukar${end}\n" >&2
+        printf "${logo}\t - https://twitter.com/Dheerajmadhukar${end}\n" >&2
+        printf "${logo}\t - https://www.youtube.com/c/DheerajMadhukar${end}\n" >&2
+        printf "${logo}\t - https://linkedin.com/in/dheerajtechnolegends${end}\n" >&2
+        printf "╚════════════════════════════════════════════════════════════════════════════════════════════╝\n\n" >&2
+}
 function check_install(){
 for i in "${!tools[@]}";do
         if [[ $i == "mmh3" ]];then
                 if python3 -c "import mmh3" &> /dev/null;then
-                        printf " ${green}[+] ${i} \t[YES]${end}\n"
+                        printf " ${green}[+] ${i} ${end}\t:\t${logo}`pip3 list | grep 'mmh3'|awk '{print $NF}'`${end}\n"
                 else
-                        printf " ${redbg}[-] ${i} \t[NO]${end}\t:\t${green}Manually install: pip3 install -U mmh3${end}\n"
+                        printf " ${redbg}[-] ${i} ${end}\t:\t${red}Manually install: \`pip3 install -U mmh3\` OR \`bash install.sh --install\`${end}\n"
                 fi
 
         else
                 type -P ${i} &> /dev/null
                 #echo "Command $i : ${tools[$i]}"
                 if [[ ! $? -eq 0 ]];then
-                        printf "${redbg} [-] ${i} [NO]${end}\t:\t${green}Manually install:${end} ${green}${tools[$i]}${end}\n"
+                        printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: ${tools[$i]}${end}\n"
                 else
                         if [[ ${i} == "python3" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\t:\t${logo}`python3 -V | awk '{print $NF}'`${end}\n"
+                                printf "${green} [+] ${i} ${end}\t:\t${logo}`python3 -V | awk '{print $NF}'`${end}\n"
                         elif [[ ${i} == "cvemap" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\t:\t${logo}`cvemap -version 2>&1| awk '{print $NF}'`\n${end}"
+                                printf "${green} [+] ${i} ${end}\t:\t${logo}`cvemap -version 2>&1| awk '{print $NF}'`\n${end}"
                         elif [[ ${i} == "pip3" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\t:\t${logo}`pip3 -V | awk '{print $2}'`${end}\n"
+                                printf "${green} [+] ${i} ${end}\t:\t${logo}`pip3 -V | awk '{print $2}'`${end}\n"
                         elif [[ ${i} == "shodan" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\t:\t${logo}`shodan version`${end}\n"
+                                printf "${green} [+] ${i} ${end}\t:\t${logo}`shodan version`${end}\n"
                         elif [[ ${i} == "jq" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\t:\t${logo}`jq --version`${end}\n"
+                                printf "${green} [+] ${i} ${end}\t:\t${logo}`jq --version`${end}\n"
                         elif [[ ${i} == "nuclei" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\t:\t${logo}`nuclei -version 2>&1|head -1|awk '{print $NF}'`${end}\n"
-                        elif [[ ${i} == "lolcal" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\t:\t${logo}`lolcat --version| awk '{print $2}'`${end}\n"
+                                printf "${green} [+] ${i} ${end}\t:\t${logo}`nuclei -version 2>&1|head -1|awk '{print $NF}'`${end}\n"
+                        elif [[ ${i} == "lolcat" ]];then
+                                printf "${green} [+] ${i} ${end}\t:\t${logo}`lolcat --version| awk '{print $2}'`${end}\n"
                         elif [[ ${i} == "anew" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\n"
+                                printf "${green} [+] ${i} ${end}\n"
                         elif [[ ${i} == "httprobe" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\n"
+                                printf "${green} [+] ${i} ${end}\n"
                         elif [[ ${i} == "interlace" ]];then
-                                printf "${green} [+] ${i} \t[YES]${end}\n"
+                                printf "${green} [+] ${i} ${end}\n"
                         fi
 
 
@@ -79,4 +96,61 @@ for i in "${!tools[@]}";do
         fi
 done
 }
-check_install
+function install_tools(){
+        for i in ${!tools[@]};do
+                if [[ $i == "mmh3" ]];then
+                        if ! python3 -c "import mmh3" &> /dev/null;then
+                                echo "Installing tool...: ${tools[$i]}"
+                                python3 -m pip install -U mmh3 &> /dev/null
+                                printf "${green} [+] ${i} Installed${end}\n"
+                        fi
+                else
+                        type -P ${i} &> /dev/null
+                        if [[ ! $? -eq 0 ]];then
+                                #run=$((run + 1))
+                                ${tools[$i]} &> /dev/null
+                                if [[ $? -eq 0 ]];then
+                                        echo "Installing tool...: ${tools[$i]}"
+                                        printf "${green} [+] ${i} Installed${end}\n"
+                                fi
+                        fi
+                fi
+        done
+}
+prarg(){
+set +u
+         case $1 in
+                '--check')
+                        banner
+                        check_install
+                        shift
+                         ;;
+                '--install')
+                        banner
+                        install_tools
+                        printf "${bluebg}Ready to rock the digital realm !!!${end}\n"
+                        check_install
+                        shift
+                         ;;
+                '-h'|'--help')
+                        banner
+                        help
+                        exit 0
+                        ;;
+                *)
+                        printf "${red}Error: unknown/invalid: $1, check '-h/--help'${end}\n"
+                        help
+                        exit 1
+                        ;;
+                "")
+                        printf "${red}Error: option/argument required, check '-h/--help'${end}\n"
+                        help
+                        exit 2
+                        ;;
+
+         esac
+}
+prarg $@
+tput sgr0
+
+#####################
