@@ -19,6 +19,18 @@ program="⡷⠂𝚔𝚊𝚛𝚖𝚊 𝚟𝟸⠐⢾"
 version="v2"
 description="Premium Shodan Recon"
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+#mkdir -p ${BASE_DIR}/TOOLS
+
+#eval wget -N -c https://bootstrap.pypa.io/get-pip.py
+#python3 get-pip.py
+#eval rm -f get-pip.py
+
+#go_version=$(curl -ks "https://golang.org/VERSION?m=text" -L)
+#type -P go &> /dev/null
+#if [[ ! $? -eq 0 ]];then
+#++++????****
+#fi
+
 
 
 declare -A tools='(
@@ -29,7 +41,7 @@ declare -A tools='(
 ["mmh3"]="sudo python3 -m pip install -U mmh3"
 ["jq"]="sudo apt install jq -y -qq"
 ["httprobe"]="sudo go install github.com/tomnomnom/httprobe@master"
-["interlace"]="sudo git clone https://github.com/codingo/Interlace.git;cd ./Interlace;python3 setup.py install;cd ${BASE_DIR}"
+["interlace"]="sudo git clone https://github.com/codingo/Interlace.git"
 ["nuclei"]="sudo go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
 ["lolcat"]="sudo apt install lolcat -y -qq"
 ["anew"]="sudo go install github.com/tomnomnom/anew@master"
@@ -38,7 +50,9 @@ declare -A tools='(
 function banner(){
         printf "\n${upper}\n\t${logo}${program} helper script to prepare the environment\n${lower}${end}\n\n">&2
 }
-
+#printf "\n${upper}\n\t${logo}Helper script to prepare the ${program} environment\n${lower}${end}\n\n">&2
+##########
+#echo "${!tools[@]}"
 function help(){
         printf "Usage:\n">&2
         printf "\t--check :\t\tTo check installed prerequisite packages/tools/libs\n">&2
@@ -61,16 +75,27 @@ for i in "${!tools[@]}";do
                 else
                         printf " ${redbg}[-] ${i} ${end}\t:\t${red}Manually install: \`pip3 install -U mmh3\` OR \`bash install.sh --install\`${end}\n"
                 fi
+        elif [[ $i == "python3" ]];then
+                if ${i} <<<"exit()"&>/dev/null;then
+                        printf "${green} [+] ${i} ${end}\t:\t${logo}`python3 -V | awk '{print $NF}'`${end}\n"
+                else
+                        printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
+                fi
+        elif [[ $i == "lolcat" ]];then
+                if ${i} --version&>/dev/null;then
+                        printf "${green} [+] ${i} ${end}\t:\t${logo}`lolcat --version | awk '{print $2}'`${end}\n"
+                else
+                        printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
+                fi
 
         else
-                type -P ${i} &> /dev/null
+                ${i} --help &> /dev/null
+                #type -P ${i} &> /dev/null
                 #echo "Command $i : ${tools[$i]}"
                 if [[ ! $? -eq 0 ]];then
-                        printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: ${tools[$i]}${end}\n"
+                        printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
                 else
-                        if [[ ${i} == "python3" ]];then
-                                printf "${green} [+] ${i} ${end}\t:\t${logo}`python3 -V | awk '{print $NF}'`${end}\n"
-                        elif [[ ${i} == "cvemap" ]];then
+                        if [[ ${i} == "cvemap" ]];then
                                 printf "${green} [+] ${i} ${end}\t:\t${logo}`cvemap -version 2>&1| awk '{print $NF}'`\n${end}"
                         elif [[ ${i} == "pip3" ]];then
                                 printf "${green} [+] ${i} ${end}\t:\t${logo}`pip3 -V | awk '{print $2}'`${end}\n"
@@ -80,8 +105,6 @@ for i in "${!tools[@]}";do
                                 printf "${green} [+] ${i} ${end}\t:\t${logo}`jq --version`${end}\n"
                         elif [[ ${i} == "nuclei" ]];then
                                 printf "${green} [+] ${i} ${end}\t:\t${logo}`nuclei -version 2>&1|head -1|awk '{print $NF}'`${end}\n"
-                        elif [[ ${i} == "lolcat" ]];then
-                                printf "${green} [+] ${i} ${end}\t:\t${logo}`lolcat --version| awk '{print $2}'`${end}\n"
                         elif [[ ${i} == "anew" ]];then
                                 printf "${green} [+] ${i} ${end}\n"
                         elif [[ ${i} == "httprobe" ]];then
@@ -101,14 +124,27 @@ function install_tools(){
                 if [[ $i == "mmh3" ]];then
                         if ! python3 -c "import mmh3" &> /dev/null;then
                                 echo "Installing tool...: ${tools[$i]}"
-                                python3 -m pip install -U pip mmh3 &> /dev/null
+                                ${tools[$i]} pip3 setuptools &> /dev/null
                                 printf "${green} [+] ${i} Installed${end}\n"
                         fi
+                elif [[ $i == "lolcat" ]];then
+                        if ! ${i} --version &> /dev/null;then
+                                ${tools[${i}]} &> /dev/null
+                        fi
+                elif [[ $i == "interlace" ]];then
+                        if ! ${i} --help &> /dev/null;then
+                                ${tools[${i}]} #&> /dev/null
+                                cd ${BASE_DIR}/Interlace #&> /dev/null
+                                pip3 install -r requirements.txt #&> /dev/null
+                                python3 setup.py install #&> /dev/null
+                        fi
                 else
-                        type -P ${i} &> /dev/null
+                        ${i} --help &> /dev/null
+                        #type -P ${i} &> /dev/null
                         if [[ ! $? -eq 0 ]];then
                                 #run=$((run + 1))
-                                ${tools[$i]} &> /dev/null
+                                echo ${tools[$i]}
+                                ${tools[$i]} #&> /dev/null
                                 if [[ $? -eq 0 ]];then
                                         echo "Installing tool...: ${tools[$i]}"
                                         printf "${green} [+] ${i} Installed${end}\n"
