@@ -71,21 +71,21 @@ function check_install(){
 for i in "${!tools[@]}";do
         if [[ $i == "mmh3" ]];then
                 if python3 -c "import mmh3" &> /dev/null;then
-                        printf " ${green}[+] ${i} ${end}\t:\t${logo}`pip3 list | grep 'mmh3'|awk '{print $NF}'`${end}\n"
+                        printf "${green} [+] ${i} ${end}\t:\t${logo}`pip3 list | grep 'mmh3'|awk '{print $NF}'`${end}\n"
                 else
-                        printf " ${redbg}[-] ${i} ${end}\t:\t${red}Manually install: \`pip3 install -U mmh3\` OR \`bash install.sh --install\`${end}\n"
+                        printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: \`pip3 install -U mmh3\` OR \`bash install.sh --install\`${end}\n"
                 fi
         elif [[ $i == "python3" ]];then
                 if ${i} <<<"exit()"&>/dev/null;then
                         printf "${green} [+] ${i} ${end}\t:\t${logo}`python3 -V | awk '{print $NF}'`${end}\n"
                 else
-                        printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
+                        printf " ${redbg}[-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
                 fi
         elif [[ $i == "lolcat" ]];then
                 if ${i} --version&>/dev/null;then
                         printf "${green} [+] ${i} ${end}\t:\t${logo}`lolcat --version | awk '{print $2}'`${end}\n"
                 else
-                        printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
+                        printf " ${redbg}[-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
                 fi
 
         else
@@ -96,21 +96,21 @@ for i in "${!tools[@]}";do
                         printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
                 else
                         if [[ ${i} == "cvemap" ]];then
-                                printf "${green} [+] ${i} ${end}\t:\t${logo}`cvemap -version 2>&1| awk '{print $NF}'`\n${end}"
+                                printf " ${green}[+] ${i} ${end}\t:\t${logo}`cvemap -version 2>&1| awk '{print $NF}'`\n${end}"
                         elif [[ ${i} == "pip3" ]];then
-                                printf "${green} [+] ${i} ${end}\t:\t${logo}`pip3 -V | awk '{print $2}'`${end}\n"
+                                printf " ${green}[+] ${i} ${end}\t:\t${logo}`pip3 -V | awk '{print $2}'`${end}\n"
                         elif [[ ${i} == "shodan" ]];then
-                                printf "${green} [+] ${i} ${end}\t:\t${logo}`shodan version`${end}\n"
+                                printf " ${green}[+] ${i} ${end}\t:\t${logo}`shodan version`${end}\n"
                         elif [[ ${i} == "jq" ]];then
-                                printf "${green} [+] ${i} ${end}\t:\t${logo}`jq --version`${end}\n"
+                                printf " ${green}[+] ${i} ${end}\t:\t${logo}`jq --version`${end}\n"
                         elif [[ ${i} == "nuclei" ]];then
-                                printf "${green} [+] ${i} ${end}\t:\t${logo}`nuclei -version 2>&1|head -1|awk '{print $NF}'`${end}\n"
+                                printf " ${green}[+] ${i} ${end}\t:\t${logo}`nuclei -version 2>&1|head -1|awk '{print $NF}'`${end}\n"
                         elif [[ ${i} == "anew" ]];then
-                                printf "${green} [+] ${i} ${end}\n"
+                                printf " ${green}[+] ${i} ${end}\n"
                         elif [[ ${i} == "httprobe" ]];then
-                                printf "${green} [+] ${i} ${end}\n"
+                                printf " ${green}[+] ${i} ${end}\n"
                         elif [[ ${i} == "interlace" ]];then
-                                printf "${green} [+] ${i} ${end}\n"
+                                printf " ${green}[+] ${i} ${end}\n"
                         fi
 
 
