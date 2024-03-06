@@ -110,19 +110,19 @@ function install_tools(){
                 if [[ $i == "mmh3" ]];then
                         if ! python3 -c "import mmh3" &> /dev/null;then
                                 echo "Installing tool...: ${tools[$i]}"
-                                ${tools[$i]} pip setuptools &> /dev/null
+                                ${tools[$i]} pip setuptools #&> /dev/null
                                 printf "${green} [+] ${i} Installed${end}\n"
                         fi
                 elif [[ $i == "lolcat" ]];then
                         if ! ${i} --version &> /dev/null;then
-                                ${tools[${i}]} &> /dev/null
+                                ${tools[${i}]} #&> /dev/null
                         fi
                 elif [[ $i == "interlace" ]];then
                         if ! ${i} --help &> /dev/null;then
-                                ${tools[${i}]} &> /dev/null
-                                cd ${BASE_DIR}/Interlace &> /dev/null
-                                pip3 install -r requirements.txt &> /dev/null
-                                python3 setup.py install &> /dev/null
+                                ${tools[${i}]} #&> /dev/null
+                                cd ${BASE_DIR}/Interlace #&> /dev/null
+                                pip3 install -r requirements.txt #&> /dev/null
+                                python3 setup.py install #&>/dev/null
                         fi
                 else
                         ${i} --help &> /dev/null
