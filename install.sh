@@ -19,40 +19,25 @@ program="⡷⠂𝚔𝚊𝚛𝚖𝚊 𝚟𝟸⠐⢾"
 version="v2"
 description="Premium Shodan Recon"
 BASE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-#mkdir -p ${BASE_DIR}/TOOLS
-
-#eval wget -N -c https://bootstrap.pypa.io/get-pip.py
-#python3 get-pip.py
-#eval rm -f get-pip.py
-
-#go_version=$(curl -ks "https://golang.org/VERSION?m=text" -L)
-#type -P go &> /dev/null
-#if [[ ! $? -eq 0 ]];then
-#++++????****
-#fi
-
-
 
 declare -A tools='(
 ["python3"]="sudo apt install python3 -y -qq"
-["cvemap"]="sudo go install github.com/projectdiscovery/cvemap/cmd/cvemap@latest"
+["cvemap"]="go install github.com/projectdiscovery/cvemap/cmd/cvemap@latest"
 ["pip3"]="sudo apt install python3-pip -y -qq"
 ["shodan"]="sudo python3 -m pip install -U shodan"
 ["mmh3"]="sudo python3 -m pip install -U mmh3"
 ["jq"]="sudo apt install jq -y -qq"
-["httprobe"]="sudo go install github.com/tomnomnom/httprobe@master"
+["httprobe"]="go install github.com/tomnomnom/httprobe@master"
 ["interlace"]="sudo git clone https://github.com/codingo/Interlace.git"
-["nuclei"]="sudo go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
+["nuclei"]="go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
 ["lolcat"]="sudo apt install lolcat -y -qq"
-["anew"]="sudo go install github.com/tomnomnom/anew@master"
+["anew"]="go install github.com/tomnomnom/anew@master"
 )'
 ##########
 function banner(){
         printf "\n${upper}\n\t${logo}${program} helper script to prepare the environment\n${lower}${end}\n\n">&2
 }
-#printf "\n${upper}\n\t${logo}Helper script to prepare the ${program} environment\n${lower}${end}\n\n">&2
-##########
-#echo "${!tools[@]}"
+
 function help(){
         printf "Usage:\n">&2
         printf "\t--check :\t\tTo check installed prerequisite packages/tools/libs\n">&2
@@ -69,7 +54,13 @@ function help(){
 }
 function check_install(){
 for i in "${!tools[@]}";do
-        if [[ $i == "mmh3" ]];then
+        if [[ $i == "go" ]];then
+                if ${i} version &> /dev/null;then
+                        printf "${green} [+] ${i} ${end}\t:\t${logo}`go version | awk '{print $3}'`${end}\n"
+                else
+                        printf " ${redbg}[-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
+                fi
+        elif [[ $i == "mmh3" ]];then
                 if python3 -c "import mmh3" &> /dev/null;then
                         printf "${green} [+] ${i} ${end}\t:\t${logo}`pip3 list | grep 'mmh3'|awk '{print $NF}'`${end}\n"
                 else
@@ -90,8 +81,6 @@ for i in "${!tools[@]}";do
 
         else
                 ${i} --help &> /dev/null
-                #type -P ${i} &> /dev/null
-                #echo "Command $i : ${tools[$i]}"
                 if [[ ! $? -eq 0 ]];then
                         printf "${redbg} [-] ${i} ${end}\t:\t${red}Manually install: \`${tools[$i]}\` OR \`bash install.sh --install\`${end}\n"
                 else
@@ -112,9 +101,6 @@ for i in "${!tools[@]}";do
                         elif [[ ${i} == "interlace" ]];then
                                 printf " ${green}[+] ${i} ${end}\n"
                         fi
-
-
-
                 fi
         fi
 done
@@ -124,7 +110,7 @@ function install_tools(){
                 if [[ $i == "mmh3" ]];then
                         if ! python3 -c "import mmh3" &> /dev/null;then
                                 echo "Installing tool...: ${tools[$i]}"
-                                ${tools[$i]} pip3 setuptools &> /dev/null
+                                ${tools[$i]} pip setuptools &> /dev/null
                                 printf "${green} [+] ${i} Installed${end}\n"
                         fi
                 elif [[ $i == "lolcat" ]];then
@@ -133,18 +119,15 @@ function install_tools(){
                         fi
                 elif [[ $i == "interlace" ]];then
                         if ! ${i} --help &> /dev/null;then
-                                ${tools[${i}]} #&> /dev/null
-                                cd ${BASE_DIR}/Interlace #&> /dev/null
-                                pip3 install -r requirements.txt #&> /dev/null
-                                python3 setup.py install #&> /dev/null
+                                ${tools[${i}]} &> /dev/null
+                                cd ${BASE_DIR}/Interlace &> /dev/null
+                                pip3 install -r requirements.txt &> /dev/null
+                                python3 setup.py install &> /dev/null
                         fi
                 else
                         ${i} --help &> /dev/null
-                        #type -P ${i} &> /dev/null
                         if [[ ! $? -eq 0 ]];then
-                                #run=$((run + 1))
-                                echo ${tools[$i]}
-                                ${tools[$i]} #&> /dev/null
+                                ${tools[$i]} &> /dev/null
                                 if [[ $? -eq 0 ]];then
                                         echo "Installing tool...: ${tools[$i]}"
                                         printf "${green} [+] ${i} Installed${end}\n"
@@ -163,9 +146,73 @@ set +u
                          ;;
                 '--install')
                         banner
-                        install_tools
-                        printf "${bluebg}Ready to rock the digital realm !!!${end}\n"
-                        check_install
+                        if ! go version &> /dev/null;then
+                                #${tools[${i}]}
+                                OS="$(uname -s)"
+                                ARCH="$(uname -m)"
+                                case $OS in
+                                    "Linux")
+                                        case $ARCH in
+                                                "x86_64")
+                                                        ARCH=amd64
+                                                        ;;
+                                                "aarch64")
+                                                        ARCH=arm64
+                                                        ;;
+                                                "armv6" | "armv7l")
+                                                        ARCH=armv6l
+                                                        ;;
+                                                "armv8")
+                                                        ARCH=arm64
+                                                        ;;
+                                                "i686")
+                                                        ARCH=386
+                                                        ;;
+                                                .*386.*)
+                                                        ARCH=386
+                                                        ;;
+                                        esac
+                        PLATFORM="linux-$ARCH"
+                        ;;
+                                        "Darwin")
+                                                case $ARCH in
+                                                        "x86_64")
+                                                                ARCH=amd64
+                                                                ;;
+                                                        "arm64")
+                                                                ARCH=arm64
+                                                                ;;
+                                                esac
+                        PLATFORM="darwin-$ARCH"
+                        ;;
+                                esac
+
+
+                                LATEST_GO_VERSION="$(curl --silent 'https://go.dev/VERSION?m=text' | head -n 1)";
+                                LATEST_GO_DOWNLOAD_URL="https://go.dev/dl/${LATEST_GO_VERSION}.${PLATFORM}.tar.gz"
+                                printf "cd to home ($USER) directory \n"
+                                cd $HOME
+                                printf "Downloading ${LATEST_GO_DOWNLOAD_URL}\n\n";
+                                curl -kOJ -L --progress-bar $LATEST_GO_DOWNLOAD_URL
+                                printf "Extracting file...\n"
+                                tar -xf ${HOME}/${LATEST_GO_VERSION}.linux-amd64.tar.gz -C ${HOME}
+
+                                export GOROOT="$HOME/go" 2>&1 > /dev/null
+                                export GOPATH="$HOME/go/packages" 2>&1 > /dev/null
+                                export PATH=$PATH:$GOROOT/bin:$GOPATH/bin 2>&1 > /dev/null
+                                printf "APPENDING THIS LINE BELOW TO YOUR ~/.bashrc OR ~/.zshrc: \n
+export GOROOT=\"$HOME/go\"\n
+export GOPATH=\"$HOME/go/packages\"\n
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin\n
+\n"
+                                install_tools
+                                go version
+                        else
+                                install_tools
+                                printf "${bluebg}Ready to rock the digital realm !!!${end}\n"
+                                printf " ${green}[+] GO ${end}\t:\t${logo}`go version 2>&1| grep -v 'warning:'| awk '{print $3}'`${end}\n"
+                                check_install
+                        fi
                         shift
                          ;;
                 '-h'|'--help')
