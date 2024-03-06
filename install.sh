@@ -127,7 +127,7 @@ function install_tools(){
                 else
                         ${i} --help &> /dev/null
                         if [[ ! $? -eq 0 ]];then
-                                ${tools[$i]} &> /dev/null
+                                ${tools[$i]} #&> /dev/null
                                 if [[ $? -eq 0 ]];then
                                         echo "Installing tool...: ${tools[$i]}"
                                         printf "${green} [+] ${i} Installed${end}\n"
