@@ -345,6 +345,7 @@ Symfony_phpinfo_AWS_creds_hostname::"X-Debug-Token-Link" port:443 hostname:"*.${
 Symfony_phpinfo_AWS_creds_subject::"X-Debug-Token-Link" port:443 ssl.cert.subject.cn:"${target}"
 SAP_NetWeaver_Application_hostname::"netweaver" hostname:"*.${target}"
 SAP_NetWeaver_Application_subject::"netweaver" ssl.cert.subject.cn:"${target}"
+Ivanti_hostname::http.title:"Ivanti Connect" hostname:"*.${target}"
 !
 #Dork List End
  }
