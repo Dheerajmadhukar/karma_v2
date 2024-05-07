@@ -201,5 +201,7 @@ http.title:"Oracle WebLogic Server Administration Console" hostname:"*.${target}
 http.title:"Oracle WebLogic Server Administration Console" ssl.cert.subject.cn:"${target}"
 http.title:"Apache Status" hostname:"*.${target}"
 http.title:"Apache Status" ssl.cert.subject.cn:"${target}"
-
+Ivanti_hostname::http.title:"Ivanti Connect" hostname:"*.${target}"
+Ivanti_ssl::http.title:"Ivanti Connect" ssl:"${target}"
+Ivanti_subject::http.title:"Ivanti Connect" ssl.cert.subject.cn:"${target}"
 																- twitter.com/Dheerajmadhukar
