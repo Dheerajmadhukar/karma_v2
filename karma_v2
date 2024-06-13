@@ -348,6 +348,8 @@ SAP_NetWeaver_Application_subject::"netweaver" ssl.cert.subject.cn:"${target}"
 Ivanti_hostname::http.title:"Ivanti Connect" hostname:"*.${target}"
 Ivanti_ssl::http.title:"Ivanti Connect" ssl:"${target}"
 Ivanti_subject::http.title:"Ivanti Connect" ssl.cert.subject.cn:"${target}"
+CheckPointSVN_ssl::"Server: Check Point SVN" "X-UA-Compatible: IE=EmulateIE7" ssl:"${target}"
+CheckPointSVN_subject::"Server: Check Point SVN" "X-UA-Compatible: IE=EmulateIE7" ssl.cert.subject.cn:"${target}"
 !
 #Dork List End
  }
