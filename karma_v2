@@ -446,7 +446,7 @@ check_requirements(){
 	fi
 	type -P "${nuclei_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then
-		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${nuclei_bin}. Make sure it installed OR \n\t - GO111MODULE=on go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei${end}\n";exit 1
+		printf "\n[${red}!${end}] ${yellow}Error: Unable to find ${nuclei_bin}. Make sure it installed OR \n\t - GO111MODULE=on go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest${end}\n";exit 1
 	fi
 	type -P "${python3_bin}" &>/dev/null
 	if [[ ! $? -eq 0 ]]; then

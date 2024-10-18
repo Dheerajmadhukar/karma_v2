@@ -58,7 +58,7 @@ API : [Developer API](https://developer.shodan.io/api)
 ```
 ### 6. Install nuclei [@projectdiscovery](https://github.com/projectdiscovery/nuclei)
 ```bash
-# go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+# go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 ```
 ### 7. Install lolcat
 ```bash

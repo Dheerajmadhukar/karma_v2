@@ -29,7 +29,7 @@ declare -A tools='(
 ["jq"]="sudo apt install jq -y -qq"
 ["httprobe"]="go install github.com/tomnomnom/httprobe@master"
 ["interlace"]="sudo git clone https://github.com/codingo/Interlace.git"
-["nuclei"]="go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest"
+["nuclei"]="go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
 ["lolcat"]="sudo apt install lolcat -y -qq"
 ["anew"]="go install github.com/tomnomnom/anew@master"
 )'
